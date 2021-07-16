@@ -1,6 +1,6 @@
 package com.skilldistillery.Contracting.data;
 
-import com.skilldistillery.contracting.entities.User;
+import com.skilldistillery.Contracting.entities.User;
 
 public interface UserDAO {
 	

@@ -1,4 +1,4 @@
-package com.skilldistillery.contracting.entities;
+package com.skilldistillery.Contracting.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 

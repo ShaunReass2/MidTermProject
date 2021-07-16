@@ -6,7 +6,7 @@
     
   		  <!-- list entities here -->
  
-	    <class>com.skilldistillery.contracting.entities.User</class>
+	    <class>com.skilldistillery.Contracting.entities.User</class>
     	
  
     
