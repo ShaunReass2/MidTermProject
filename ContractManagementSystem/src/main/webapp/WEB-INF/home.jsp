@@ -10,5 +10,7 @@
 
 <h1>CMS is Awesome!</h1>
 
+${DEBUG}
+
 </body>
 </html>
