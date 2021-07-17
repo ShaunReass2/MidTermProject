@@ -5,12 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>CMS </title>
+
+<%@ include file="NavBar.jsp" %>
+
 </head>
+
 <body>
 
 <h1>CMS is Awesome!</h1>
 
 ${DEBUG}
 
+<%@ include file="Footer.jsp" %>
 </body>
 </html>
