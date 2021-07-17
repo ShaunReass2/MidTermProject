@@ -85,6 +85,7 @@ public class Job {
 			this.endDate = null;
 		}
 
+		
 	}
 
 	public boolean isComplete() {
