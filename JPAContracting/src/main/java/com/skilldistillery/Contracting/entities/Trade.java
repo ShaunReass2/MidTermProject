@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Trade {
@@ -19,6 +20,9 @@ public class Trade {
 	
 	@OneToMany(mappedBy="trade")
 	private List<Task> tasks; 
+	
+	@OneToOne(mappedBy="trade")
+	private Contractor contractor; 
 
 	public Trade() { }
 
