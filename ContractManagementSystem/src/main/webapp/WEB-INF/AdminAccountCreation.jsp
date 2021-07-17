@@ -34,9 +34,10 @@
     <label class="form-check-label" for="exampleCheck1">Check me out if you are cool!</label>
   </div>
   
-  
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="d-flex justify-content-between m-2">
+    <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary w-25">Submit</button>
+  </div>
 </form>
 
 </body>
