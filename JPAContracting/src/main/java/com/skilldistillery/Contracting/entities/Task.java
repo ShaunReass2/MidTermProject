@@ -1,6 +1,5 @@
 package com.skilldistillery.Contracting.entities;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -9,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
@@ -28,8 +29,18 @@ public class Task {
 	private LocalDateTime beginTime;
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
+	@ManyToOne
+	@JoinColumn(name="job_id")
+	private Job job;
 	
-	public Task() {
+	public Task() {}
+	
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public int getId() {
