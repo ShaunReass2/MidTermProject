@@ -55,5 +55,13 @@ class TaskTest {
 		assertNotNull(task);
 		assertEquals("Skill Distillery Midterm", task.getJob().getJobName());
 	}
+	
+	@Test
+	@DisplayName("testing Task to contractor ManyToOne entity mapping")
+	void test3() {
+		assertNotNull(task);
+		assertNotNull(task.getContractor());
+		assertEquals("Sadistic Puppets' Consulting Co.", task.getContractor().getCompanyName());
+	}
 
 }

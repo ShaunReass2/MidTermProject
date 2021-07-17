@@ -2,6 +2,7 @@ package com.skilldistillery.Contracting.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,6 +48,22 @@ class TradeTest {
 	void test1() {
 		assertNotNull(trade);
 		assertEquals("Full-stack consultant", trade.getName());
+	}
+	
+	@Test
+	@DisplayName("testing trade to task OneToMany mapping")
+	void test2() {
+		assertNotNull(trade);
+		assertNotNull(trade.getTasks());
+		assertTrue(trade.getTasks().size() > 0);
+	}
+	
+	@Test
+	@DisplayName("testing trade to contractor OneToOne mapping")
+	void test3() {
+		assertNotNull(trade);
+		assertNotNull(trade.getContractor());
+		assertEquals("Sadistic Puppets' Consulting Co.", trade.getContractor().getCompanyName());
 	}
 	
 
