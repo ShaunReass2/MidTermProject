@@ -48,5 +48,19 @@ class JobTest {
 		assertNotNull(job);
 		assertEquals("Skill Distillery Midterm", job.getJobName());
 	}
+	
+	@Test
+	@DisplayName("testing Job to User ManyToOne mapping")
+	void test1() {
+		assertNotNull(job);
+		assertEquals("admin", job.getUser().getUsername());
+	}
+	
+	@Test
+	@DisplayName("testing Job to Message OneToMany mapping")
+	void test2() {
+		assertNotNull(job);
+		assertEquals("Always be coding!", job.getMessages().get(0).getMessageBody());
+	}
 
 }
