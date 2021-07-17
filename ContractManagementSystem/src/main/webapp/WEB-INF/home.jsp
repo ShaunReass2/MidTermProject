@@ -60,8 +60,7 @@ ${DEBUG}
       <div class="modal-body">
       
       <!-- JSP include's GO HERE -->
-      Admin / Job Owner modal
-        ...
+      <%@ include file="AdminAccountCreation.jsp" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
