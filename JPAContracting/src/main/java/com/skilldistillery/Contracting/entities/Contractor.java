@@ -1,5 +1,7 @@
 package com.skilldistillery.Contracting.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,6 +29,9 @@ public class Contractor {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user; 
+	
+	@OneToMany(mappedBy="contractor")
+	private List <Task> tasks; 
 
 	public Contractor() { }
 
@@ -61,9 +67,18 @@ public class Contractor {
 		this.user = user;
 	}
 
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
 	@Override
 	public String toString() {
-		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + ", user=" + user + "]";
+		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + ", user=" + user
+				+ ", tasks=" + tasks + "]";
 	}
 
 	@Override
@@ -87,6 +102,5 @@ public class Contractor {
 			return false;
 		return true;
 	}
-	
 
 }

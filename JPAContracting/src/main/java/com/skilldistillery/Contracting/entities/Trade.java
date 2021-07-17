@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Trade {
@@ -19,6 +20,9 @@ public class Trade {
 	
 	@OneToMany(mappedBy="trade")
 	private List<Task> tasks; 
+	
+	@OneToOne(mappedBy="trade")
+	private Contractor contractor; 
 
 	public Trade() { }
 
@@ -46,9 +50,17 @@ public class Trade {
 		this.tasks = tasks;
 	}
 
+	public Contractor getContractor() {
+		return contractor;
+	}
+
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
+	}
+
 	@Override
 	public String toString() {
-		return "Trade [id=" + id + ", name=" + name + ", tasks=" + tasks + "]";
+		return "Trade [id=" + id + ", name=" + name + ", tasks=" + tasks + ", contractor=" + contractor + "]";
 	}
 
 	@Override
@@ -73,5 +85,5 @@ public class Trade {
 		return true;
 	}
 
-
+	
 }
