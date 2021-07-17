@@ -50,9 +50,17 @@ public class Trade {
 		this.tasks = tasks;
 	}
 
+	public Contractor getContractor() {
+		return contractor;
+	}
+
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
+	}
+
 	@Override
 	public String toString() {
-		return "Trade [id=" + id + ", name=" + name + ", tasks=" + tasks + "]";
+		return "Trade [id=" + id + ", name=" + name + ", tasks=" + tasks + ", contractor=" + contractor + "]";
 	}
 
 	@Override
@@ -77,5 +85,5 @@ public class Trade {
 		return true;
 	}
 
-
+	
 }

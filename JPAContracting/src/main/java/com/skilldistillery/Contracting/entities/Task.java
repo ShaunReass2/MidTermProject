@@ -34,22 +34,20 @@ public class Task {
 	
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
+	
 	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job job;
+	
 	@ManyToOne
 	@JoinColumn(name="trade_id")
 	private Trade trade; 
 	
-	public Task() {}
+	@ManyToOne
+	@JoinColumn(name="contractor_id")
+	private Contractor contractor; 
 	
-	public Job getJob() {
-		return job;
-	}
-
-	public void setJob(Job job) {
-		this.job = job;
-	}
+	public Task() {}
 
 	public int getId() {
 		return id;
@@ -107,6 +105,14 @@ public class Task {
 		this.endTime = endTime;
 	}
 
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
 	public Trade getTrade() {
 		return trade;
 	}
@@ -115,11 +121,19 @@ public class Task {
 		this.trade = trade;
 	}
 
+	public Contractor getContractor() {
+		return contractor;
+	}
+
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
+	}
+
 	@Override
 	public String toString() {
 		return "Task [id=" + id + ", isComplete=" + isComplete + ", taskName=" + taskName + ", taskDetails="
 				+ taskDetails + ", priorityNumber=" + priorityNumber + ", beginTime=" + beginTime + ", endTime="
-				+ endTime + ", trade=" + trade + "]";
+				+ endTime + ", job=" + job + ", trade=" + trade + ", contractor=" + contractor + "]";
 	}
 
 	@Override
@@ -143,7 +157,5 @@ public class Task {
 			return false;
 		return true;
 	}
-
-	
 	
 }
