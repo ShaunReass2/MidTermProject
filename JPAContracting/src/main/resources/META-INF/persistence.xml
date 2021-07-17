@@ -9,6 +9,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
   		  <!-- list entities here -->
  
 	    <class>com.skilldistillery.Contracting.entities.User</class>
+	    <class>com.skilldistillery.Contracting.entities.Contractor</class>
+	    <class>com.skilldistillery.Contracting.entities.Trade</class>
     	
  
     
