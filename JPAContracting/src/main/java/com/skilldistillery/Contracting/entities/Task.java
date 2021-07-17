@@ -34,12 +34,21 @@ public class Task {
 	
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
-	
+	@ManyToOne
+	@JoinColumn(name="job_id")
+	private Job job;
 	@ManyToOne
 	@JoinColumn(name="trade_id")
 	private Trade trade; 
 	
-	public Task() {
+	public Task() {}
+	
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public int getId() {

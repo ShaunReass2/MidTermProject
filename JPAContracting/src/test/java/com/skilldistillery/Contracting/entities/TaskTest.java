@@ -48,5 +48,12 @@ class TaskTest {
 		assertNotNull(task);
 		assertEquals(2021, task.getEndTime().getYear());
 	}
+	
+	@Test
+	@DisplayName("testing Task to Job ManyToOne entity mapping")
+	void test2() {
+		assertNotNull(task);
+		assertEquals("Skill Distillery Midterm", task.getJob().getJobName());
+	}
 
 }
