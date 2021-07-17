@@ -80,6 +80,22 @@ class UserTest {
 		assertTrue(user.getContractors().size() > 0);
 	}
 	
+	@Test
+	@DisplayName("testing User to -> messages, OneToMany mapping")
+	void test6() {
+		assertNotNull(user);
+		assertTrue(user.getMessages().isEmpty());
+	}
+	
+	@Test
+	@DisplayName("testing User to -> Job, OneToMany mapping")
+	void test7() {
+		User user1 = em.find(User.class, 1);
+		assertNotNull(user1);
+		assertTrue(!user1.getJobs().isEmpty());
+		user1 = null;
+	}
+	
 	
 
 }

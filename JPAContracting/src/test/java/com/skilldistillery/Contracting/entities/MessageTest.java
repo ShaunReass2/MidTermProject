@@ -48,5 +48,19 @@ class MessageTest {
 		assertNotNull(message);
 		assertEquals("Always be coding!", message.getMessageBody());
 	}
+	
+	@Test
+	@DisplayName("test Message to User ManyToOne mapping")
+	void test1() {
+		assertNotNull(message);
+		assertEquals("admin", message.getUser().getUsername());
+	}
+	
+	@Test
+	@DisplayName("test Message to Job ManyToOne mapping")
+	void test2() {
+		assertNotNull(message);
+		assertEquals("Skill Distillery Midterm", message.getJob().getJobName());
+	}
 
 }

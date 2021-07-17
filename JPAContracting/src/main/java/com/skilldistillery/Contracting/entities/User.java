@@ -25,8 +25,30 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<Contractor> contractors;
+	
+	@OneToMany(mappedBy="user")
+	private List<Message> messages;
+	
+	@OneToMany(mappedBy="user")
+	private List<Job> jobs;
 
 	public User() {}
+	
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
 
 	public int getId() {
 		return id;
