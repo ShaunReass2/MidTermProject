@@ -1,26 +1,28 @@
 package com.skilldistillery.Contracting.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class Contractor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String username;
+	@Column(name="company_name")
+	private String companyName;
 	
-	private String password;
-	
-	private boolean enabled; 
-	
-	private boolean role; 
+	@OneToOne 
+	@JoinColumn(name="trade_id")
+	private Trade trade; 
 
-	public User() {}
+	public Contractor() { }
 
 	public int getId() {
 		return id;
@@ -30,42 +32,25 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
-	public String getPassword() {
-		return password;
+	public Trade getTrade() {
+		return trade;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public boolean getRole() {
-		return role;
-	}
-
-	public void setRole(boolean role) {
-		this.role = role;
+	public void setTrade(Trade trade) {
+		this.trade = trade;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
+		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + "]";
 	}
 
 	@Override
@@ -84,11 +69,12 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Contractor other = (Contractor) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 
+	
 
 }

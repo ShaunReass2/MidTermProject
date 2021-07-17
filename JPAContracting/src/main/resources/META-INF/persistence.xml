@@ -12,15 +12,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 	    <class>com.skilldistillery.Contracting.entities.Message</class>
 	    <class>com.skilldistillery.Contracting.entities.Job</class>
 	    <class>com.skilldistillery.Contracting.entities.Task</class>
+	    <class>com.skilldistillery.Contracting.entities.Contractor</class>
+	    <class>com.skilldistillery.Contracting.entities.Trade</class>
 	    
-	    
-	    
-	    
+	   
 	  
 	    
 	    <!-- Entities end here -->
 	    
-	    
+	   
     	
  
     
