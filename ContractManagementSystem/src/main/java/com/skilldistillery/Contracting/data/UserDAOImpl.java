@@ -10,7 +10,7 @@ import com.skilldistillery.Contracting.entities.User;
 
 @Service
 @Transactional
-public class UserDAOmpl implements UserDAO {
+public class UserDAOImpl implements UserDAO {
 	
 	@PersistenceContext
 	private EntityManager em; 
