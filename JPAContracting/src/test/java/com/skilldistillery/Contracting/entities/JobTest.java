@@ -2,6 +2,7 @@ package com.skilldistillery.Contracting.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,16 +52,24 @@ class JobTest {
 	
 	@Test
 	@DisplayName("testing Job to User ManyToOne mapping")
-	void test1() {
+	void test2() {
 		assertNotNull(job);
 		assertEquals("admin", job.getUser().getUsername());
 	}
 	
 	@Test
 	@DisplayName("testing Job to Message OneToMany mapping")
-	void test2() {
+	void test3() {
 		assertNotNull(job);
 		assertEquals("Always be coding!", job.getMessages().get(0).getMessageBody());
+	}
+	
+	@Test
+	@DisplayName("testing Job to Task OneToMany mapping")
+	void test4() {
+		assertNotNull(job);
+		assertTrue(!job.getTasks().isEmpty());
+		assertEquals("Midterm Project", job.getTasks().get(0).getTaskName());
 	}
 
 }

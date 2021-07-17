@@ -41,9 +41,19 @@ public class Job {
 	private User user;
 	@OneToMany(mappedBy="job")
 	private List<Message> messages;
+	@OneToMany(mappedBy="job")
+	private List<Task> tasks;
 
 	public Job() {}
 	
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
 	public List<Message> getMessages() {
 		return messages;
 	}
