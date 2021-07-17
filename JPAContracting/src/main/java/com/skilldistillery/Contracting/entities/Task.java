@@ -1,6 +1,7 @@
 package com.skilldistillery.Contracting.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,42 +13,43 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "is_complete")
 	private boolean isComplete;
-	
+
 	@Column(name = "task_name")
 	private String taskName;
-	
+
 	@Column(name = "task_details")
 	private String taskDetails;
-	
+
 	@Column(name = "priority_number")
 	private int priorityNumber;
-	
+
 	@Column(name = "begin_time")
 	private LocalDateTime beginTime;
-	
+
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
-	
+
 	@ManyToOne
-	@JoinColumn(name="job_id")
+	@JoinColumn(name = "job_id")
 	private Job job;
-	
+
 	@ManyToOne
-	@JoinColumn(name="trade_id")
-	private Trade trade; 
-	
+	@JoinColumn(name = "trade_id")
+	private Trade trade;
+
 	@ManyToOne
-	@JoinColumn(name="contractor_id")
-	private Contractor contractor; 
-	
-	public Task() {}
+	@JoinColumn(name = "contractor_id")
+	private Contractor contractor;
+
+	public Task() {
+	}
 
 	public int getId() {
 		return id;
@@ -93,16 +95,27 @@ public class Task {
 		return beginTime;
 	}
 
-	public void setBeginTime(LocalDateTime beginTime) {
-		this.beginTime = beginTime;
+	public void setBeginTime(String beginTime) {
+		try {
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd' 'HH:mm:ss");
+			this.beginTime = LocalDateTime.parse(beginTime, format);
+		} catch (Exception e) {
+			this.beginTime = null;
+		}
 	}
 
 	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
+	public void setEndTime(String endTime) {
+		System.out.println(endTime);
+		try {
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd' 'HH:mm:ss");
+			this.endTime = LocalDateTime.parse(endTime, format);
+		} catch (Exception e) {
+			this.endTime = null;
+		}
 	}
 
 	public Job getJob() {
@@ -157,5 +170,5 @@ public class Task {
 			return false;
 		return true;
 	}
-	
+
 }
