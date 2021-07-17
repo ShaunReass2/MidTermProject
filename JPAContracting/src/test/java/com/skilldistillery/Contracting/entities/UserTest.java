@@ -71,6 +71,14 @@ class UserTest {
 		assertTrue(user.getRole());
 	}
 	
+//	@Test
+//	@DisplayName("testing User to -> contractor, OneToMany mapping")
+//	void test5() {
+//		assertNotNull(user);
+//		assertNotNull(user.getContractors());
+//		assertTrue(user.getContractors().size() > 0);
+//	}
+	
 	
 
 }

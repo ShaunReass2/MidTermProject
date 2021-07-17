@@ -19,6 +19,9 @@ public class User {
 	private boolean enabled; 
 	
 	private boolean role; 
+	
+//	@OneToMany(mappedBy="user")
+//	private List<Contractor> contractors;
 
 	public User() {}
 
@@ -61,6 +64,14 @@ public class User {
 	public void setRole(boolean role) {
 		this.role = role;
 	}
+
+//	public List<Contractor> getContractors() {
+//		return contractors;
+//	}
+//
+//	public void setContractors(List<Contractor> contractors) {
+//		this.contractors = contractors;
+//	}
 
 	@Override
 	public String toString() {

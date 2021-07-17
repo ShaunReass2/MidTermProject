@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,6 +22,10 @@ public class Contractor {
 	@OneToOne 
 	@JoinColumn(name="trade_id")
 	private Trade trade; 
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user; 
 
 	public Contractor() { }
 
@@ -48,9 +53,17 @@ public class Contractor {
 		this.trade = trade;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
-		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + "]";
+		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + ", user=" + user + "]";
 	}
 
 	@Override
@@ -74,7 +87,6 @@ public class Contractor {
 			return false;
 		return true;
 	}
-
 	
 
 }
