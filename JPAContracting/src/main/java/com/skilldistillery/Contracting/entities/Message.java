@@ -1,14 +1,14 @@
 package com.skilldistillery.Contracting.entities;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Message {
@@ -20,8 +20,29 @@ public class Message {
 	private String messageBody;
 	@Column(name="creation_time")
 	private LocalDateTime creationTime;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	@ManyToOne
+	@JoinColumn(name="job_id")
+	private Job job;
 	
-	public Message() {
+	public Message() {}
+	
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getId() {

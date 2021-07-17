@@ -2,12 +2,16 @@ package com.skilldistillery.Contracting.entities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Job {
@@ -32,8 +36,28 @@ public class Job {
 	@Column(name = "hours_of_operation")
 	private String hoursOfOperation;
 	private String miscellaneous;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	@OneToMany(mappedBy="job")
+	private List<Message> messages;
 
-	public Job() {
+	public Job() {}
+	
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getId() {
