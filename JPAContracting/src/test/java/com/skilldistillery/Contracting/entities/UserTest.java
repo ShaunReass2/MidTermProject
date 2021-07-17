@@ -2,6 +2,7 @@ package com.skilldistillery.Contracting.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,10 +44,33 @@ class UserTest {
 	}
 
 	@Test
-	@DisplayName("testing User entity mapping")
-	void test() {
+	@DisplayName("testing User entity username mapping")
+	void test1() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 	}
+	
+	@Test
+	@DisplayName("testing User entity password mapping")
+	void test2() {
+		assertNotNull(user);
+		assertEquals("contractor1", user.getPassword());
+	}
+	
+	@Test
+	@DisplayName("testing User entity enabled mapping")
+	void test3() {
+		assertNotNull(user);
+		assertTrue(user.isEnabled());
+	}
+	
+	@Test
+	@DisplayName("testing User entity mapping")
+	void test4() {
+		assertNotNull(user);
+		assertTrue(user.getRole());
+	}
+	
+	
 
 }
