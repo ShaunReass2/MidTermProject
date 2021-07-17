@@ -1,6 +1,7 @@
 package com.skilldistillery.Contracting.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,7 +35,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		user = em.find(User.class, 2);
 	}
 
 	@AfterEach
@@ -47,14 +48,14 @@ class UserTest {
 	@DisplayName("testing User entity username mapping")
 	void test1() {
 		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+		assertEquals("non-admin", user.getUsername());
 	}
 	
 	@Test
 	@DisplayName("testing User entity password mapping")
 	void test2() {
 		assertNotNull(user);
-		assertEquals("contractor1", user.getPassword());
+		assertEquals("laborer1", user.getPassword());
 	}
 	
 	@Test
@@ -68,16 +69,16 @@ class UserTest {
 	@DisplayName("testing User entity role mapping")
 	void test4() {
 		assertNotNull(user);
-		assertTrue(user.getRole());
+		assertFalse(user.getRole());
 	}
 	
-//	@Test
-//	@DisplayName("testing User to -> contractor, OneToMany mapping")
-//	void test5() {
-//		assertNotNull(user);
-//		assertNotNull(user.getContractors());
-//		assertTrue(user.getContractors().size() > 0);
-//	}
+	@Test
+	@DisplayName("testing User to -> contractor, OneToMany mapping")
+	void test5() {
+		assertNotNull(user);
+		assertNotNull(user.getContractors());
+		assertTrue(user.getContractors().size() > 0);
+	}
 	
 	
 

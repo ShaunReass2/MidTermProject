@@ -1,9 +1,12 @@
 package com.skilldistillery.Contracting.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -20,8 +23,8 @@ public class User {
 	
 	private boolean role; 
 	
-//	@OneToMany(mappedBy="user")
-//	private List<Contractor> contractors;
+	@OneToMany(mappedBy="user")
+	private List<Contractor> contractors;
 
 	public User() {}
 
@@ -65,18 +68,19 @@ public class User {
 		this.role = role;
 	}
 
-//	public List<Contractor> getContractors() {
-//		return contractors;
-//	}
-//
-//	public void setContractors(List<Contractor> contractors) {
-//		this.contractors = contractors;
-//	}
+	public List<Contractor> getContractors() {
+		return contractors;
+	}
+
+	public void setContractors(List<Contractor> contractors) {
+		this.contractors = contractors;
+	}
+
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
+				+ ", role=" + role + ", contractors=" + contractors + "]";
 	}
 
 	@Override
