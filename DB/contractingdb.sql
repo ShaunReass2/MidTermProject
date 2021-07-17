@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(200) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` TINYINT NULL DEFAULT 0,
+  `first_name` VARCHAR(50) NULL,
+  `last_name` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
 ENGINE = InnoDB;
@@ -177,8 +179,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'admin', 'contractor1', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'non-admin', 'laborer1', 1, 0);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'contractor1', 1, 1, 'Skill', 'Distillery');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'laborer1', 1, 0, 'David', 'Estrada');
 
 COMMIT;
 
