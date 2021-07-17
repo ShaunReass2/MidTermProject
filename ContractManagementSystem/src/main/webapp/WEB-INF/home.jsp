@@ -34,8 +34,8 @@ ${DEBUG}
       <div class="modal-body">
       
       <!-- JSP include's GO HERE -->
-      Contractor modal
-        ...
+      <%@ include file="ContractorSignUpForm.jsp" %>
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
