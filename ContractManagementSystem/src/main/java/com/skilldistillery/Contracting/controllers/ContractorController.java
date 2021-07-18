@@ -34,7 +34,9 @@ public class ContractorController {
 			return "redirect:error.do";
 		}
 		//Set contractor User/Trade
-		contractor.setUser(userDAO.createUser(user)); 
+		contractor.setUser(userDAO.createUser(user));
+		contractor.getUser().setEnabled(true);
+		contractor.getUser().setRole(false);
 		contractor.setTrade(tradeDAO.findTradeById(tradeNumber));
 		//Persist Contractor to DB
 		contractorDAO.addContractor(contractor);
@@ -49,6 +51,7 @@ public class ContractorController {
 		model.addAttribute("accountName", accountName);
 		return "Success";
 	}
+	
 	@RequestMapping(path="error.do", params="accountCreationFlag")
 	public String contractorError(Boolean accountCreationFlag, Model model) {
 		model.addAttribute("accountCreationFlag", accountCreationFlag);
