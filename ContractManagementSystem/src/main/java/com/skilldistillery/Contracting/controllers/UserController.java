@@ -38,26 +38,25 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String login(User user, HttpSession session, Model model, RedirectAttributes redir) {
+	public String login(User user, HttpSession session, RedirectAttributes redir) {
 
 		if (session.getAttribute("user") != null) {
 			return "redirect:dashboard.do";
 		}
-
 		User sessionUser = userDAO.findUserByUserNameAndPassword(user);
 		if (sessionUser == null) {
-			
-//			model.addAttribute("loginFailFlag", true);
+			redir.addFlashAttribute("loginFailFlag", true);
 			redir.addFlashAttribute("sessionUser", sessionUser);
 			return "redirect:Error.do";
 		}
-		redir.addFlashAttribute("user", sessionUser);
+		session.setAttribute("user", sessionUser);
 		return "redirect:dashboard.do";
 	}
 
 	@RequestMapping(path = "dashboard.do", method = RequestMethod.GET)
-	public String dashboardLogin(User user, Model model) {
-		model.addAttribute("jobs", userDAO.displayAllJobs(user.getId()));
+	public String dashboardLogin(Model model, HttpSession session) {
+		User sessionUser = (User)session.getAttribute("user");
+		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId()));
 		return "Dashboard";
 	}
 

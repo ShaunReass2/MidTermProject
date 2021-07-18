@@ -17,4 +17,5 @@ public interface UserDAO {
 
 	public List<Job> displayAllJobs(int id); 
 	
+	
 }
