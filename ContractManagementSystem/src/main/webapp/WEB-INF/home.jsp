@@ -41,6 +41,7 @@ ${DEBUG}
   </div>
 </div>
 
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AdminSignUp">
   Admin Sign Up
 </button>
@@ -59,6 +60,24 @@ ${DEBUG}
       <%@ include file="AdminAccountCreation.jsp" %>
       </div>
       <div class="modal-footer">
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class="modal fade" id="loginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+      <!-- JSP include's GO HERE -->
+      <%@ include file="LoginForm.jsp" %>
       
       </div>
     </div>
