@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +27,10 @@
 <input id="companyName" class="form-control" name="companyName" type="text" required>
 
 <label for="trade" class="form-label">Trade: </label>
-<select id="trade" class="form-control mb-2" name="tradeName" type="text" required>
-	<option value="1">Temporary</option>
+<select id="trade" class="form-control mb-2" name="tradeNumber" required>
+	<c:forEach var="trade" items="${trades}">
+		<option value="${trade.id}">${trade.name}</option>
+	</c:forEach>
 </select>
 <div class="d-flex justify-content-between m-2">
 <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Close</button>

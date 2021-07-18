@@ -19,8 +19,6 @@ public class ContractorDAOImpl implements ContractorDAO {
 
 	@Override
 	public boolean addContractor(Contractor contractor) {
-		Trade trade = em.find(Trade.class, 3);
-		contractor.setTrade(trade);
 		try {
 			em.persist(contractor);
 			return true;
