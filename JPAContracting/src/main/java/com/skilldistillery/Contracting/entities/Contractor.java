@@ -22,7 +22,7 @@ public class Contractor {
 	@Column(name="company_name")
 	private String companyName;
 	
-	@OneToOne 
+	@ManyToOne 
 	@JoinColumn(name="trade_id")
 	private Trade trade; 
 	
@@ -77,7 +77,7 @@ public class Contractor {
 
 	@Override
 	public String toString() {
-		return "Contractor [id=" + id + ", companyName=" + companyName + ", trade=" + trade + ", user=" + user
+		return "Contractor [id=" + id + ", companyName=" + companyName +  " user=" + user
 				+ ", tasks=" + tasks + "]";
 	}
 

@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.Contracting.entities.Contractor;
+import com.skilldistillery.Contracting.entities.Trade;
 
 
 @Service
@@ -18,6 +19,8 @@ public class ContractorDAOImpl implements ContractorDAO {
 
 	@Override
 	public boolean addContractor(Contractor contractor) {
+		Trade trade = em.find(Trade.class, 3);
+		contractor.setTrade(trade);
 		try {
 			em.persist(contractor);
 			return true;

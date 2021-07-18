@@ -59,11 +59,11 @@ class TradeTest {
 	}
 	
 	@Test
-	@DisplayName("testing trade to contractor OneToOne mapping")
+	@DisplayName("testing trade to contractor OneToMany mapping")
 	void test3() {
 		assertNotNull(trade);
-		assertNotNull(trade.getContractor());
-		assertEquals("Sadistic Puppets' Consulting Co.", trade.getContractor().getCompanyName());
+		assertNotNull(trade.getContractors());
+		assertTrue(!trade.getContractors().isEmpty());
 	}
 	
 

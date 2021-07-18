@@ -44,14 +44,14 @@ class ContractorTest {
 	}
 
 	@Test
-	@DisplayName("testing User entity company name mapping")
+	@DisplayName("testing Contractor entity company name mapping")
 	void test1() {
 		assertNotNull(contractor);
 		assertEquals("Sadistic Puppets' Consulting Co.", contractor.getCompanyName());
 	}
 	
 	@Test
-	@DisplayName("testing User -> trade entities, @ OneToOne trade name mapping")
+	@DisplayName("testing Contractor -> trade entities, @ManyToOne trade name mapping")
 	void test2() {
 		assertNotNull(contractor);
 		assertEquals("Full-stack consultant", contractor.getTrade().getName());
