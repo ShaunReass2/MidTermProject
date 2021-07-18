@@ -31,6 +31,8 @@ public class UserController {
 			model.addAttribute("accountCreationFlag", true);
 			return "Error";
 		}
+		user.setRole(true);
+		user.setEnabled(true);
 		redir.addFlashAttribute("user", userDAO.createUser(user));
 		return "redirect:adminAccountCreated.do";
 	}
