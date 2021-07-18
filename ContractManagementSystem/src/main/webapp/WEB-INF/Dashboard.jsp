@@ -12,6 +12,7 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
+
 	<c:choose>
 		<c:when test="${not empty jobs }">
 			<c:forEach var="job" items="${jobs}">
@@ -23,7 +24,6 @@
 		</c:otherwise>
 	</c:choose>
 
-<h1>Welcome userNameGoesHere</h1>
 
 <%@ include file="Footer.jsp" %>
 </body>

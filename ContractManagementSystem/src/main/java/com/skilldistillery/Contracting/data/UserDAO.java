@@ -1,5 +1,8 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.List;
+
+import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.User;
 
 public interface UserDAO {
@@ -12,6 +15,6 @@ public interface UserDAO {
 	
 	public User findUserByUserNameAndPassword(User user);
 
-	
+	public List<Job> displayAllJobs(int id); 
 
 }
