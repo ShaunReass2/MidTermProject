@@ -30,7 +30,7 @@ public class ContractorController {
 	public String contractorSignup(User user, Contractor contractor, int tradeNumber, Model model, RedirectAttributes redir) {
 		
 		if (userDAO.findByUsername(user.getUsername())) {
-			model.addAttribute("accountCreationFlag", true);
+			redir.addAttribute("accountCreationFlag", true);
 			return "redirect:error.do";
 		}
 		//Set contractor User/Trade
