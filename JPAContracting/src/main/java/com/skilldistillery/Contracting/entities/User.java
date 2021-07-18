@@ -1,5 +1,6 @@
 package com.skilldistillery.Contracting.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -41,6 +42,27 @@ public class User {
 	private List<Job> jobs;
 
 	public User() {}
+	
+	public void addJob(Job job) {
+		if (jobs == null) {
+			jobs = new ArrayList<>();
+		}
+		
+		if (!jobs.contains(job)) {
+			jobs.add(job);
+			if (job.getUser() != null) {
+				job.getUser().getJobs().remove(job);
+			}
+			job.setUser(this);
+		}
+	}
+	
+	public void removeJob(Job job) {
+		job.setUser(null);
+		if (job != null) {
+			jobs.remove(job);
+		}
+	}
 	
 	public List<Job> getJobs() {
 		return jobs;

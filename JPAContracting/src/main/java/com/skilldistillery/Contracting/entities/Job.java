@@ -46,6 +46,12 @@ public class Job {
 
 	public Job() {}
 	
+	public Job(String jobName, LocalDate startDate) {
+		super();
+		this.jobName = jobName;
+		this.startDate = startDate;
+	}
+
 	public List<Task> getTasks() {
 		return tasks;
 	}

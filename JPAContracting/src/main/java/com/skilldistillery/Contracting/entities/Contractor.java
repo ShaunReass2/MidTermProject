@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Contractor {
@@ -73,12 +72,6 @@ public class Contractor {
 
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
-	}
-
-	@Override
-	public String toString() {
-		return "Contractor [id=" + id + ", companyName=" + companyName +  " user=" + user
-				+ ", tasks=" + tasks + "]";
 	}
 
 	@Override

@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.Contracting.entities.Contractor;
-import com.skilldistillery.Contracting.entities.Trade;
 
 
 @Service
