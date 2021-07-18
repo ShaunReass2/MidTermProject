@@ -18,8 +18,6 @@ public class UserDAOImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em; 
 	
-	
-
 	@Override
 	public User findById(int id) {
 		return em.find(User.class, id); 
