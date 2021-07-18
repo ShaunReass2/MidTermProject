@@ -21,7 +21,7 @@ public class UserController {
 		
 		if (userDAO.findByUsername(user.getUsername())) {
 			model.addAttribute("accountCreationFlag", true);
-			return "error"; // WE NEED THIS JSP !!!
+			return "Error"; // WE NEED THIS JSP !!!
 		}
 		redir.addFlashAttribute("user", userDAO.createUser(user));
 		return "redirect:adminAccountCreated.do";
@@ -29,7 +29,7 @@ public class UserController {
 	
 	@RequestMapping(path = "adminAccountCreated.do", method = RequestMethod.GET)
 	public String adminAccountCreated() {
-		return "dashboard"; // WE NEED THIS JSP!!!!!
+		return "Success"; // WE NEED THIS JSP!!!!!
 	}
 
 }
