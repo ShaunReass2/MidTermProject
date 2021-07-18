@@ -21,8 +21,8 @@ public class Trade {
 	@OneToMany(mappedBy="trade")
 	private List<Task> tasks; 
 	
-	@OneToOne(mappedBy="trade")
-	private Contractor contractor; 
+	@OneToMany(mappedBy="trade")
+	private List<Contractor> contractors; 
 
 	public Trade() { }
 
@@ -50,19 +50,6 @@ public class Trade {
 		this.tasks = tasks;
 	}
 
-	public Contractor getContractor() {
-		return contractor;
-	}
-
-	public void setContractor(Contractor contractor) {
-		this.contractor = contractor;
-	}
-
-	@Override
-	public String toString() {
-		return "Trade [id=" + id + ", name=" + name + ", tasks=" + tasks + ", contractor=" + contractor + "]";
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,6 +70,14 @@ public class Trade {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public List<Contractor> getContractors() {
+		return contractors;
+	}
+
+	public void setContractors(List<Contractor> contractors) {
+		this.contractors = contractors;
 	}
 
 	

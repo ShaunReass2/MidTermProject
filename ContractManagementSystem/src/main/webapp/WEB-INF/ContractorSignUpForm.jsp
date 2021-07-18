@@ -26,12 +26,12 @@
 <input id="companyName" class="form-control" name="companyName" type="text" required>
 
 <label for="trade" class="form-label">Trade: </label>
-<select id="trade" class="form-control mb-2" name="trade" type="text" required>
-<option value="temp">Temporary</option>
+<select id="trade" class="form-control mb-2" name="tradeName" type="text" required>
+	<option value="1">Temporary</option>
 </select>
 <div class="d-flex justify-content-between m-2">
 <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary w-25">Submit</button>
+<button type="submit" class="btn btn-primary w-25">Submit</button>
 </div>
 
 

@@ -2,12 +2,12 @@ package com.skilldistillery.Contracting.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.Contracting.data.ContractorDAO;
 import com.skilldistillery.Contracting.data.UserDAO;
 import com.skilldistillery.Contracting.entities.Contractor;
+import com.skilldistillery.Contracting.entities.Trade;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -20,9 +20,10 @@ public class ContractorController {
 	
 	
 	@RequestMapping(path = "ContractorForm.do")
-	public String contractorSignup(User user, Contractor contractor, Model model) {
-//		userDao.someMethodName(user);
-		contractor.setUser(user);
+	public String contractorSignup(User user, Contractor contractor, int tradeName) {
+		contractor.setUser(userDao.createUser(user)); 
+		// tradedao gets trade by id
+		// assign contractor that trade
 		contractorDao.addContractor(contractor);
 		
 		return "";
