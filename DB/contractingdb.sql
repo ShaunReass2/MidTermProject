@@ -53,19 +53,19 @@ DROP TABLE IF EXISTS `contractor` ;
 CREATE TABLE IF NOT EXISTS `contractor` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `company_name` VARCHAR(100) NULL,
-  `trade_id` INT NOT NULL,
   `user_id` INT NOT NULL,
+  `trade_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_contractor_trade_idx` (`trade_id` ASC),
   INDEX `fk_contractor_user1_idx` (`user_id` ASC),
-  CONSTRAINT `fk_contractor_trade`
-    FOREIGN KEY (`trade_id`)
-    REFERENCES `trade` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_contractor_trade1_idx` (`trade_id` ASC),
   CONSTRAINT `fk_contractor_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contractor_trade1`
+    FOREIGN KEY (`trade_id`)
+    REFERENCES `trade` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `job` ;
 
 CREATE TABLE IF NOT EXISTS `job` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `job_name` VARCHAR(45) NULL,
   `location` VARCHAR(100) NULL,
   `start_date` DATE NULL,
@@ -219,7 +219,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `contractor` (`id`, `company_name`, `trade_id`, `user_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 1, 2);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 2, 1);
 
 COMMIT;
 
