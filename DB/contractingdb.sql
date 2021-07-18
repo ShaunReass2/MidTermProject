@@ -181,6 +181,7 @@ START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'contractor1', 1, 1, 'Skill', 'Distillery');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'laborer1', 1, 0, 'David', 'Estrada');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'easy', 1, 0, 'John', 'Doe');
 
 COMMIT;
 
@@ -220,6 +221,7 @@ COMMIT;
 START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 2, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (2, 'Hard Working John Doe Co.', 3, 20);
 
 COMMIT;
 
@@ -230,6 +232,7 @@ COMMIT;
 START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (1, 'Skill Distillery Midterm', '7400 E Orchard Rd #1450n, Greenwood Village, CO 80111', '2021-07-15', '2021-07-16', 0, 'Provide full stack Java software development', 1, 300, 'All day long', 'APIE', 1);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (2, 'Hard Work', '123 Main Street', '2021-07-16', '2021-07-17', 0, 'Do hard work', 1, 100, 'All day long', 'Good luck', 3);
 
 COMMIT;
 
@@ -250,6 +253,7 @@ COMMIT;
 START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (1, 0, 'Midterm Project', 'Create midterm project VIP', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (2, 0, 'Hard Work Task', 'Do hard work', 2, 1, 2, '2021-07-16 09:00:00', '2021-07-22 15:00:00', 20);
 
 COMMIT;
 
