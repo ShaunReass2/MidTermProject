@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.User;
 
 @Service
@@ -61,6 +62,16 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 		return sessionUser;
+	}
+
+	@Override
+	public List<Job> displayAllJobs(int id) {
+		
+		List<Job> jobs = null; 
+		String jpql = "SELECT j FROM Job j WHERE j.user = :id";
+		jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList(); 
+		
+		return jobs;
 	}
 	
 	

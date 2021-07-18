@@ -9,9 +9,8 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
-DASHBOARD VIEW
 
-<h1>Welcome userNameGoesHere</h1>
+
 
 <%@ include file="Footer.jsp" %>
 </body>
