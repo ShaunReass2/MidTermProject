@@ -10,5 +10,8 @@ public interface UserDAO {
 	
 	public boolean findByUsername(String username);
 	
+	public User findUserByUserNameAndPassword(User user);
+
+	
 
 }
