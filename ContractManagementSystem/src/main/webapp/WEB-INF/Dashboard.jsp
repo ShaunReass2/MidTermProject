@@ -9,7 +9,7 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
-This is an error.
+
 
 <%@ include file="Footer.jsp" %>
 </body>

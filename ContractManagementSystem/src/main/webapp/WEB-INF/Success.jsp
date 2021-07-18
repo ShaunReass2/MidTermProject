@@ -9,7 +9,7 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
-
+Successful!
 
 <%@ include file="Footer.jsp" %>
 </body>
