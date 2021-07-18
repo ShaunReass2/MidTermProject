@@ -44,10 +44,6 @@ public class UserController {
 	public String login(User user, HttpSession session, Model model, RedirectAttributes redir) {
 
 		if (session.getAttribute("user") != null) {
-			System.out.println((Integer)session.getAttribute("user.id"));
-			User managedUser = userDAO.findById((Integer)session.getAttribute("user.id"));
-		
-			redir.addFlashAttribute("jobs", managedUser.getJobs());
 			return "redirect:dashboard.do";
 		}
 
@@ -63,8 +59,8 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "dashboard.do", method = RequestMethod.GET)
-	public String dashboardLogin(@RequestParam("jobs") List<Job> jobs, Model model) {
-		model.addAttribute("jobs", jobs);
+	public String dashboardLogin(User user, Model model) {
+		model.addAttribute("jobs", userDAO.displayAllJobs(user.getId()));
 		return "Dashboard";
 	}
 

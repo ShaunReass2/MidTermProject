@@ -12,11 +12,11 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
-
+	IN DASHBOARD JOBS SHOULD BE HERE
 	<c:choose>
 		<c:when test="${not empty jobs }">
 			<c:forEach var="job" items="${jobs}">
-				${job.name} -> Start Date: ${job.startDate}
+				${job.jobName} -> Start Date: ${job.startDate}
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
