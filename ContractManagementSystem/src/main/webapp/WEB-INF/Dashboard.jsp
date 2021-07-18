@@ -13,6 +13,8 @@
 <%@ include file="NavBar.jsp" %>
 
 	IN DASHBOARD JOBS SHOULD BE HERE
+	<h1>${user.username}</h1>
+	
 	<c:choose>
 		<c:when test="${not empty jobs }">
 			<c:forEach var="job" items="${jobs}">

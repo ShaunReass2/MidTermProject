@@ -25,7 +25,7 @@ public class HomeController {
 		model.addAttribute("DEBUG", userDAO.findById(1));
 		
 		if (session.getAttribute("user") != null) {
-			return "Dashboard";
+			return "redirect:dashboard.do";
 		}
 		
 		return "home";
