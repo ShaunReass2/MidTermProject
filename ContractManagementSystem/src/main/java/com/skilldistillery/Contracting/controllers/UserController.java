@@ -43,15 +43,17 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String login(User user, HttpSession session, Model model) {
+	public String login(User user, HttpSession session, Model model, RedirectAttributes redir) {
 
 		if (session.getAttribute("user") != null) {
-			return "dashboard";
+			return "Dashboard";
 		}
 		User sessionUser = userDAO.findUserByUserNameAndPassword(user);
 		if (sessionUser == null) {
-			model.addAttribute("loginFailFlag", true);
-			return "Error";
+			
+//			model.addAttribute("loginFailFlag", true);
+			redir.addFlashAttribute("sessionUser", sessionUser);
+			return "redirect:Error.do";
 		}
 		session.setAttribute("user", sessionUser);
 		return "redirect:dashboard.do";
@@ -67,5 +69,11 @@ public class UserController {
 		session.removeAttribute("user");
 		return "redirect:home.do";
 	}
+	
+	@RequestMapping(path = "Error.do", method = RequestMethod.GET)
+	public String ErrorPage() {
+		return "Error";
+	}
+	
 
 }

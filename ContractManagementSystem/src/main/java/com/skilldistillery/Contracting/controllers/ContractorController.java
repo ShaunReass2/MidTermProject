@@ -31,7 +31,7 @@ public class ContractorController {
 		
 		if (userDAO.findByUsername(user.getUsername())) {
 			redir.addAttribute("accountCreationFlag", true);
-			return "redirect:error.do";
+			return "redirect:Error.do";
 		}
 		//Set contractor User/Trade
 		contractor.setUser(userDAO.createUser(user));
@@ -52,7 +52,9 @@ public class ContractorController {
 		return "Success";
 	}
 	
-	@RequestMapping(path="error.do", params="accountCreationFlag")
+
+	@RequestMapping(path="Error.do", params="accountCreationFlag")
+
 	public String contractorError(Boolean accountCreationFlag, Model model) {
 		model.addAttribute("accountCreationFlag", accountCreationFlag);
 		return "Error";
