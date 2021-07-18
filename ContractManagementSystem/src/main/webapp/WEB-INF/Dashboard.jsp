@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,16 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
-DASHBOARD VIEW
+	<c:choose>
+		<c:when test="${not empty jobs }">
+			<c:forEach var="job" items="${jobs}">
+				${job.name} -> Start Date: ${job.startDate}
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			No jobs found.
+		</c:otherwise>
+	</c:choose>
 
 <h1>Welcome userNameGoesHere</h1>
 

@@ -1,21 +1,19 @@
 package com.skilldistillery.Contracting.controllers;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.Contracting.data.UserDAO;
+import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -46,8 +44,13 @@ public class UserController {
 	public String login(User user, HttpSession session, Model model, RedirectAttributes redir) {
 
 		if (session.getAttribute("user") != null) {
-			return "Dashboard";
+			System.out.println((Integer)session.getAttribute("user.id"));
+			User managedUser = userDAO.findById((Integer)session.getAttribute("user.id"));
+		
+			redir.addFlashAttribute("jobs", managedUser.getJobs());
+			return "redirect:dashboard.do";
 		}
+
 		User sessionUser = userDAO.findUserByUserNameAndPassword(user);
 		if (sessionUser == null) {
 			
@@ -55,12 +58,13 @@ public class UserController {
 			redir.addFlashAttribute("sessionUser", sessionUser);
 			return "redirect:Error.do";
 		}
-		session.setAttribute("user", sessionUser);
+		redir.addFlashAttribute("user", sessionUser);
 		return "redirect:dashboard.do";
 	}
 
 	@RequestMapping(path = "dashboard.do", method = RequestMethod.GET)
-	public String dashboardLogin() {
+	public String dashboardLogin(@RequestParam("jobs") List<Job> jobs, Model model) {
+		model.addAttribute("jobs", jobs);
 		return "Dashboard";
 	}
 
