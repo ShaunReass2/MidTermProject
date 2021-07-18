@@ -47,12 +47,12 @@ public class ContractorController {
 	@RequestMapping(path="success.do", params="accountName")
 	public String contractorSuccess(String accountName, Model model) {
 		model.addAttribute("accountName", accountName);
-		return "success";
+		return "Success";
 	}
 	@RequestMapping(path="error.do", params="accountCreationFlag")
 	public String contractorError(Boolean accountCreationFlag, Model model) {
 		model.addAttribute("accountCreationFlag", accountCreationFlag);
-		return "error";
+		return "Error";
 	}
 	
 	
