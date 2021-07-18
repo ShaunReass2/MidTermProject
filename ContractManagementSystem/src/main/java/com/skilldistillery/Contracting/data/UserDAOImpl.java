@@ -68,8 +68,17 @@ public class UserDAOImpl implements UserDAO {
 	public List<Job> displayAllJobs(int id) {
 		
 		List<Job> jobs = null; 
-		String jpql = "SELECT j FROM Job j WHERE j.user = :id";
-		jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList(); 
+		String jpql = "SELECT j FROM Job j WHERE j.user.id = :id";
+		
+		try {
+			jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		for (Job job : jobs) {
+			job.getUser().getContractors().size();
+		}
 		
 		return jobs;
 	}
