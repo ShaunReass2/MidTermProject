@@ -35,6 +35,20 @@ public class TaskDAOImpl implements TaskDAO {
 		return task;
 	}
 
+	@Override
+	public boolean deleteTask(Task task) {
+		if (task != null) {
+			if(em.contains(task)) {
+				em.remove(task);				
+			}
+		}
+		
+		boolean wasDeleted = !em.contains(task) ? true: false;
+		return wasDeleted;
+	}
+	
+	
+
 	
 	
 	
