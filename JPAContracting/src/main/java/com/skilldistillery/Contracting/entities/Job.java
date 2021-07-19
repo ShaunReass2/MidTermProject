@@ -15,32 +15,47 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Job {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "job_name")
 	private String jobName;
+	
 	private String location;
-	@Column(name = "start_date")
+	
+	@Column(name = "start_date")	
 	private LocalDate startDate;
-	@Column(name = "end_date")
+	
+	@Column(name = "end_date")	
 	private LocalDate endDate;
-	@Column(name = "is_complete")
+	
+	@Column(name = "is_complete")	
 	private boolean isComplete;
-	@Column(name = "job_description")
+	
+	@Column(name = "job_description")	
 	private String jobDescription;
-	@Column(name = "authorized_overtime")
+	
+	@Column(name = "authorized_overtime")	
 	private boolean authorizedOvertime;
+	
 	@Column(name = "total_man_hours")
 	private int totalManHours;
+	
 	@Column(name = "hours_of_operation")
+	
 	private String hoursOfOperation;
+	
 	private String miscellaneous;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-	@OneToMany(mappedBy="job")
+	
+	@OneToMany(mappedBy="job")	
 	private List<Message> messages;
+	
 	@OneToMany(mappedBy="job")
 	private List<Task> tasks;
 
