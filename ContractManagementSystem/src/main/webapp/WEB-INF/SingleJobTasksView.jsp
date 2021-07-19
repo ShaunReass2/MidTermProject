@@ -30,7 +30,11 @@
    
 		   	<div class="card" style="width: auto;">
 				<div class="card-body">
-			  		<h5>ADMIN BUTTONS HERE</h5>
+			  		<h5>
+			  		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
+			  		<a class="btn btn-success" href="?id=${job.id}" role="button">Mark Job as Complete</a>
+			  		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteJob">Delete Job</button>
+			  		</h5>
 			  	</div>
 			</div>	
 						
@@ -65,7 +69,7 @@
 			
 		   	<div class="card" style="width: auto;">
 				<div class="card-body">
-			  		<h5>JOB DETAILS HERE</h5>
+			  		<h5>Job Details: ${job.jobDescription}</h5>
 			  	</div>
 			</div>
 
