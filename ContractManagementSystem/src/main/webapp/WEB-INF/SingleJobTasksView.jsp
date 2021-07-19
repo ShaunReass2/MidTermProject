@@ -84,7 +84,7 @@
 			    					</c:otherwise>
 			    			</c:choose>
 			    		</div>
-			    		<form action="message.do?id=${job.id }" method="POST">
+			    		<form action="message.do?jobId=${job.id }" method="POST">
 			    		   <div class="m-2 col" >
     							<label for="messageBody" class="form-label">Reply:</label>
    								 <textarea class="form-control" name="messageBody"></textarea>
