@@ -35,7 +35,7 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "addNewTaskToJob.do", method = RequestMethod.POST)
-	public String createTaskByJobId(RedirectAttributes redir, Task task) {
+	public String createTask(RedirectAttributes redir, Task task) {
 		
 		Task managedTask = taskDAO.createTask(task);
 		
@@ -47,4 +47,18 @@ public class TaskController {
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
+	@RequestMapping(path = "deleteTask.do", method = RequestMethod.POST)
+	public String deleteTask(RedirectAttributes redir, Task task) {
+		
+		boolean wasDeleted = taskDAO.deleteTask(task);
+		
+		if(!wasDeleted) {
+			redir.addFlashAttribute("taskDeletionFlag", true);
+			return "redirect:Error.do";
+		}
+		
+		return "redirect:singleJobView.do?id=" + task.getJob().getId();
+	}
+
+	
 }
