@@ -10,7 +10,7 @@ public interface JobDAO {
 	
 	Job updateJob(Job job);
 	
-	Job markJobComplete(Job job);
+	Job markJobComplete(int id);
 	// update (mark complete) methods
 	
 
