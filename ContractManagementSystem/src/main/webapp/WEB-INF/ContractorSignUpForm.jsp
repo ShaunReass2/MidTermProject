@@ -10,18 +10,18 @@
 
 <form action="ContractorForm.do" method="POST">
 
-<label for="username" class="form-label">Username: </label>
-<input id="username" class="form-control" name="username" aria-describedby="usernameHelp" required>
+<label for="contractorusername" class="form-label">Username: </label>
+<input id="contractorusername" class="form-control" name="username" aria-describedby="usernameHelp" required>
     <div id="usernamelHelp" class="form-text">We'll never share your information with anyone else.</div>
 
-<label for="password" class="form-label">Password: </label>
-<input id="password" class="form-control" name="password" type="password" required>
+<label for="contractorpassword" class="form-label">Password: </label>
+<input id="contractorpassword" class="form-control" name="password" type="password" required>
 
-<label for="firstName" class="form-label">First Name: </label>
-<input id="firstName" class="form-control" name="firstName" type="text" required>
+<label for="contractorfirstName" class="form-label">First Name: </label>
+<input id="contractorfirstName" class="form-control" name="firstName" type="text" required>
 
-<label for="lastName" class="form-label">Last Name: </label>
-<input id="lastName" class="form-control" name="lastName" type="text" required>
+<label for="contractorlastName" class="form-label">Last Name: </label>
+<input id="contractorlastName" class="form-control" name="lastName" type="text" required>
 
 <label for="companyName" class="form-label">Company Name: </label>
 <input id="companyName" class="form-control" name="companyName" type="text" required>
