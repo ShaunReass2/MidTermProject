@@ -39,6 +39,12 @@ public class JobController {
 		Job managedJob = jobDAO.updateJob(job);
 		return "redirect:singleJobView.do?id=" + managedJob.getId();
 	}
+
+	@RequestMapping(path = "markJobComplete.do")
+	public String markJobComplete(Job job) {
+		Job managedJob = jobDAO.markJobComplete(job);
+		return "redirect:singleJobView.do?id=" + managedJob.getId();
+	}
 	
 
 }
