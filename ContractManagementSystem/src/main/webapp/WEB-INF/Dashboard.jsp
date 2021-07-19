@@ -20,15 +20,17 @@
 		<%@ include file="AdminCreateAJobModal.jsp" %>
 	</c:if>
 
-
+	
 	IN DASHBOARD JOBS SHOULD BE HERE
-	<h1>${user.username}</h1>
+	<h1>${sessionScope.user.username}</h1>
 	
 	<c:choose>
 		<c:when test="${not empty jobs }">
 			<c:forEach var="job" items="${jobs}">
+			<div>
 				${job.jobName} -> Start Date: ${job.startDate}
 				<a class="btn btn-primary" href="singleJobView.do?id=${job.id}" role="button">Open Job</a>
+			</div>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
