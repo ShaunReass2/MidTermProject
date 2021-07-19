@@ -6,6 +6,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.Contracting.entities.Task;
+
 @Service
 @Transactional
 public class TaskDAOImpl implements TaskDAO {
@@ -13,6 +15,26 @@ public class TaskDAOImpl implements TaskDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
+	public Task updateTaskisComleteByTaskId(int id) {
+		Task task = null; 
+		
+		try {
+			task = em.find(Task.class, id);
+			task.setIsComplete(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return task;
+	}
+
+	
+	
+	
+	
+	
+	
 //	@Override
 //	public Job addJob(Job job) {
 //		em.persist(job);
