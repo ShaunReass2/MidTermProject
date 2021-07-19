@@ -172,6 +172,7 @@
 										      <th scope="col">Priority Number</th>
 										      <th scope="col">Begin Date</th>
 										      <th scope="col">End Date</th>
+										      <th scope="col">Completion Status</th>
 										    </tr>
 										  </thead>
 					      			<c:forEach var="task" items="${tasks}">
@@ -185,6 +186,13 @@
 										      <td>${task.priorityNumber}</td>
 										      <td>${task.beginTime}</td>
 										      <td>${task.endTime}</td>
+										      <td>
+										      	<c:if test="${task.isComplete}">Completed</c:if>
+										      	<c:if test="${!task.isComplete}">
+										      		<a class="btn btn-primary" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
+										      	</c:if>
+										      
+										      </td>
 										    </tr>
 										  </tbody>
 										</table>
