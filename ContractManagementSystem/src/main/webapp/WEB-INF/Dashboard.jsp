@@ -28,6 +28,7 @@
 		<c:when test="${not empty jobs }">
 			<c:forEach var="job" items="${jobs}">
 				${job.jobName} -> Start Date: ${job.startDate}
+				<a class="btn btn-primary" href="singleJobView.do?id=${job.id}" role="button">Open Job</a>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>

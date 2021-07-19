@@ -81,6 +81,19 @@ public class UserDAOImpl implements UserDAO {
 		
 		return jobs;
 	}
+
+	@Override
+	public Job findJobByJobId(int id) {
+		Job job = null;
+		
+		try {
+			job = em.find(Job.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return job;
+	}
 	
 	
 }

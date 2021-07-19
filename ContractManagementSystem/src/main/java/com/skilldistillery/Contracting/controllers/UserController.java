@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.Contracting.data.UserDAO;
+import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -73,6 +74,13 @@ public class UserController {
 	@RequestMapping(path = "Error.do", method = RequestMethod.GET)
 	public String ErrorPage() {
 		return "Error";
+	}
+	
+	@RequestMapping(path = "singleJobView.do", method = RequestMethod.GET)
+	public String findSingleJob(Model model, int id) {
+		Job job = userDAO.findJobByJobId(id);
+		model.addAttribute("job", job);
+		return "SingleJobTasksView";
 	}
 	
 
