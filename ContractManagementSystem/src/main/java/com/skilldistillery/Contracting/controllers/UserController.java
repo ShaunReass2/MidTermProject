@@ -77,8 +77,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "singleJobView.do", method = RequestMethod.GET)
-	public String findSingleJob(Model model, int id) {
+	public String findSingleJob(HttpSession session, Model model, int id) {
 		Job job = userDAO.findJobByJobId(id);
+		User sessionUser = (User)session.getAttribute("user");
+		model.addAttribute("adminRole", sessionUser.getRole());
 		model.addAttribute("job", job);
 		return "SingleJobTasksView";
 	}
