@@ -115,6 +115,8 @@
 
 
 
+<%@ include file="DeleteJobModal.jsp" %>
+<%@ include file="EditJobModal.jsp" %>
 <%@ include file="Footer.jsp" %>
 </body>
 </html>

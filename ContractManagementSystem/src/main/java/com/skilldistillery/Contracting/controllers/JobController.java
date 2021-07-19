@@ -28,7 +28,7 @@ public class JobController {
 		return "redirect:dashboard.do";
 	}
 	
-	@RequestMapping(path = "jobPage.do", method = RequestMethod.GET)
+	@RequestMapping(path = "deleteJob.do", method = RequestMethod.GET)
 	public String deleteJob(int id) {
 		jobDAO.removeJob(id);
 		return "redirect:dashboard.do";
@@ -39,7 +39,6 @@ public class JobController {
 		Job managedJob = jobDAO.updateJob(job);
 		return "redirect:singleJobView.do?id=" + managedJob.getId();
 	}
-
 	
 
 }
