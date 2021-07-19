@@ -35,7 +35,7 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "addNewTaskToJob.do", method = RequestMethod.POST)
-	public String createTaskByJobId(RedirectAttributes redir, Task task) {
+	public String createTask(RedirectAttributes redir, Task task) {
 		
 		Task managedTask = taskDAO.createTask(task);
 		
