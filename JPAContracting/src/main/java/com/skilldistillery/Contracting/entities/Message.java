@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Message {
 	
@@ -19,6 +21,7 @@ public class Message {
 	@Column(name="message_body")
 	private String messageBody;
 	@Column(name="creation_time")
+	@CreationTimestamp
 	private LocalDateTime creationTime;
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -66,7 +69,7 @@ public class Message {
 	}
 
 	public void setCreationTime(LocalDateTime creationTime) {
-		creationTime = LocalDateTime.now();
+		this.creationTime = creationTime;
 	}
 
 	@Override
