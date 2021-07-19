@@ -57,7 +57,36 @@
 					      	<strong>*** Messages Go Here ***</strong>
 					      </td>
 					      <td>
-					      	*** Tasks Go Here ***
+					      <c:choose>
+					    
+					      		<c:when test="${not empty tasks}">
+					      		 <thead>
+										    <tr>
+										      <th scope="col">Task Name</th>
+										      <th scope="col">Task Details</th>
+										      <th scope="col">Priority Number</th>
+										      <th scope="col">Begin Date</th>
+										      <th scope="col">End Date</th>
+										    </tr>
+										  </thead>
+					      			<c:forEach var="task" items="${tasks}">
+					      			<table class="table">
+										 
+										  <tbody>
+										    <tr>
+										<!--        <th scope="row">1</th>     -->
+										      <td>${task.taskName}</td>
+										      <td>${task.taskDetails}</td>
+										      <td>${task.priorityNumber}</td>
+										      <td>${task.beginTime}</td>
+										      <td>${task.endTime}</td>
+										    </tr>
+										  </tbody>
+										</table>
+					    		  	</c:forEach>
+					      		</c:when>
+					      		<c:otherwise>No tasks associated with this job.</c:otherwise>
+					      		</c:choose>
 					      </td>
 					    </tr>
 					  </tbody>
@@ -82,6 +111,8 @@
     	
   	</div>
 	</div>
+	
+
 
 
 <%@ include file="Footer.jsp" %>
