@@ -8,5 +8,6 @@ public interface TaskDAO {
 	Task updateTaskisComleteByTaskId(int id);
 	Task createTask(Task task);
 	boolean deleteTask(Task task);
+	Task updateTask(Task task);
 	
 }
