@@ -64,4 +64,12 @@ public class JobDAOImpl implements JobDAO {
 		return managedJob ;
 	}
 
+	@Override
+	public Job markJobComplete(Job job) {
+		Job managedJob = em.find(Job.class, job.getId());
+		managedJob.setComplete(job.isComplete());
+		
+		return null;
+	}
+
 }
