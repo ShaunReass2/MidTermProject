@@ -143,7 +143,7 @@ public class Job {
 		
 	}
 
-	public boolean isComplete() {
+	public boolean getIsComplete() {
 		return isComplete;
 	}
 

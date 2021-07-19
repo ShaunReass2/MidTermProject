@@ -65,11 +65,11 @@ public class JobDAOImpl implements JobDAO {
 	}
 
 	@Override
-	public Job markJobComplete(Job job) {
-		Job managedJob = em.find(Job.class, job.getId());
-		managedJob.setComplete(job.isComplete());
+	public Job markJobComplete(int id) {
+		Job managedJob = em.find(Job.class, id);
+		managedJob.setComplete(!managedJob.getIsComplete());
 		
-		return null;
+		return managedJob;
 	}
 
 }
