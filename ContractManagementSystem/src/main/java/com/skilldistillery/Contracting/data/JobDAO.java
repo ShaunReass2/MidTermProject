@@ -5,5 +5,11 @@ import com.skilldistillery.Contracting.entities.Job;
 public interface JobDAO {
 	
 	Job addJob(Job job);
+	
+	boolean removeJob(int id);
+	
+	Job updateJob(Job job);
+	// update (mark complete) methods
+	
 
 }

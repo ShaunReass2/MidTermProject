@@ -27,6 +27,18 @@ public class JobController {
 		jobDAO.addJob(job);
 		return "redirect:dashboard.do";
 	}
+	
+	@RequestMapping(path = "jobPage.do", method = RequestMethod.GET)
+	public String deleteJob(int id) {
+		jobDAO.removeJob(id);
+		return "redirect:dashboard.do";
+	}
+	
+	@RequestMapping(path = "editJob.do", method = RequestMethod.POST)
+	public String editJob(Job job) {
+		Job managedJob = jobDAO.updateJob(job);
+		return "redirect:singleJobView.do?id=" + managedJob.getId();
+	}
 
 	
 
