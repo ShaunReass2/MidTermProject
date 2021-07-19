@@ -55,8 +55,12 @@ public class UserController {
 
 	@RequestMapping(path = "dashboard.do", method = RequestMethod.GET)
 	public String dashboardLogin(Model model, HttpSession session) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:Error.do";
+		}
 		User sessionUser = (User)session.getAttribute("user");
 		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId()));
+		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
 	}
 

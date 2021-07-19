@@ -12,29 +12,14 @@
 <body>
 <%@ include file="NavBar.jsp" %>
 
+		<!-- Button trigger modal for create job-->
+	<c:if test="${adminRole}">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateJob">
+		  Create Job
+		</button>
+		<%@ include file="AdminCreateAJobModal.jsp" %>
+	</c:if>
 
-	<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateJob">
-  Create Job
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="CreateJob" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Job Creation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      
-      <!-- JSP include's GO HERE -->
-      <%@ include file="CreateJob.jsp" %>
-      
-      </div>
-    </div>
-  </div>
-</div>
 
 	IN DASHBOARD JOBS SHOULD BE HERE
 	<h1>${user.username}</h1>
@@ -49,6 +34,7 @@
 			No jobs found.
 		</c:otherwise>
 	</c:choose>
+
 
 
 <%@ include file="Footer.jsp" %>

@@ -20,14 +20,11 @@ public class HomeController {
 
 	@RequestMapping(path = {"/", "home.do"})
 	public String home(Model model, HttpSession session) {
-		//populate trades for creation form
-		model.addAttribute("trades", tradeDAO.findAllTrades());
-		model.addAttribute("DEBUG", userDAO.findById(1));
-		
 		if (session.getAttribute("user") != null) {
 			return "redirect:dashboard.do";
 		}
-		
+		//populate trades for creation form
+		model.addAttribute("trades", tradeDAO.findAllTrades());
 		return "home";
 	}
 	

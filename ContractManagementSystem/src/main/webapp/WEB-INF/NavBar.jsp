@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CMS</a>
+    <a class="navbar-brand" href="home.do">CMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -45,8 +46,16 @@
       <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-primary" type="submit">Search</button>
-      <a href="" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
-    	</form>
+      <c:choose>
+      	<c:when test="${empty sessionScope.user}">
+      		<a href="" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
+      	</c:when>
+      	<c:when test="${not empty sessionScope.user}">
+      		<a href="logout.do" class="btn btn-outline-dark mx-2">Logout</a>
+      	</c:when>
+      </c:choose>
+      
+    </form>
   </div>
 </nav>
 </body>

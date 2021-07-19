@@ -11,6 +11,7 @@
 
 Successful!
 
+<%@ include file="LoginModal.jsp" %>
 <%@ include file="Footer.jsp" %>
 </body>
 </html>
