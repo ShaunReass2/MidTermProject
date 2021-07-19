@@ -9,6 +9,8 @@ public interface JobDAO {
 	boolean removeJob(int id);
 	
 	Job updateJob(Job job);
+	
+	Job markJobComplete(int id);
 	// update (mark complete) methods
 	
 
