@@ -17,10 +17,8 @@ public class Contractor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	@Column(name="company_name")
 	private String companyName;
-	
 	@ManyToOne 
 	@JoinColumn(name="trade_id")
 	private Trade trade; 

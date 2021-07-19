@@ -8,16 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.Contracting.data.TaskDAO;
-import com.skilldistillery.Contracting.data.UserDAO;
-import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.Task;
 
 @Controller
 public class TaskController {
 
-	@Autowired
-	private UserDAO userDAO;
-	
 	@Autowired
 	private TaskDAO taskDAO;
 
@@ -30,11 +25,10 @@ public class TaskController {
 			redir.addFlashAttribute("taskCompleteFlag", true);
 			return "redirect:Error.do";
 		}
-		
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
-	@RequestMapping(path = "addNewTaskToJob.do", method = RequestMethod.POST)
+	@RequestMapping(path = "createTask.do", method = RequestMethod.POST)
 	public String createTask(RedirectAttributes redir, Task task) {
 		
 		Task managedTask = taskDAO.createTask(task);
@@ -56,19 +50,18 @@ public class TaskController {
 			redir.addFlashAttribute("taskDeletionFlag", true);
 			return "redirect:Error.do";
 		}
-		
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
 	@RequestMapping(path = "editTask.do", method = RequestMethod.POST)
 	public String updateTask(RedirectAttributes redir, Task task) {
+		
 		Task managedTask = taskDAO.updateTask(task);
 		
 		if(managedTask == null) {
 			redir.addFlashAttribute("taskUpdateFlag", true);
 			return "redirect:Error.do";
 		}
-		
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
