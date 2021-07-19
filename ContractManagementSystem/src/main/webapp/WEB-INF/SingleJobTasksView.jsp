@@ -18,6 +18,7 @@
 		<div class="card mx-auto mt-3" style="width:95%;">
 			<div class="d-flex justify-content-around w-50 mx-auto mt-3">
 					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
 			  		<a class="btn btn-success" href="markJobComplete.do?id=${job.id}" role="button">
 			  		<c:choose>
 			  			<c:when test="${job.isComplete}">
@@ -103,6 +104,7 @@
 										      <th scope="col">Begin Date</th>
 										      <th scope="col">End Date</th>
 										      <th scope="col">Completion Status</th>
+										      <th scope="col">Edit Task</th>
 										    </tr>
 									</thead>
 					      			<c:forEach var="task" items="${tasks}">
@@ -121,6 +123,10 @@
 										      	<c:if test="${!task.isComplete}">
 										      		<a class="btn btn-primary" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
+										      </td>
+										      <td>
+									  <!-- UPDATE THIS BUTTON FOR UPDATING / EDITING TASK -->
+										      		<a class="btn btn-primary" href="editTask.do?id=${task.id}" role="button">Update Task</a>
 										      </td>
 										    </tr>
 										  </tbody>
@@ -141,6 +147,7 @@
 		</div>
 	</div>
 
+<%@ include file="CreateTaskModal.jsp" %>
 <%@ include file="DeleteJobModal.jsp" %>
 <%@ include file="EditJobModal.jsp" %>
 <%@ include file="Footer.jsp" %>

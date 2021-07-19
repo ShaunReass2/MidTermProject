@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.skilldistillery.Contracting.data.TaskDAO;
+import com.skilldistillery.Contracting.data.TradeDAO;
 import com.skilldistillery.Contracting.data.UserDAO;
 import com.skilldistillery.Contracting.entities.Job;
-import com.skilldistillery.Contracting.entities.Task;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -23,8 +22,8 @@ public class UserController {
 	private UserDAO userDAO;
 	
 	@Autowired
-	private TaskDAO taskDAO;
-
+	private TradeDAO tradeDAO;
+	
 	@RequestMapping(path = "adminAccountCreation.do", method = RequestMethod.POST)
 	public String adminAccountCreation(User user, Model model, RedirectAttributes redir) {
 
@@ -89,6 +88,7 @@ public class UserController {
 		model.addAttribute("job", job);
 		model.addAttribute("tasks", job.getTasks());
 		model.addAttribute("messages", job.getMessages());
+		model.addAttribute("trades", tradeDAO.findAllTrades());
 		return "SingleJobTasksView";
 	}
 	
