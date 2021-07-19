@@ -47,4 +47,18 @@ public class TaskController {
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
+	@RequestMapping(path = "deleteTask.do", method = RequestMethod.POST)
+	public String deleteTask(RedirectAttributes redir, Task task) {
+		
+		boolean wasDeleted = taskDAO.deleteTask(task);
+		
+		if(!wasDeleted) {
+			redir.addFlashAttribute("taskDeletionFlag", true);
+			return "redirect:Error.do";
+		}
+		
+		return "redirect:singleJobView.do?id=" + task.getJob().getId();
+	}
+
+	
 }
