@@ -29,6 +29,12 @@ public class TaskDAOImpl implements TaskDAO {
 		return task;
 	}
 
+	@Override
+	public Task createTask(Task task) {
+		em.persist(task);
+		return task;
+	}
+
 	
 	
 	
