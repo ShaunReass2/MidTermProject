@@ -88,6 +88,7 @@ public class UserController {
 		model.addAttribute("adminRole", sessionUser.getRole());
 		model.addAttribute("job", job);
 		model.addAttribute("tasks", job.getTasks());
+		model.addAttribute("messages", job.getMessages());
 		return "SingleJobTasksView";
 	}
 	
