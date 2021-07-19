@@ -17,6 +17,7 @@
 		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateJob">
 		  Create Job
 		</button>
+		<%@ include file="AdminCreateAJobModal.jsp" %>
 	</c:if>
 
 
@@ -35,7 +36,7 @@
 	</c:choose>
 
 
-<%@ include file="AdminCreateAJobModal.jsp" %>
+
 <%@ include file="Footer.jsp" %>
 </body>
 </html>
