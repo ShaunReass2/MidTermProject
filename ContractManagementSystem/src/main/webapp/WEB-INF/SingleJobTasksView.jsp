@@ -104,7 +104,7 @@
 					      		<table class="table">
 					      		 	<thead>
 										    <tr>
-										      <th scope="col">Task Name /<br>Contractor</th>
+										      <th scope="col">Task Name <br><em>Contractor</em></th>
 										      <th scope="col">Task Details</th>
 										      <th scope="col">Priority Number</th>
 										      <th scope="col">Begin Date</th>
@@ -119,21 +119,21 @@
 										  <tbody>
 										    <tr>
 										<!--        <th scope="row">1</th>     -->
-										      <td>${task.taskName} /<br>${task.contractor.companyName}</td>
-										      <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
+										      <td>${task.taskName} <br><em>${task.contractor.companyName}</em></td>
+										      <td><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td>${task.priorityNumber}</td>
 										      <td>${task.beginTime}</td>
 										      <td>${task.endTime}</td>
 										      <td>
 										      	<c:if test="${task.isComplete}">Completed</c:if>
 										      	<c:if test="${!task.isComplete}">
-										      		<a class="btn btn-primary" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
+										      		<a class="btn btn-primary btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
 										      </td>
 										      <td>
 									  <!-- UPDATE THIS BUTTON FOR UPDATING / EDITING TASK -->
 										      		<%-- <a class="btn btn-primary" href="editTask.do?id=${task.id}" role="button">Update Task</a> --%>
-										      		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update Task</button>
+										      		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
 										      </td>
 										    </tr>
 										  </tbody>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+<div class="homebackground" >
 <h1>CMS is Awesome!</h1>
 
 <!-- Button trigger modal -->
@@ -30,5 +30,6 @@
 <%@ include file="AdminSignUpModal.jsp" %>
 <%@ include file="LoginModal.jsp" %>
 <%@ include file="Footer.jsp" %>
+</div>
 </body>
 </html>
