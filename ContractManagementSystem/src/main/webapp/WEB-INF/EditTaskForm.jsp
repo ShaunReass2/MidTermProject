@@ -8,23 +8,24 @@
 </head>
 <body>
 <form action="editTask.do" method="POST">
-    <input type="hidden" name="jobId" value="${jobId}">
+
+    <input type="hidden" name="id" value="${task.id}">
   <div class="mb-3">
     <label for="taskName" class="form-label">Task Name</label>
     <input type="text" class="form-control" id="taskName" name="taskName" value="${task.taskName}" required>
   </div>
    <div class="mb-3">
     <label for="taskDetails" class="form-label">Task Details</label>
-    <textarea type="text" class="form-control" name="taskDetails">${task.taskDetails}</textarea>
+    <textarea class="form-control" name="taskDetails">${task.taskDetails}</textarea>
   </div>
   <div class="mb-3">
     <label for="taskPriorityNumber" class="form-label">Priority Number</label>
-    <select class="form-control" id="priorityNumber" name="priorityNumber" value="${task.priorityNumber}" required> 
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
+    <select class="form-control" id="priorityNumber" name="priorityNumber" required> 
+      <option <c:if test="${task.priorityNumber == 1}"> selected </c:if> value="1">1</option>
+      <option <c:if test="${task.priorityNumber == 2}"> selected </c:if> value="2">2</option>
+      <option <c:if test="${task.priorityNumber == 3}"> selected </c:if> value="3">3</option>
+      <option <c:if test="${task.priorityNumber == 4}"> selected </c:if> value="4">4</option>
+      <option <c:if test="${task.priorityNumber == 5}"> selected </c:if> value="5">5</option>
     </select>
   </div>
   <div class="mb-3">
