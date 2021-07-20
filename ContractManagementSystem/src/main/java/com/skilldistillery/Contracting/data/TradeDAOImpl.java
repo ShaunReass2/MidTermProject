@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.Contracting.entities.Contractor;
 import com.skilldistillery.Contracting.entities.Trade;
 
 @Service
@@ -28,5 +29,6 @@ public class TradeDAOImpl implements TradeDAO {
 		List<Trade> trades = em.createQuery(jpql, Trade.class).getResultList();
 		return trades;
 	}
+
 
 }

@@ -7,8 +7,6 @@
 
 </head>
 <body>
-
-
 <form action="createTask.do" method="POST">
     <input type="hidden" name="id" value="${job.id}">
   <div class="mb-3">
@@ -38,13 +36,14 @@
     <input type="datetime" class="form-control" id="endTime" name="endTime" required>
   </div>  
   
-    <label for="contractorId" class="form-label"> Contractor(s)</label>
+  <div class="mb-3">
+    <label for="contractorId" class="form-label">Contractor(s)</label>
     <select class="form-control" id="contractorId" name="contractorId" required> 
     <c:forEach var="contractor" items="${contractors}">
-      <option value="${contractor.id}"> ${contractor.companyName}
-      </option>
+      <option value="${contractor.id}"> ${contractor.companyName} </option>
     </c:forEach>
     </select>
+  </div>  
   
   <div class="d-flex justify-content-between m-2">
     <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Close</button>
