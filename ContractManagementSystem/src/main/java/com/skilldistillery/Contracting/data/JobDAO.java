@@ -1,5 +1,7 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.List;
+
 import com.skilldistillery.Contracting.entities.Job;
 
 public interface JobDAO {
@@ -11,6 +13,8 @@ public interface JobDAO {
 	Job updateJob(Job job);
 	
 	Job markJobComplete(int id);
+	
+	List<Job> showCompletedJobs();
 	// update (mark complete) methods
 	
 

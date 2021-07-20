@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.Contracting.data.JobDAO;
 import com.skilldistillery.Contracting.data.TradeDAO;
 import com.skilldistillery.Contracting.data.UserDAO;
 import com.skilldistillery.Contracting.entities.Job;
@@ -26,6 +27,9 @@ public class UserController {
 	
 	@Autowired
 	private TradeDAO tradeDAO;
+
+	@Autowired
+	private JobDAO jobDAO;
 	
 	@RequestMapping(path = "adminAccountCreation.do", method = RequestMethod.POST)
 	public String adminAccountCreation(User user, Model model, RedirectAttributes redir) {
@@ -70,6 +74,19 @@ public class UserController {
 		
 		
 		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole()));
+		model.addAttribute("adminRole", sessionUser.getRole());
+		return "Dashboard";
+	}
+
+	@RequestMapping(path = "showCompletedJobs.do", method = RequestMethod.GET)
+	public String showCompletedJobs(Model model, HttpSession session) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:Error.do";
+		}
+		User sessionUser = (User)session.getAttribute("user");
+		
+		
+		model.addAttribute("jobs", jobDAO.showCompletedJobs());
 		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
 	}
