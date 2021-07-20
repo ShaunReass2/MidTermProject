@@ -7,15 +7,16 @@
 <html>
 <head>
 
-
+<link href="css/singleJob.css" rel="stylesheet">
 </head>
 <body>
+<div class="singleViewBg">
 <%@ include file="NavBar.jsp" %>
 	
 	
-	<div>
+	
 	<!-- change inline style to css -->
-		<div class="card mx-auto mt-3" style="width:95%;">
+		<div class="card mx-auto mt-3 cardBG singleViewCard" style="">
 			<c:if test="${sessionScope.user.role}">
 				<div class="d-flex justify-content-around w-50 mx-auto mt-3">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
@@ -50,7 +51,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-5">
-			    		<div class="container-fluid">
+			    		<div class="container-fluid scroll-message">
 			    			<c:choose>
 			    				<c:when test="${not empty messages}">
 			    					<c:forEach var="message" items="${messages}">
@@ -154,12 +155,13 @@
 			    </div>
 			</div>
 		</div>
-	</div>
+	
 
 
-<%@ include file="CreateTaskModal.jsp" %>
-<%@ include file="DeleteJobModal.jsp" %>
-<%@ include file="EditJobModal.jsp" %>
-<%@ include file="Footer.jsp" %>
+	<%@ include file="CreateTaskModal.jsp" %>
+	<%@ include file="DeleteJobModal.jsp" %>
+	<%@ include file="EditJobModal.jsp" %>
+	<%@ include file="Footer.jsp" %>
+</div>
 </body>
 </html>
