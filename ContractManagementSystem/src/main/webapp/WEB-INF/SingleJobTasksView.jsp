@@ -49,7 +49,7 @@
 			    	</div>
 			    </div>
 			    <div class="row">
-			    	<div class="col-6">
+			    	<div class="col-5">
 			    		<div class="container-fluid">
 			    			<c:choose>
 			    				<c:when test="${not empty messages}">
@@ -98,7 +98,7 @@
 			    			<input class="btn btn-primary" type="submit">
 			    		</form>
 			    	</div>
-			    	<div class="col-6">
+			    	<div class="col-7">
 			    		<c:choose>
 					      		<c:when test="${not empty tasks}">
 					      		<table class="table">
