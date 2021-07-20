@@ -96,8 +96,9 @@ public class Task {
 	}
 
 	public void setBeginTime(String beginTime) {
+
 		try {
-			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd' 'HH:mm:ss");
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 			this.beginTime = LocalDateTime.parse(beginTime, format);
 		} catch (Exception e) {
 			this.beginTime = null;
@@ -109,9 +110,8 @@ public class Task {
 	}
 
 	public void setEndTime(String endTime) {
-		System.out.println(endTime);
 		try {
-			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd' 'HH:mm:ss");
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 			this.endTime = LocalDateTime.parse(endTime, format);
 		} catch (Exception e) {
 			this.endTime = null;
