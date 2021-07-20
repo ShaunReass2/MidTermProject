@@ -25,7 +25,7 @@
 			  				Mark as Incomplete
 			  			</c:when>
 			  			<c:otherwise>
-			  				Mark Job as Complete
+			  				Mark Job Complete
 			  			</c:otherwise>
 			  		</c:choose>
 			  		
@@ -54,7 +54,7 @@
 			    					<c:forEach var="message" items="${messages}">
 										  <div class="card-body row border mt-1 mb-1 p-0">
     											<div class="border col-2">
-    												<h5>${sessionScope.user.username}</h5>
+    												<h5>${message.user.username}</h5>
     												<p>Created:</p>
     												<p>${message.creationTime}</p>
     											</div>
@@ -62,11 +62,15 @@
     												<div class="col-8">
     													<p>${message.messageBody}</p>
     												</div>
-    												<div class="col">
-    													<a href="#" class="btn btn-primary">Go somewhere</a>
-    												</div>
+    												<c:if test="${sessionScope.user.id == message.user.id }">
+    													 <div class="col">
+    														<button class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
+    													</div>	
+    												</c:if>
+
     											</div>
 	   										</div>
+	   										<%@ include file="EditMessageModal.jsp" %>
 			    					</c:forEach>
 			    				</c:when>
 			    					<c:otherwise>
@@ -146,6 +150,7 @@
 			</div>
 		</div>
 	</div>
+
 
 <%@ include file="CreateTaskModal.jsp" %>
 <%@ include file="DeleteJobModal.jsp" %>
