@@ -180,8 +180,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'a', 1, 1, 'Skill', 'Distillery');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'b', 1, 0, 'David', 'Estrada');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'c', 1, 0, 'John', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'b', 1, 1, 'David', 'Estrada');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'c', 1, 1, 'John', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'better worker', 'bc', 1, 1, 'Jonny', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'best worker', 'bw', 1, 1, 'Johnathon ', 'Doe');
 
 COMMIT;
 
@@ -220,8 +222,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 2, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 1, 1);
 INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (2, 'Hard Working John Doe Co.', 3, 20);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (3, 'Ayo Daaayooo', 2, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (4, 'We Do It Better', 4, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (5, 'No, We Do It Best', 5, 1);
 
 COMMIT;
 
