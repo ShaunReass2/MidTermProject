@@ -42,20 +42,24 @@
     <div>
     	
     </div>
-    <div>
-      <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-primary" type="submit">Search</button>
-      <c:choose>
-      	<c:when test="${empty sessionScope.user}">
-      		<a href="" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
-      	</c:when>
-      	<c:when test="${not empty sessionScope.user}">
-      		<a href="logout.do" class="btn btn-outline-dark mx-2">Logout</a>
-      	</c:when>
+    <div class="d-flex">
+    	<c:if test="${not empty sessionScope.user}">
+    	      <form class="d-flex">
+	      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	      		<button class="btn btn-outline-primary" type="submit">Search</button>
+      		</form>
+    	</c:if>
+    	<c:choose>
+	      	<c:when test="${empty sessionScope.user}">
+	      		<a href="" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
+	      	</c:when>
+	      	<c:when test="${not empty sessionScope.user}">
+	      		<a href="logout.do" class="btn btn-outline-dark mx-2">Logout</a>
+	      	</c:when>
       </c:choose>
+
       
-    </form>
+
   </div>
 </nav>
 </body>
