@@ -18,14 +18,18 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name="message_body")
 	private String messageBody;
+	
 	@Column(name="creation_time")
 	@CreationTimestamp
 	private LocalDateTime creationTime;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
 	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job job;
