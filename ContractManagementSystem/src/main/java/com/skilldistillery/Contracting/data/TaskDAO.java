@@ -6,7 +6,7 @@ public interface TaskDAO {
 
 	Task updateTaskisComleteByTaskId(int id);
 
-	Task createTask(Task task);
+	Task createTask(Task task, int contractorId, int jobId);
 
 	boolean deleteTask(Task task);
 

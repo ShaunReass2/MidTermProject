@@ -17,24 +17,33 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "is_complete")
 	private boolean isComplete;
+	
 	@Column(name = "task_name")
 	private String taskName;
+	
 	@Column(name = "task_details")
 	private String taskDetails;
+	
 	@Column(name = "priority_number")
 	private int priorityNumber;
+	
 	@Column(name = "begin_time")
 	private LocalDateTime beginTime;
+	
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
+	
 	@ManyToOne
-	@JoinColumn(name = "job_id")
+	@JoinColumn(name = "job_id")	
 	private Job job;
+	
 	@ManyToOne
 	@JoinColumn(name = "trade_id")
 	private Trade trade;
+	
 	@ManyToOne
 	@JoinColumn(name = "contractor_id")
 	private Contractor contractor;

@@ -22,6 +22,7 @@
 		      <p> Choose a Trade for your Task
 		      </p>
 		      <form action="chooseTrade.do" method="POST">
+		      <input type="hidden" name="jobId" value="${job.id}">
 		        <select name="id">
 		          <c:forEach var="trade" items="${trades}"> 
 		             <option value="${trade.id}"> ${trade.name} </option>
