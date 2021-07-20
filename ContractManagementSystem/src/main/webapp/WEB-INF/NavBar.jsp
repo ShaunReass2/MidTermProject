@@ -6,6 +6,7 @@
 <head>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="css/main.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -21,26 +22,12 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="home.do">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+          <c:if test="${not empty sessionScope.user}">
+            <li class="nav-item">
+            <a class="nav-link" href="#">View Completed Jobs</a>
+          </li>
+    	</c:if>
       </ul>
-    </div>
-    <div>
-    	
     </div>
     <div class="d-flex">
     	<c:if test="${not empty sessionScope.user}">
@@ -60,6 +47,7 @@
 
       
 
+  </div>
   </div>
 </nav>
 </body>

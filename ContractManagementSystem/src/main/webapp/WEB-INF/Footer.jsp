@@ -9,6 +9,22 @@
 </head>
 <body>
 
+  <div class="d-flex justify-content-around fixed-bottom bg-dark">
+    <a class="nav-item" href="https://github.com/ShaunReass2" target="_blank">Shaun Reass</a>
+    
+    <a class="nav-item" href="https://github.com/hopeful89" target="_blank">Brandon Stine</a>
+    
+    <a class="nav-item" href="https://github.com/TMShumway" target="_blank">Timothy Shumway</a>
+    
+    <a class="nav-item" href="https://github.com/David-EstradaSD" target="_blank">David Estrada</a>
+  
+  
+  
+  
+  
+  
+  </div>
+
 
 <!-- work above this line -->
 
