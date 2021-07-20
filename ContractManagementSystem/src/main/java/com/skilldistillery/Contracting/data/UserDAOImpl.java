@@ -63,13 +63,21 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<Job> displayAllJobs(int id) {
+	public List<Job> displayAllJobs(int id, boolean isAdmin) {
 		
 		List<Job> jobs = null; 
 		String jpql = "SELECT j FROM Job j WHERE j.user.id = :id";
 		
+		String contractorjpql = "Select j from Job j join Task t on t.job.id = j.id join Contractor c on t.contractor.id = c.id join User u " +
+	       "on c.user.id = u.id where u.id = :id";
+		
 		try {
-			jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList();
+			if(isAdmin) {
+				jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList();
+			}else {
+				jobs = em.createQuery(contractorjpql, Job.class).setParameter("id", id).getResultList();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

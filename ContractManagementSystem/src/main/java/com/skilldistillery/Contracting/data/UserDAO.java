@@ -15,7 +15,7 @@ public interface UserDAO {
 	
 	public User findUserByUserNameAndPassword(User user);
 
-	public List<Job> displayAllJobs(int id); 
+	public List<Job> displayAllJobs(int id, boolean userStatus);
 	
 	public Job findJobByJobId(int id);
 }
