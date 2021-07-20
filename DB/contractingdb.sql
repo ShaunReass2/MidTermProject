@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `job` ;
 
 CREATE TABLE IF NOT EXISTS `job` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `job_name` VARCHAR(45) NULL,
+  `job_name` VARCHAR(100) NULL,
   `location` VARCHAR(100) NULL,
   `start_date` DATE NULL,
   `end_date` DATE NULL,
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `task` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `is_complete` TINYINT NULL DEFAULT 0,
   `task_name` VARCHAR(50) NULL,
-  `task_details` VARCHAR(500) NULL,
+  `task_details` TEXT NULL,
   `job_id` INT NOT NULL,
   `priority_number` INT NULL,
   `contractor_id` INT NOT NULL,
@@ -179,9 +179,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'contractor1', 1, 1, 'Skill', 'Distillery');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'laborer1', 1, 0, 'David', 'Estrada');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'easy', 1, 0, 'John', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'a', 1, 1, 'Skill', 'Distillery');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'b', 1, 0, 'David', 'Estrada');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'c', 1, 0, 'John', 'Doe');
 
 COMMIT;
 
