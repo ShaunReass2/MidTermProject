@@ -23,3 +23,17 @@ table.table {
 	max-height: 50vh;
 	overflow-y: scroll; 
 }
+
+.scroll-task {
+	max-height: 55vh;
+	overflow-y: scroll;
+}
+
+.modal-content {
+	color: black;
+}
+
+.container-fluid.scroll-message.p-0 {
+    background: rgba(39,54,70,.8);
+}
+

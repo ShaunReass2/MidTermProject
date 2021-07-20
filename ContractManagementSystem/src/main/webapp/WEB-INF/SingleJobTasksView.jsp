@@ -51,27 +51,30 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-5">
-			    		<div class="container-fluid scroll-message">
+			    		<div class="container-fluid scroll-message p-0">
 			    			<c:choose>
 			    				<c:when test="${not empty messages}">
 			    					<c:forEach var="message" items="${messages}">
-										  <div class="card-body row border mt-1 mb-1 p-0">
-    											<div class="border col-2">
+										  <div class="card-body row border mt-1 mb-1 p-0 mx-0 w-100 messageBackground">
+										  	  
+										  	  <div class="d-flex p-0">
+    											<div class="border col-2 p-2">
     												<h5>${message.user.username}</h5>
     												<p>Created:</p>
     												<p>${message.creationTime}</p>
-    											</div>
-    											<div class="container col">
-    												<div class="col-8">
-    													<p>${message.messageBody}</p>
-    												</div>
-    												<c:if test="${sessionScope.user.id == message.user.id }">
+    												 <c:if test="${sessionScope.user.id == message.user.id }">
     													 <div class="col">
     														<button class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
     													</div>	
     												</c:if>
+    											</div>
+    											<div class="container col">
+    												<div class="col-8">
+    													<p class="m-2">${message.messageBody}</p>
+    												</div>
 
     											</div>
+    										 </div>
 	   										</div>
 	   										<%@ include file="EditMessageModal.jsp" %>
 			    					</c:forEach>
@@ -91,15 +94,18 @@
 			    					</c:otherwise>
 			    			</c:choose>
 			    		</div>
-			    		<form action="message.do?jobId=${job.id }" method="POST">
-			    		   <div class="m-2 col" >
-    							<label for="messageBody" class="form-label">Reply:</label>
-   								 <textarea class="form-control" name="messageBody"></textarea>
-  							</div>
-			    			<input class="btn btn-primary" type="submit">
+			    		
+			    		<form action="message.do?jobId=${job.id }" class="messageReply" method="POST">
+			    		<div class="input-group">
+			    		   		<div class="col" >
+   									 <textarea class="form-control" name="messageBody" placeholder="Send a reply here...."></textarea>
+			    				</div>
+			    				<input class="btn btn-primary" type="submit">
+			    		 </div>
 			    		</form>
+
 			    	</div>
-			    	<div class="col-7">
+			    	<div class="col-7 scroll-task">
 			    		<c:choose>
 					      		<c:when test="${not empty tasks}">
 					      		<table class="table">
@@ -114,10 +120,14 @@
 										      <th scope="col">Edit Task</th>
 										    </tr>
 									</thead>
+
+									
+									
+									<tbody>
 					      			<c:forEach var="task" items="${tasks}">
 					      			
 										 
-										  <tbody>
+										  
 										    <tr>
 										<!--        <th scope="row">1</th>     -->
 										      <td>${task.taskName} <br><em>${task.contractor.companyName}</em></td>
@@ -137,11 +147,13 @@
 										      		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
 										      </td>
 										    </tr>
-										  </tbody>
+										  
 										
 									<%@ include file="ViewTaskDetailsModal.jsp" %>
 									<%@ include file="EditTaskModal.jsp" %>
 					    		  	</c:forEach>
+					    		  	</tbody>
+	
 					    		  	</table>
 					      		</c:when>
 					      		<c:otherwise>No tasks associated with this job.</c:otherwise>
