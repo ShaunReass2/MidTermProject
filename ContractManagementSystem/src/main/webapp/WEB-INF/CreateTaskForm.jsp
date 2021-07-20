@@ -7,6 +7,9 @@
 
 </head>
 <body>
+<%@ include file="NavBar.jsp" %>
+
+<jsp:include page=""></jsp:include>
 <form action="createTask.do" method="POST">
     <input type="hidden" name="jobId" value="${jobId}">
   <div class="mb-3">
@@ -51,5 +54,6 @@
   </div>
 </form>
 
+<%@ include file="Footer.jsp" %>
 </body>
 </html>

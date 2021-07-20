@@ -42,7 +42,7 @@ public class TaskController {
 
 	@RequestMapping(path = "createTask.do", method = RequestMethod.POST)
 	public String createTask(RedirectAttributes redir, Task task, int contractorId, int jobId) {
-		
+
 		Task managedTask = taskDAO.createTask(task, contractorId, jobId);
 		
 		if(managedTask == null) {
