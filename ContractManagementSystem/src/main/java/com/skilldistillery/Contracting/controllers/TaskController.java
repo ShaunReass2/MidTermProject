@@ -65,7 +65,7 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "editTask.do", method = RequestMethod.POST)
-	public String updateTask(RedirectAttributes redir, Task task) {
+	public String updateTask(RedirectAttributes redir, Task task, int jobId) {
 		
 		Task managedTask = taskDAO.updateTask(task);
 		
@@ -73,7 +73,7 @@ public class TaskController {
 			redir.addFlashAttribute("taskUpdateFlag", true);
 			return "redirect:Error.do";
 		}
-		return "redirect:singleJobView.do?id=" + task.getJob().getId();
+		return "redirect:singleJobView.do?id=" + jobId;
 	}
 	
 	@RequestMapping(path = "chooseTrade.do", method = RequestMethod.POST)

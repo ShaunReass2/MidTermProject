@@ -130,11 +130,13 @@
 										      </td>
 										      <td>
 									  <!-- UPDATE THIS BUTTON FOR UPDATING / EDITING TASK -->
-										      		<a class="btn btn-primary" href="editTask.do?id=${task.id}" role="button">Update Task</a>
+										      		<%-- <a class="btn btn-primary" href="editTask.do?id=${task.id}" role="button">Update Task</a> --%>
+										      		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update Task</button>
 										      </td>
 										    </tr>
 										  </tbody>
 										
+									<%@ include file="EditTaskModal.jsp" %>
 					    		  	</c:forEach>
 					    		  	</table>
 					      		</c:when>

@@ -58,13 +58,13 @@ public class TaskDAOImpl implements TaskDAO {
 	public Task updateTask(Task task) {
 		Task managedTask = null;
 		
-		managedTask = em.find(Task.class, task);
+		managedTask = em.find(Task.class, task.getId());
 		managedTask.setTaskName(task.getTaskName());
 		managedTask.setTaskDetails(task.getTaskDetails());
 		managedTask.setBeginTime(task.getBeginTime().toString());
 		managedTask.setEndTime(task.getEndTime().toString());
 		managedTask.setPriorityNumber(task.getPriorityNumber());
-//		managedTask.setIsComplete(task.getIsComplete());		
+		managedTask.setIsComplete(task.getIsComplete());		
 		
 		return managedTask;	
 	}
