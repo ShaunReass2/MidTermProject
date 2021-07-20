@@ -20,13 +20,13 @@ public class MessageDAOImpl implements MessageDAO {
 	private EntityManager em;
 
 	@Override
-	public Message createMessage(Message message, int id) {
+	public Message createMessage(Message message, int id, int userId) {
 		Job managedJob = em.find(Job.class, id);
 		List<Message> messagesFromJob = managedJob.getMessages();
 		messagesFromJob.add(message);
 		message.setJob(managedJob);
 		managedJob.setMessages(messagesFromJob);
-		User managedUser = em.find(User.class, managedJob.getUser().getId());
+		User managedUser = em.find(User.class, userId);
 		List<Message> messagesFromUser = managedUser.getMessages();
 		messagesFromUser.add(message);
 		message.setUser(managedUser);
