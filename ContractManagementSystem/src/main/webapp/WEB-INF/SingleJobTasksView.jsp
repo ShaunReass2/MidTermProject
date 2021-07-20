@@ -16,22 +16,24 @@
 	<div>
 	<!-- change inline style to css -->
 		<div class="card mx-auto mt-3" style="width:95%;">
-			<div class="d-flex justify-content-around w-50 mx-auto mt-3">
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
-			  		<a class="btn btn-success" href="markJobComplete.do?id=${job.id}" role="button">
-			  		<c:choose>
-			  			<c:when test="${job.isComplete}">
-			  				Mark as Incomplete
-			  			</c:when>
-			  			<c:otherwise>
-			  				Mark Job Complete
-			  			</c:otherwise>
-			  		</c:choose>
-			  		
-			  		</a>
-			  		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteJob">Delete Job</button>
-			</div>
+			<c:if test="${sessionScope.user.role}">
+				<div class="d-flex justify-content-around w-50 mx-auto mt-3">
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
+				  		<a class="btn btn-success" href="markJobComplete.do?id=${job.id}" role="button">
+				  		<c:choose>
+				  			<c:when test="${job.isComplete}">
+				  				Mark as Incomplete
+				  			</c:when>
+				  			<c:otherwise>
+				  				Mark Job Complete
+				  			</c:otherwise>
+				  		</c:choose>
+				  		
+				  		</a>
+				  		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteJob">Delete Job</button>
+				</div>		
+			</c:if>
 			<div class="container-fluid p-2 m-2">
 			    <div class="row">
 			    	<div class="col-6">
