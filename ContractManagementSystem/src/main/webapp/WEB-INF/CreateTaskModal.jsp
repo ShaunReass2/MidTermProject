@@ -21,18 +21,18 @@
 		      
 		      <p> Choose a Trade for your Task
 		      </p>
-		      <form action="chooseTrade.do">
-		        <select>
+		      <form action="chooseTrade.do" method="POST">
+		        <select name="id">
 		          <c:forEach var="trade" items="${trades}"> 
 		             <option value="${trade.id}"> ${trade.name} </option>
 		          </c:forEach>
 		        </select>
+		     <div class="d-flex justify-content-between m-2">
+  				  <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+  				  <button type="submit" class="btn btn-primary w-25">Submit</button>
+ 			 </div> 
 		      </form>
 		      </div>
-		        <div class="d-flex justify-content-between m-2">
-  				  <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">Close</button>
-  			  	  <button type="submit" class="btn btn-primary w-25">Submit</button>
- 			 </div>
 		    </div>
 		  </div>
 		</div>
