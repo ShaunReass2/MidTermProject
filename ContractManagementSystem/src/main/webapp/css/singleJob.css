@@ -1,0 +1,39 @@
+.singleViewBg {
+	background: url("https://images.unsplash.com/photo-1561275526-4d2c9c9c435c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80");
+	background-size: cover;
+	height: 100vh;
+	color: white;
+}
+
+.singleViewCard {
+	height: 95vh;
+	width: 95vw;
+	color: white;
+}
+
+.card.mx-auto.mt-3.cardBG.singleViewCard{
+	background: rgba(0,0,0,.7)
+}
+
+table.table {
+	color: white;
+}
+
+.scroll-message {
+	max-height: 50vh;
+	overflow-y: scroll; 
+}
+
+.scroll-task {
+	max-height: 55vh;
+	overflow-y: scroll;
+}
+
+.modal-content {
+	color: black;
+}
+
+.container-fluid.scroll-message.p-0 {
+    background: rgba(39,54,70,.8);
+}
+

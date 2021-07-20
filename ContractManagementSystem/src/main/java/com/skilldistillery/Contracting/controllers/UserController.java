@@ -1,6 +1,8 @@
 package com.skilldistillery.Contracting.controllers;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.Contracting.data.TradeDAO;
 import com.skilldistillery.Contracting.data.UserDAO;
 import com.skilldistillery.Contracting.entities.Job;
+import com.skilldistillery.Contracting.entities.Message;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -86,6 +89,9 @@ public class UserController {
 	public String findSingleJob(HttpSession session, Model model, int id) {
 		Job job = userDAO.findJobByJobId(id);
 		User sessionUser = (User)session.getAttribute("user");
+		job.getMessages().sort((Message one, Message two) -> {
+			return two.getId() - one.getId();
+		});
 		model.addAttribute("adminRole", sessionUser.getRole());
 		model.addAttribute("job", job);
 		model.addAttribute("tasks", job.getTasks());
