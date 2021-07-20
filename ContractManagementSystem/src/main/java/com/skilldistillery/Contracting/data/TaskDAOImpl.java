@@ -6,6 +6,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.Contracting.entities.Contractor;
+import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.Task;
 
 @Service
@@ -30,7 +32,12 @@ public class TaskDAOImpl implements TaskDAO {
 	}
 
 	@Override
-	public Task createTask(Task task) {
+	public Task createTask(Task task, int contractorId, int jobId) {
+		Contractor contractor = em.find(Contractor.class, contractorId); 
+		Job job = em.find(Job.class, jobId); 
+		task.setContractor(contractor);
+		task.setJob(job);
+		task.setTrade(contractor.getTrade());		
 		em.persist(task);
 		return task;
 	}

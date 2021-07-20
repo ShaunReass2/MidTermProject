@@ -41,9 +41,9 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "createTask.do", method = RequestMethod.POST)
-	public String createTask(RedirectAttributes redir, Task task) {
-	
-		Task managedTask = taskDAO.createTask(task);
+	public String createTask(RedirectAttributes redir, Task task, int contractorId, int jobId) {
+		
+		Task managedTask = taskDAO.createTask(task, contractorId, jobId);
 		
 		if(managedTask == null) {
 			redir.addFlashAttribute("taskCreationFlag", true);
@@ -77,9 +77,10 @@ public class TaskController {
 	}
 	
 	@RequestMapping(path = "chooseTrade.do", method = RequestMethod.POST)
-	public String chooseTradeForCreateTask(Model model, int id) {
+	public String chooseTradeForCreateTask(Model model, int id, int jobId) {
 		List<Contractor> contractors = contractorDAO.findAllContractors(id);
 		model.addAttribute("contractors", contractors);
+		model.addAttribute("jobId", jobId);
 		return "CreateTaskForm";
 	}
 	

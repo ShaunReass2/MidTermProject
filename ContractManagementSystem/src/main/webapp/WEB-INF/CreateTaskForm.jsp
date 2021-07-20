@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="createTask.do" method="POST">
-    <input type="hidden" name="id" value="${job.id}">
+    <input type="hidden" name="jobId" value="${jobId}">
   <div class="mb-3">
     <label for="taskName" class="form-label">Task Name</label>
     <input type="text" class="form-control" id="taskName" name="taskName" required>
@@ -29,11 +29,11 @@
   </div>
   <div class="mb-3">
     <label for="beginTime" class="form-label">Start Time</label>
-    <input type="datetime" class="form-control" id="beginTime" name="beginTime" required>
+    <input type="datetime-local" class="form-control" id="beginTime" name="beginTime" required>
   </div>
   <div class="mb-3">
     <label for="endDate" class="form-label">End Time</label>
-    <input type="datetime" class="form-control" id="endTime" name="endTime" required>
+    <input type="datetime-local" class="form-control" id="endTime" name="endTime" required>
   </div>  
   
   <div class="mb-3">
