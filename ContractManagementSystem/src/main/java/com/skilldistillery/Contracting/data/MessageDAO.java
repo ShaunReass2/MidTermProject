@@ -5,5 +5,6 @@ import com.skilldistillery.Contracting.entities.Message;
 public interface MessageDAO {
 
 	Message createMessage(Message message, int id);
+	Message editMessage(Message message, int messageId);
 
 }

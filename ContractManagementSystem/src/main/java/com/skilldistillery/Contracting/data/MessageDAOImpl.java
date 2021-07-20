@@ -35,6 +35,13 @@ public class MessageDAOImpl implements MessageDAO {
 		return message;
 	}
 
+	@Override
+	public Message editMessage(Message message, int messageId) {
+		Message managedMessage = em.find(Message.class, messageId);
+		managedMessage.setMessageBody(message.getMessageBody());
+		return managedMessage;
+	}
+
 
 	
 	
