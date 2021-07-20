@@ -64,7 +64,9 @@ public class UserController {
 			return "redirect:Error.do";
 		}
 		User sessionUser = (User)session.getAttribute("user");
-		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId()));
+		
+		
+		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole()));
 		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
 	}
