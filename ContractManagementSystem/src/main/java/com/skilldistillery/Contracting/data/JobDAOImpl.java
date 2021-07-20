@@ -1,5 +1,7 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -72,4 +74,20 @@ public class JobDAOImpl implements JobDAO {
 		return managedJob;
 	}
 
+	@Override
+	public List<Job> showCompletedJobs(){
+		
+		List<Job> jobs = null; 
+		
+		String jpql = "SELECT j FROM Job j WHERE j.isComplete = 1";
+		
+				try {
+					jobs = em.createQuery(jpql, Job.class).getResultList();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+		return jobs;
+	}
+	
 }

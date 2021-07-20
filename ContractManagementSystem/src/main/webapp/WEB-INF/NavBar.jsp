@@ -23,9 +23,11 @@
           <a class="nav-link active" aria-current="page" href="home.do">Home</a>
         </li>
           <c:if test="${not empty sessionScope.user}">
-            <li class="nav-item">
-            <a class="nav-link" href="#">View Completed Jobs</a>
-          </li>
+          	<c:if test="${sessionScope.user.role}">
+            	<li class="nav-item">
+            	<a class="nav-link" href="showCompletedJobs.do">View Completed Jobs</a>
+          		</li>
+          	</c:if>
     	</c:if>
       </ul>
     </div>
