@@ -19,7 +19,7 @@
 				<a class="" href="https://www.linkedin.com/in/shaun-reass-ab544276/" target="_blank"><i class="bi bi-linkedin"></i></a>
 			</div>
 			<div class="col-1">
-				<a class="badge badge-light" href=""><i class="bi bi-github"></i></a>
+				<a class="badge badge-light" href="https://github.com/ShaunReass2" target="_blank"><i class="bi bi-github"></i></a>
 			</div>
   		</div>
   	  	<div class="row align-content-center">
@@ -30,7 +30,7 @@
 				<a class="" href="https://www.linkedin.com/in/brandon-stine/" target="_blank"><i class="bi bi-linkedin"></i></a>
 			</div>
 			<div class="col-1">
-				<a class="badge badge-light" href=""><i class="bi bi-github"></i></a>
+				<a class="badge badge-light" href="https://github.com/hopeful89" target="_blank"><i class="bi bi-github"></i></a>
 			</div>
   		</div>
   	  	<div class="row align-content-center">
@@ -41,7 +41,7 @@
 				<a class="" href="https://www.linkedin.com/in/timothyshumway/" target="_blank"><i class="bi bi-linkedin"></i></a>
 			</div>
 			<div class="col-1">
-				<a class="badge badge-light" href=""><i class="bi bi-github"></i></a>
+				<a class="badge badge-light" href="https://github.com/TMShumway" target="_blank"><i class="bi bi-github"></i></a>
 			</div>
   		</div>
   		
@@ -53,7 +53,7 @@
 				<a class="" href="https://www.linkedin.com/in/david-estrada-b0701877/" target="_blank"><i class="bi bi-linkedin"></i></a>
 			</div>
 			<div class="col-1">
-				<a class="badge badge-light" href=""><i class="bi bi-github"></i></a>
+				<a class="badge badge-light" href="https://github.com/David-EstradaSD" target="_blank"><i class="bi bi-github"></i></a>
 			</div>
   		</div>
 
