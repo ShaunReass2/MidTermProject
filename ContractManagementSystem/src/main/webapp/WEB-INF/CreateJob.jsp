@@ -34,7 +34,7 @@
   </div>
   <div class="mb-3">
     <label for="totalManHours" class="form-label">Total Man Hours</label>
-    <input type="number" class="form-control" name="totalManHours">
+    <input type="number" class="form-control" name="totalManHours" value="80" required>
   </div>
   
   <div class="mb-3">
