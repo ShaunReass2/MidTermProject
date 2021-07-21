@@ -123,12 +123,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "findJobByKeyword.do", method = RequestMethod.GET)
-	public String findJobByKeywordSearch(HttpSession session, Model model, String string) {
+	public String findJobByKeywordSearch(HttpSession session, Model model, String keyword) {
+		List<Job> jobs = userDAO.findJobByKeyword(keyword);
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
-		List<Job> jobs = userDAO.findJobByKeyword(string);
 		User sessionUser = (User) session.getAttribute("user");
+		model.addAttribute("jobs", jobs);
 		
 		return "Dashboard";
 	}

@@ -32,8 +32,8 @@
 
     <div class="d-flex">
     	<c:if test="${not empty sessionScope.user}">
-    	      <form class="d-flex">
-	      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    	      <form action="findJobByKeyword.do" class="d-flex">
+	      		<input class="form-control me-2" name="keyword" type="search" placeholder="Search Jobs" aria-label="Search">
 	      		<button class="btn btn-outline-primary" type="submit">Search</button>
       		</form>
     	</c:if>
