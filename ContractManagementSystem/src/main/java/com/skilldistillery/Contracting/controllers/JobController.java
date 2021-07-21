@@ -22,6 +22,9 @@ public class JobController {
 
 	@RequestMapping(path = "createJob.do", method = RequestMethod.POST)
 	public String adminJobCreation(Job job, HttpSession session, RedirectAttributes redir) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:Error.do";
+		}
 		User sessionUser = (User) session.getAttribute("user");
 		job.setUser(sessionUser);
 		jobDAO.addJob(job);
@@ -30,6 +33,7 @@ public class JobController {
 	
 	@RequestMapping(path = "deleteJob.do", method = RequestMethod.GET)
 	public String deleteJob(int id) {
+		
 		jobDAO.removeJob(id);
 		return "redirect:dashboard.do";
 	}
