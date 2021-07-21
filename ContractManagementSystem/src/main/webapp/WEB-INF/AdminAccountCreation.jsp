@@ -10,13 +10,13 @@
 
 <form action="adminAccountCreation.do" method="POST">
   <div class="mb-3">
-    <label for="inputUsername" class="form-label">Username</label>
-    <input type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelp" name="username" required>
+    <label for="inputusername" class="form-label">Username</label>
+    <input type="text" class="form-control" id="inputusername" aria-describedby="usernameHelp" name="username" required>
     <div id="usernamelHelp" class="form-text">We'll never share your information with anyone else.</div>
   </div>
   <div class="mb-3">
-    <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword" name="password" required>
+    <label for="inputpassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputpassword" name="password" required>
   </div>
   <div class="mb-3">
     <label for="inputFirstName" class="form-label">First Name</label>
