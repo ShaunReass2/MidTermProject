@@ -29,6 +29,15 @@
     	</c:if>
       </ul>
     </div>
+    
+    
+    <c:if test="${not empty sessionScope.user}">
+	  	<span class="d-flex justify-content-center userName mx-3">
+	    	<h1>Welcome ${sessionScope.user.username}</h1>
+	    </span>
+	</c:if>
+   
+    
     <div class="d-flex">
     	<c:if test="${not empty sessionScope.user}">
     	      <form class="d-flex">
