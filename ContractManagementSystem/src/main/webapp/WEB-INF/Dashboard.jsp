@@ -18,46 +18,49 @@
 
 		<!-- Button trigger modal for create job-->
 		<c:if test="${adminRole}">
-			<center>
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-					data-bs-target="#CreateJob">Create Job</button>
-					<%@ include file="AdminCreateAJobModal.jsp"%>
-			</center>
+			<div class="container-fluid">
+				<div class="row align-items-center jobHeader mx-auto">
+					<div class="col-4"></div>
+					<div class="col-4">
+						<button type="button" class="mx-auto btn btn-primary mt-3" data-bs-toggle="modal"
+							data-bs-target="#CreateJob">Create Job</button>						
+						<%@ include file="AdminCreateAJobModal.jsp"%>
+					</div>
+					<div class="col-4"></div>
+				</div>
+			</div>
 		</c:if>
 
 		<!-- Start of Contractor / Non-admin divs -->
 
-		<div class="container-fluid p-2 m-2">
+		<div class="container-fluid m-3">
 
 			<div class="row jobHeader mx-auto">
 				<div class="col-4">
-					<h4>Job Name</h4>
+					<h3>Job Name</h3>
 				</div>
 				<div class="col-4">
-					<h4>Start Date</h4>
+					<h3>Start Date</h3>
 				</div>
 				<div class="col-4">
-					<h4>View Job</h4>
+					<h3>View Job</h3>
 				</div>
 			</div>
 			<c:choose>
 				<c:when test="${not empty jobs }">
 					<c:forEach var="job" items="${jobs}">
 				
-						<div class="card dashboardJobCard mx-5 mt-3">
+						<div class="card dashboardJobCard mx-auto mt-3">
   							<div class="card-body">  							
-								<div class="row">
+								<div class="row align-items-center">
 									<div class="col-4">
-										<br>
 										<h6>${job.jobName}</h6>
 									</div>
 									<div class="col-4">
-										<br>
 										<h6>${job.startDate}</h6>
 									</div>
 									<div class="col-4">
-										<br> <a class="btn btn-primary"
-											href="singleJobView.do?id=${job.id}" role="button">${job.jobName}</a>
+										<a class="btn btn-primary" href="singleJobView.do?id=${job.id}" role="button">${job.jobName}</a>
 									</div>
 								</div>
   							</div>
