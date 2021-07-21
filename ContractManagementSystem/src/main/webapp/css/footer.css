@@ -1,0 +1,30 @@
+.footerDivBadge {
+	width: 15vw;
+	font-size: 20px;
+}
+
+.footer {
+	height: 55px;
+	background: rgba(0,0,0,.35);
+}
+
+.d-flex.footerDivBadge.justify-content-between {
+	width: 11vw;
+	font-size: 18px;
+}
+
+.footerName{
+	color:white;
+}
+
+p.footerName{
+	font-size: 1.2rem;
+}
+
+/* .d-flex.justify-content-between {
+	width: 75px;
+} */
+
+i.bi.bi-linkedin, i.bi.bi-github  {
+	font-size: 25px;
+}
