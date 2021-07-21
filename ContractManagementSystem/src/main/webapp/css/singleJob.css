@@ -41,3 +41,19 @@ table.table {
 	color: limegreen;
 }
 
+.contractorHeader {
+	color: limegreen;
+}
+
+.jobHeader {
+	text-align: center;
+}
+
+.jobStartDateHeader {
+	text-align: center;
+	
+}
+
+jobEndDateHeader {
+	text-align: center;
+}
