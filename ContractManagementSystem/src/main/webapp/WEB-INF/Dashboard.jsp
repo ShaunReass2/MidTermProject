@@ -7,8 +7,8 @@
 <html>
 <head>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link href="css/main.css" rel="stylesheet" />
-
 
 </head>
 <body>
@@ -58,7 +58,7 @@
 		  							<div class="card-body">  							
 										<div class="row align-items-center">
 											<div class="col-3">
-												<h6>${job.jobName}</h6>
+												<h6>${job.jobName} <c:if test="${job.isComplete}">  <i class="bi bi-check2-circle"></i></c:if></h6>
 											</div>
 											<div class="col-3">
 												<h6>${job.startDate}</h6>

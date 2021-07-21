@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,8 +152,16 @@
 										      </td>
 										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
-										      <td class="col-2 text-center p-0 align-middle">${task.beginTime}</td>
-										      <td class="col-2 text-center p-0 align-middle">${task.endTime}</td>
+										      <td class="col-2 text-center p-0 align-middle">
+										      	<c:set var = "string1" value = "${task.beginTime}"/>
+      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '  ')}" />
+										      	${stringStartDateTime}
+										      </td>
+										      <td class="col-2 text-center p-0 align-middle">
+										      	<c:set var = "string2" value = "${task.endTime}"/>
+      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', ' ')}" />
+										      	${stringEndtDateTime}
+										      </td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">
 										      		<button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
