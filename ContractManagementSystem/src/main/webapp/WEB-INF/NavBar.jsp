@@ -27,17 +27,9 @@
             	<a class="nav-link" href="showCompletedJobs.do">View Completed Jobs</a>
           	</li>
     	</c:if>
-      </ul>
+      </ul>	
     </div>
-    
-    
-    <c:if test="${not empty sessionScope.user}">
-	  	<span class="d-flex justify-content-center userName mx-3">
-	    	<h1>Welcome ${sessionScope.user.username}</h1>
-	    </span>
-	</c:if>
-   
-    
+
     <div class="d-flex">
     	<c:if test="${not empty sessionScope.user}">
     	      <form class="d-flex">
@@ -53,11 +45,13 @@
 	      		<a href="logout.do" class="btn btn-outline-light mx-2">Logout</a>
 	      	</c:when>
       </c:choose>
-
-      
-
   </div>
   </div>
 </nav>
+    <div class="fixed-top text-center fixedusername w-50 mx-auto">
+    	<c:if test="${not empty sessionScope.user}">
+	    	<h1 class="usernameNav userName">Welcome ${sessionScope.user.username}</h1>
+		</c:if>
+   	 </div>
 </body>
 </html>

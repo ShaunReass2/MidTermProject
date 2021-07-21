@@ -6,13 +6,14 @@
 }
 
 .singleViewCard {
-	height: 95vh;
+	height: 88vh;
 	width: 95vw;
 	color: white;
 }
 
 .card.mx-auto.mt-3.cardBG.singleViewCard{
-	background: rgba(0,0,0,.7)
+	background: rgba(0,0,0,.7);
+	
 }
 
 table.table {
@@ -22,6 +23,7 @@ table.table {
 .scroll-message {
 	max-height: 50vh;
 	overflow-y: scroll; 
+	overflow-x: hidden;
 }
 
 .scroll-task {
@@ -57,3 +59,26 @@ table.table {
 jobEndDateHeader {
 	text-align: center;
 }
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rbga(0,0,0,.1);
+}
+
+
+
+

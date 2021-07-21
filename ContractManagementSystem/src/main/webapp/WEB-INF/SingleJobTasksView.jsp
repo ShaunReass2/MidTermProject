@@ -16,7 +16,7 @@
 	
 	
 	<!-- change inline style to css -->
-		<div class="card mx-auto mt-3 cardBG singleViewCard" style="">
+		<div class="card mx-auto mt-3 cardBG singleViewCard p-2" style="">
 			<c:if test="${sessionScope.user.role}">
 				<div class="d-flex justify-content-around w-50 mx-auto mt-3">
 						<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
@@ -34,7 +34,7 @@
 						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
 				</div>		
 			</c:if>
-			<div class="container-fluid p-2 m-2">
+			<div class="container-fluid p-0">
 			    <div class="row">
 			    	<div class="singleViewJobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
