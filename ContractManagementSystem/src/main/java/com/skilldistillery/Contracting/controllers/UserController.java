@@ -117,5 +117,13 @@ public class UserController {
 		return "SingleJobTasksView";
 	}
 	
+	@RequestMapping(path = "findJobByKeyword.do", method = RequestMethod.GET)
+	public String findJobByKeywordSearch(HttpSession session, Model model, String string) {
+		List<Job> jobs = userDAO.findJobByKeyword(string);
+		User sessionUser = (User) session.getAttribute("user");
+		
+		return "Dashboard";
+	}
+	
 
 }
