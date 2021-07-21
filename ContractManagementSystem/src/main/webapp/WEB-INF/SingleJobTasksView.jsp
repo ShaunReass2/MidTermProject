@@ -154,13 +154,13 @@
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">
 										      	<c:set var = "string1" value = "${task.beginTime}"/>
-      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '  ')}" />
+      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '&emsp;')}" />
 										      	${stringStartDateTime}
 										      </td>
 										      <td class="col-2 text-center p-0 align-middle">
 										      	<c:set var = "string2" value = "${task.endTime}"/>
-      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', ' ')}" />
-										      	${stringEndtDateTime}
+      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', '&emsp;')}" />
+										      	${stringEndDateTime}
 										      </td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">
