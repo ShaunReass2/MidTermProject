@@ -19,7 +19,7 @@
 		<h2>Please login or create an account.</h2>
 		<div class="text-center">
 			<p>To create an account please go to the home page</p>
-			<a href="home.do" class="btn btn-primary w-50">Go Home</a>
+			<a href="home.do" class="btn btn-primary w-50">Return to Home Page</a>
 		</div>
 	</div>
 	
