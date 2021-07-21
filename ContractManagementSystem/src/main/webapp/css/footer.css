@@ -21,9 +21,9 @@ p.footerName{
 	font-size: 1.2rem;
 }
 
-.d-flex.justify-content-between {
+/* .d-flex.justify-content-between {
 	width: 75px;
-}
+} */
 
 i.bi.bi-linkedin, i.bi.bi-github  {
 	font-size: 25px;
