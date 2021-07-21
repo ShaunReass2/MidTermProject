@@ -65,7 +65,11 @@
     												<h5>${message.user.username}</h5>
     												<div>
     												   	<p class="m-0">Created:</p>
-    													<p>${message.creationTime}</p>
+    												   	<c:set var = "string1" value = "${message.creationTime}"/>
+      													<c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+      													<c:set var = "string3" value = "${fn:substring(string1, 11, 16)}" />
+    													<p class="m-0">${string2}</p>
+    													<p class="m-0">${string3}</p>
     												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
     													 <div>
