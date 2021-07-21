@@ -28,13 +28,20 @@ body {
 	color: black;
 }
 
-
-
-
 .dashboardJobCard {
 	background: rgba(0,0,0,.7);
 	width: 90vw;
+	border: none;
 }
+
+.jobsContainerCard {
+	background: rgba(0,0,0,0);
+	border: none;
+	height: 77vh;
+	overflow-y: auto; 
+	overflow-x: hidden;
+}
+
 
 .userName {
 	text-align: center; 
