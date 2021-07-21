@@ -51,6 +51,21 @@ body {
 	z-index: 1;
 }
 
-/* .footerBackground {
-	background-color: 
-} */
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,.1);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0,0,0,.1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rbga(0,0,0,.1);
+}
