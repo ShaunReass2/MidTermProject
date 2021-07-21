@@ -40,12 +40,14 @@ public class UserController {
 		}
 		user.setRole(true);
 		user.setEnabled(true);
-		redir.addFlashAttribute("user", userDAO.createUser(user));
+		User managedUser = userDAO.createUser(user); 
+		redir.addAttribute("accountName", managedUser.getUsername());
 		return "redirect:adminAccountCreated.do";
 	}
 
-	@RequestMapping(path = "adminAccountCreated.do", method = RequestMethod.GET)
-	public String adminAccountCreated() {
+	@RequestMapping(path = "adminAccountCreated.do", params="accountName")    //method = RequestMethod.GET,
+	public String adminAccountCreated(String accountName, Model model) {
+		model.addAttribute("accountName", accountName); 
 		return "Success";
 	}
 
