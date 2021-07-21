@@ -101,6 +101,20 @@ public class UserDAOImpl implements UserDAO {
 		
 		return job;
 	}
+
+	@Override
+	public List<Job> findJobByKeyword(String keyword) {
+		List<Job> jobs = null;
+//		select * from job where job_name like '%ard%';
+		String jpql = "SELECT j FROM Job j WHERE j.jobName LIKE '%:keyword%'";
+		try {
+			jobs = em.createQuery(jpql, Job.class).setParameter("keyword", keyword).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return jobs;
+	}
 	
 	
 }
