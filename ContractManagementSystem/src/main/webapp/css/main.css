@@ -22,19 +22,16 @@ body {
 	width: 100vw;
 	text-align: center;
 }
+.card.mx-auto.mt-3.cardBG.singleViewCard{
+    height: 90vh;
+}
 
 .modal-content {
 	color: black;
 }
 
-.bi {
-	color:purple;
-}
 
-.bi-github {
-	color: purple;
-	font-size: 30px;
-}
+
 
 
 
