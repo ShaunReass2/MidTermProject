@@ -98,7 +98,7 @@
 			    		<form action="message.do?jobId=${job.id }" class="messageReply" method="POST">
 			    		<div class="input-group">
 			    		   		<div class="col" >
-   									 <textarea class="form-control" name="messageBody" placeholder="Send a reply here...."></textarea>
+   									 <input class="form-control form-control-lg" name="messageBody" min="2" placeholder="Send a reply here...." required>
 			    				</div>
 			    				<input class="btn btn-primary" type="submit">
 			    		 </div>
