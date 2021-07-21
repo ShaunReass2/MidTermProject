@@ -104,6 +104,9 @@ public class UserController {
 	
 	@RequestMapping(path = "singleJobView.do", method = RequestMethod.GET)
 	public String findSingleJob(HttpSession session, Model model, int id) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:Error.do";
+		}
 		Job job = userDAO.findJobByJobId(id);
 		User sessionUser = (User)session.getAttribute("user");
 		job.getMessages().sort((Message one, Message two) -> {
@@ -119,11 +122,15 @@ public class UserController {
 	
 	@RequestMapping(path = "findJobByKeyword.do", method = RequestMethod.GET)
 	public String findJobByKeywordSearch(HttpSession session, Model model, String string) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:Error.do";
+		}
 		List<Job> jobs = userDAO.findJobByKeyword(string);
 		User sessionUser = (User) session.getAttribute("user");
 		
 		return "Dashboard";
 	}
 	
+
 
 }
