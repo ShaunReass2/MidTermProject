@@ -69,10 +69,10 @@ public class UserDAOImpl implements UserDAO {
 	public List<Job> displayAllJobs(int id, boolean isAdmin) {
 		
 		List<Job> jobs = null; 
-		String jpql = "SELECT j FROM Job j WHERE j.user.id = :id";
+		String jpql = "SELECT j FROM Job j WHERE j.user.id = :id AND j.isComplete = 0";
 		
-		String contractorjpql = "Select j from Job j join Task t on t.job.id = j.id join Contractor c on t.contractor.id = c.id join User u " +
-	       "on c.user.id = u.id where u.id = :id";
+		String contractorjpql = "SELECT j FROM Job j JOIN Task t ON t.job.id = j.id JOIN Contractor c ON t.contractor.id = c.id JOIN User u " +
+	       "on c.user.id = u.id WHERE u.id = :id AND j.isComplete = 0";
 		
 		try {
 			if(isAdmin) {

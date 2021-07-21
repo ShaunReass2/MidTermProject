@@ -27,8 +27,14 @@ body {
 	color: black;
 }
 
+.bi {
+	color:purple;
+}
 
-
+.bi-github {
+	color: purple;
+	font-size: 30px;
+}
 
 
 

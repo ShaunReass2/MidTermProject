@@ -8,6 +8,7 @@
 <head>
 
 <link href="css/singleJob.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="singleViewBg">
@@ -58,18 +59,20 @@
 										  <div class="card-body row border mt-1 mb-1 p-0 mx-0 w-100 messageBackground">
 										  	  
 										  	  <div class="d-flex p-0">
-    											<div class="border col-2 p-2">
+    											<div class="border col-3 p-1 d-flex flex-column justify-content-around">
     												<h5>${message.user.username}</h5>
-    												<p>Created:</p>
-    												<p>${message.creationTime}</p>
+    												<div>
+    												   	<p class="m-0">Created:</p>
+    													<p>${message.creationTime}</p>
+    												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
-    													 <div class="col">
-    														<button class="btn btn-link btn-sm" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
+    													 <div>
+    														<button class="btn btn-sm btn-light data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
     													</div>	
     												</c:if>
     											</div>
     											<div class="container col">
-    												<div class="col-8">
+    												<div class="col-9 m-0 w-100">
     													<p class="m-2">${message.messageBody}</p>
     												</div>
 
@@ -84,8 +87,8 @@
     											<div class="border col-2">
     											</div>
     											<div class="container col">
-    												<div class="col-8">
-    													<p>No messages recorded yet.</p>
+    												<div class="col-10">
+    													<p class="m-2">No messages recorded yet.</p>
     												</div>
     												<div class="col">
     												</div>
@@ -98,7 +101,7 @@
 			    		<form action="message.do?jobId=${job.id }" class="messageReply" method="POST">
 			    		<div class="input-group">
 			    		   		<div class="col" >
-   									 <input class="form-control form-control-lg" name="messageBody" min="2" placeholder="Send a reply here...." required>
+   									 <input class="form-control form-control-lg" name="messageBody" minlength="5" maxlength="500" placeholder="Send a reply here...." required>
 			    				</div>
 			    				<input class="btn btn-primary" type="submit">
 			    		 </div>
@@ -111,13 +114,15 @@
 					      		<table class="table">
 					      		 	<thead>
 										    <tr>
-										      <th scope="col">Task Name <br><em>Contractor</em></th>
-										      <th scope="col">Task Details</th>
-										      <th scope="col">Priority Number</th>
-										      <th scope="col">Begin Date</th>
-										      <th scope="col">End Date</th>
-										      <th scope="col">Completion Status</th>
-										      <th scope="col">Edit Task</th>
+										      <th scope="col" class="col-2 text-center">Task Name <br><em>Contractor</em></th>
+										      <th scope="col" class="col-1 text-center">Task Details</th>
+										      <th scope="col" class="col-1 text-center">Priority Number</th>
+										      <th scope="col" class="col-1 text-center">Begin Date</th>
+										      <th scope="col" class="col-1 text-center">End Date</th>
+										      <th scope="col" class="col-1 text-center">Completion Status</th>
+										      <c:if test="${sessionScope.user.role }">
+										      	<th scope="col" class="col-1 text-center">Edit Task</th>
+										      </c:if>
 										    </tr>
 									</thead>
 
@@ -130,22 +135,31 @@
 										  
 										    <tr>
 										<!--        <th scope="row">1</th>     -->
-										      <td>${task.taskName} <br><em>${task.contractor.companyName}</em></td>
-										      <td><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
-										      <td>${task.priorityNumber}</td>
-										      <td>${task.beginTime}</td>
-										      <td>${task.endTime}</td>
-										      <td>
+										      <td class="col">
+										      	<div>
+										      		${task.taskName}
+										      	</div>
+										      	<div>
+										      		<em class="companyName">
+										      			${task.contractor.companyName}
+										      		</em>
+										      	</div>
+										      </td>
+										      <td class="align-middle text-center"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
+										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
+										      <td class="col-2 text-center p-0 align-middle">${task.beginTime}</td>
+										      <td class="col-2 text-center p-0 align-middle">${task.endTime}</td>
+										      <td class="col-1 text-center align-middle">
 										      	<c:if test="${task.isComplete}">Completed</c:if>
 										      	<c:if test="${!task.isComplete}">
 										      		<a class="btn btn-primary btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
 										      </td>
-										      <td>
-									  <!-- UPDATE THIS BUTTON FOR UPDATING / EDITING TASK -->
-										      		<%-- <a class="btn btn-primary" href="editTask.do?id=${task.id}" role="button">Update Task</a> --%>
+										      <c:if test="${sessionScope.user.role }">
+										      	<td class="align-middle text-center">
 										      		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
-										      </td>
+										      	</td>
+										      </c:if>
 										    </tr>
 										  
 										
