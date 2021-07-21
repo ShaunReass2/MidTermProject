@@ -8,7 +8,6 @@
 <head>
 
 <link href="css/singleJob.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="singleViewBg">
@@ -20,7 +19,7 @@
 		<div class="card mx-auto mt-3 cardBG singleViewCard" style="">
 			<c:if test="${sessionScope.user.role}">
 				<div class="d-flex justify-content-around w-50 mx-auto mt-3">
-						<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
+						<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
 				  		<a class="btn btn-outline-success" href="markJobComplete.do?id=${job.id}" role="button">
 				  		<c:choose>
 				  			<c:when test="${job.isComplete}">
@@ -37,7 +36,7 @@
 			</c:if>
 			<div class="container-fluid p-2 m-2">
 			    <div class="row">
-			    	<div class="jobHeader col-6 pe-5 ps-0">
+			    	<div class="singleViewJobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
 			    	</div>
 			    	<div class="jobStartDateHeader col-3">
@@ -150,7 +149,7 @@
 										      <td class="col-2 text-center p-0 align-middle">${task.endTime}</td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">
-										      		<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
+										      		<button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
 										      	</td>
 										      </c:if>
 										      <td class="col-1 text-center align-middle">
