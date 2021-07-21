@@ -18,6 +18,7 @@
 		      <div class="modal-body">
 		      
 		      <!-- JSP include's GO HERE -->
+		      
 		      <%@ include file="CreateJob.jsp" %>
 		      
 		      </div>
