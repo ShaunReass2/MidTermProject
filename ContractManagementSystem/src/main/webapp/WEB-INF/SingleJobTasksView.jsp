@@ -35,7 +35,7 @@
 				</div>		
 			</c:if>
 			<div class="container-fluid p-0">
-			    <div class="row">
+			    <div class="row mt-3">
 			    	<div class="singleViewJobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
 			    	</div>
