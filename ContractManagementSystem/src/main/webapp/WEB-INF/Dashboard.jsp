@@ -15,20 +15,21 @@
 	<%@ include file="NavBar.jsp"%>
 
 	<div class="dashboardMain">
-		<h1>${sessionScope.user.username}</h1>
 
 		<!-- Button trigger modal for create job-->
 		<c:if test="${adminRole}">
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-				data-bs-target="#CreateJob">Create Job</button>
-			<%@ include file="AdminCreateAJobModal.jsp"%>
+			<center>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+					data-bs-target="#CreateJob">Create Job</button>
+					<%@ include file="AdminCreateAJobModal.jsp"%>
+			</center>
 		</c:if>
 
 		<!-- Start of Contractor / Non-admin divs -->
 
 		<div class="container-fluid p-2 m-2">
 
-			<div class="row">
+			<div class="row jobHeader mx-auto">
 				<div class="col-4">
 					<h4>Job Name</h4>
 				</div>
@@ -42,20 +43,26 @@
 			<c:choose>
 				<c:when test="${not empty jobs }">
 					<c:forEach var="job" items="${jobs}">
-						<div class="row">
-							<div class="col-4">
-								<br>
-								<h6>${job.jobName}</h6>
-							</div>
-							<div class="col-4">
-								<br>
-								<h6>${job.startDate}</h6>
-							</div>
-							<div class="col-4">
-								<br> <a class="btn btn-primary"
-									href="singleJobView.do?id=${job.id}" role="button">${job.jobName}</a>
-							</div>
+				
+						<div class="card dashboardJobCard mx-5 mt-3">
+  							<div class="card-body">  							
+								<div class="row">
+									<div class="col-4">
+										<br>
+										<h6>${job.jobName}</h6>
+									</div>
+									<div class="col-4">
+										<br>
+										<h6>${job.startDate}</h6>
+									</div>
+									<div class="col-4">
+										<br> <a class="btn btn-primary"
+											href="singleJobView.do?id=${job.id}" role="button">${job.jobName}</a>
+									</div>
+								</div>
+  							</div>
 						</div>
+					
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

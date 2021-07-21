@@ -36,8 +36,20 @@ body {
 	font-size: 30px;
 }
 
+.dashboardJobCard {
+	background: rgba(0,0,0,.7);
+	width: 90vw;
+}
 
+.userName {
+	text-align: center; 
+	color: white;
+	display: inline-block;
+}
 
+.jobHeader {
+	width: 90vw;
+}
 
 /* .footerBackground {
 	background-color: 
