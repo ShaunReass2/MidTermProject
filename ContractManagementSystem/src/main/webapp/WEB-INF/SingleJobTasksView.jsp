@@ -8,6 +8,7 @@
 <head>
 
 <link href="css/singleJob.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="singleViewBg">
@@ -58,18 +59,20 @@
 										  <div class="card-body row border mt-1 mb-1 p-0 mx-0 w-100 messageBackground">
 										  	  
 										  	  <div class="d-flex p-0">
-    											<div class="border col-2 p-2">
+    											<div class="border col-3 p-1 d-flex flex-column justify-content-around">
     												<h5>${message.user.username}</h5>
-    												<p>Created:</p>
-    												<p>${message.creationTime}</p>
+    												<div>
+    												   	<p class="m-0">Created:</p>
+    													<p>${message.creationTime}</p>
+    												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
-    													 <div class="col">
-    														<button class="btn btn-link btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
+    													 <div>
+    														<button class="btn btn-sm btn-light data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
     													</div>	
     												</c:if>
     											</div>
     											<div class="container col">
-    												<div class="col-10">
+    												<div class="col-9 m-0 w-100">
     													<p class="m-2">${message.messageBody}</p>
     												</div>
 
