@@ -118,9 +118,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "findJobByKeyword.do", method = RequestMethod.GET)
-	public String findJobByKeywordSearch(HttpSession session, Model model, String string) {
-		List<Job> jobs = userDAO.findJobByKeyword(string);
+	public String findJobByKeywordSearch(HttpSession session, Model model, String keyword) {
+		List<Job> jobs = userDAO.findJobByKeyword(keyword);
 		User sessionUser = (User) session.getAttribute("user");
+		model.addAttribute("jobs", jobs);
 		
 		return "Dashboard";
 	}
