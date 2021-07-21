@@ -33,7 +33,7 @@
 
 		<!-- Start of Contractor / Non-admin divs -->
 
-		<div class="container-fluid m-3">
+		<div class="container-fluid p-5">
 
 			<div class="row jobHeader mx-auto">
 				<div class="col-4">
