@@ -22,9 +22,6 @@ body {
 	width: 100vw;
 	text-align: center;
 }
-.card.mx-auto.mt-3.cardBG.singleViewCard{
-    height: 90vh;
-}
 
 .modal-content {
 	color: black;
@@ -42,10 +39,15 @@ body {
 	text-align: center; 
 	color: white;
 	display: inline-block;
+	z-index: 1;
 }
 
 .jobHeader {
 	width: 90vw;
+}
+
+.fixedusername {
+	z-index: 1;
 }
 
 /* .footerBackground {
