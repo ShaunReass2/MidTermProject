@@ -20,9 +20,8 @@
 		<div class="card mx-auto mt-3 cardBG singleViewCard" style="">
 			<c:if test="${sessionScope.user.role}">
 				<div class="d-flex justify-content-around w-50 mx-auto mt-3">
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
-				  		<a class="btn btn-success" href="markJobComplete.do?id=${job.id}" role="button">
+						<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#EditJob">Edit Job</button>
+				  		<a class="btn btn-outline-success" href="markJobComplete.do?id=${job.id}" role="button">
 				  		<c:choose>
 				  			<c:when test="${job.isComplete}">
 				  				Mark as Incomplete
@@ -31,21 +30,21 @@
 				  				Mark Job Complete
 				  			</c:otherwise>
 				  		</c:choose>
-				  		
 				  		</a>
-				  		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteJob">Delete Job</button>
+				  		<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#DeleteJob">Delete Job</button>
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#CreateTask">Create Task</button>
 				</div>		
 			</c:if>
 			<div class="container-fluid p-2 m-2">
 			    <div class="row">
-			    	<div class="col-6">
+			    	<div class="jobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
 			    	</div>
-			    	<div class="col-3">
+			    	<div class="jobStartDateHeader col-3">
 			    		<h4>Start Date</h4>
 			    		<p>${job.startDate}</p>
 			    	</div>
-			    	<div class="col-3">
+			    	<div class="jobEndDateHeader col-3">
 			    		<h4>Completion Date</h4>
 			    		<p>${job.endDate}</p>
 			    	</div>
@@ -114,15 +113,15 @@
 					      		<table class="table">
 					      		 	<thead>
 										    <tr>
-										      <th scope="col" class="col-2 text-center">Task Name <br><em>Contractor</em></th>
+										      <th scope="col" class="col-2 text-center">Individual Tasks<br><div class="contractorHeader"><em>Contractor</em></div></th>
 										      <th scope="col" class="col-1 text-center">Task Details</th>
 										      <th scope="col" class="col-1 text-center">Priority Number</th>
 										      <th scope="col" class="col-1 text-center">Begin Date</th>
 										      <th scope="col" class="col-1 text-center">End Date</th>
-										      <th scope="col" class="col-1 text-center">Completion Status</th>
 										      <c:if test="${sessionScope.user.role }">
 										      	<th scope="col" class="col-1 text-center">Edit Task</th>
 										      </c:if>
+										      <th scope="col" class="col-1 text-center">Completion Status</th>
 										    </tr>
 									</thead>
 
@@ -145,21 +144,21 @@
 										      		</em>
 										      	</div>
 										      </td>
-										      <td class="align-middle text-center"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
+										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">${task.beginTime}</td>
 										      <td class="col-2 text-center p-0 align-middle">${task.endTime}</td>
+										      <c:if test="${sessionScope.user.role }">
+										      	<td class="align-middle text-center">
+										      		<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
+										      	</td>
+										      </c:if>
 										      <td class="col-1 text-center align-middle">
 										      	<c:if test="${task.isComplete}">Completed</c:if>
 										      	<c:if test="${!task.isComplete}">
-										      		<a class="btn btn-primary btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
+										      		<a class="btn btn-outline-success btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
 										      </td>
-										      <c:if test="${sessionScope.user.role }">
-										      	<td class="align-middle text-center">
-										      		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
-										      	</td>
-										      </c:if>
 										    </tr>
 										  
 										
