@@ -179,11 +179,34 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'admin', 'a', 1, 1, 'Skill', 'Distillery');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'non-admin', 'b', 1, 1, 'David', 'Estrada');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'hardworker', 'c', 1, 1, 'John', 'Doe');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'better worker', 'bc', 1, 1, 'Jonny', 'Doe');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'best worker', 'bw', 1, 1, 'Johnathon ', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'puppets', 'a', 1, 0, 'Skill', 'Distillery');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'carpenter1', 'b', 1, 0, 'John', 'Doe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'electric1', 'electric1', 1, 0, 'Ed', 'Electric');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'drywaller1', 'drywaller1', 1, 0, 'Dan', 'Dane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'framer1', 'framer1', 1, 0, 'Fred', 'Fane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (6, 'mason1', 'mason1', 1, 0, 'Mo', 'Mane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (7, 'painter1', 'painter1', 1, 0, 'Peter', 'Poe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (8, 'wallpaperhanger1', 'wallpaperhanger1', 1, 0, 'Willy', 'Wane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (9, 'plumber1', 'plumber1', 1, 0, 'Plumb', 'Pane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (10, 'roofer1', 'roofer1', 1, 0, 'Roger', 'Rabbit');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (11, 'hvac1', 'hvac1', 1, 0, 'Henry', 'Habbit');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (12, 'cabinet1', 'cabinet1', 1, 0, 'Carl', 'Carlton');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (13, 'cementer1', 'cementer1', 1, 0, 'Chris', 'Christensan');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (14, 'welder1', 'welder1', 1, 0, 'Oscar', 'Estrada');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (15, 'laborer1', 'laborer1', 1, 0, 'Larry', 'Lane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (16, 'window1', 'window1', 1, 0, 'Warg', 'Wargenson');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (17, 'siding1', 'siding1', 1, 0, 'Sally', 'Sosa');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (18, 'flooring1', 'flooring1', 1, 0, 'Fargo', 'Farrel');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (19, 'landscaping1', 'landscaping1', 1, 0, 'Luke', 'Skywalker');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (20, 'pooler1', 'pooler1', 1, 0, 'Paul', 'Poole');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (21, 'java1', 'java1', 1, 0, 'Jake', 'Johnson');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (22, 'cplus', 'cplus', 1, 0, 'Cat', 'Catherine');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (23, 'python1', 'python1', 1, 0, 'PJ', 'Force');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (24, 'brandon', 'b', 1, 0, 'Brandon', 'Stine');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (25, 'tim', 't', 1, 0, 'Tim', 'Shumway');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (26, 'shaun', 's', 1, 0, 'Shaun', 'Reass');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (27, 'dave', 'd', 1, 0, 'David', 'Estrada');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (28, 'admin', 'a', 1, 1, 'Boss', 'Man');
 
 COMMIT;
 
@@ -193,7 +216,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `trade` (`id`, `name`) VALUES (1, 'Full-stack consultant');
+INSERT INTO `trade` (`id`, `name`) VALUES (1, 'Full-Stack Developer');
 INSERT INTO `trade` (`id`, `name`) VALUES (2, 'Electric');
 INSERT INTO `trade` (`id`, `name`) VALUES (3, 'Carpenter');
 INSERT INTO `trade` (`id`, `name`) VALUES (4, 'Dry-Waller');
@@ -222,11 +245,34 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Consulting Co.', 1, 1);
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (2, 'Hard Working John Doe Co.', 3, 20);
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (3, 'Ayo Daaayooo', 2, 1);
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (4, 'We Do It Better', 4, 1);
-INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (5, 'No, We Do It Best', 5, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (1, 'Sadistic Puppets\' Developers', 1, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (2, 'Hard Working John Doe Co.', 2, 3);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (3, 'JavaScript Serpents', 21, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (4, 'C++ Creators', 22, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (5, 'Python Full Stack Pros', 23, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (6, 'Stine\'s Electric Co.', 3, 2);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (7, 'Main St. Drywaller\'s ', 4, 4);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (8, 'Fred\'s Framing ', 5, 5);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (9, 'Mike\'s Masonry', 6, 6);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (10, 'Paul\'s Paint Service', 7, 7);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (11, 'Wallpapers & More', 8, 8);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (12, 'Pete\'s Plumbing Service', 9, 9);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (13, 'Raul & Sons Roofing', 10, 10);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (14, 'Henry\'s HVAC', 11, 11);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (15, 'Carlos Cabinetry', 12, 12);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (16, 'Jerry\'s Cementing', 13, 13);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (17, 'West Coast Welding', 14, 14);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (18, 'General Laborers Co.', 15, 15);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (19, 'Windows, Doors, & More', 16, 16);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (20, 'Sally\'s Siding Family Co.', 17, 17);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (21, 'Frankie\'s Flooring', 18, 18);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (22, 'Lopez Family Landscaping', 19, 19);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (23, 'Hyrdo Specialists', 20, 20);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (24, 'Brandon Stine\'s Full Stack Co.', 24, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (25, 'Tim Shumway\'s Full Stack Co.', 25, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (26, 'Shaun Reass\' Full Stack Co.', 26, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (27, 'David Estrada\'s Full Stack Co.', 27, 1);
+INSERT INTO `contractor` (`id`, `company_name`, `user_id`, `trade_id`) VALUES (28, 'General Contractor Corp.', 28, 15);
 
 COMMIT;
 
@@ -236,8 +282,23 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (1, 'Skill Distillery Midterm', '7400 E Orchard Rd #1450n, Greenwood Village, CO 80111', '2021-07-15', '2021-07-16', 0, 'Provide full stack Java software development', 1, 300, 'All day long', 'APIE', 1);
-INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (2, 'Hard Work', '123 Main Street', '2021-07-16', '2021-07-17', 0, 'Do hard work', 1, 100, 'All day long', 'Good luck', 3);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (1, 'Skill Distillery Midterm', '7400 E Orchard Rd #1450n, Greenwood Village, CO 80111', '2021-07-15', '2021-07-23', 0, 'Provide full stack Java software development', 1, 300, 'All day long', 'APIE', 1);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (2, 'Hard Work', '123 Main Street', '2021-07-16', '2021-07-17', 0, 'Hammer the nails. Cut the wood. Do your thing.', 1, 100, 'All day long', 'Good luck', 2);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (3, 'SD Midterm: backend', 'Remote', '2021-07-15', '2021-07-23', 0, 'All the Java coding through Eclipse IDE.', 1, 200, 'Normal school hours', 'Don\'t forget those semicolons.', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (4, 'SD Midterm: frontend', 'Remote', '2021-07-15', '2021-07-23', 0, 'Design each view / web page', 1, 150, 'Normal class time', 'utilize JSTL tags', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (5, 'SD Midterm: repository', 'Remote', '2021-07-15', '2021-07-23', 0, 'Create the repo on Github', 1, 175, 'ongoing', 'share with team members', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (6, 'SD Midterm: MySQL Workbench', 'Remote', '2021-07-15', '2021-07-23', 0, 'Create Database', 1, 50, 'ongoing', 'forward engineer', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (7, 'SD Midterm: Presentations', 'Remote through zoom', '2021-07-15', '2021-07-23', 0, 'Give final presentations to classmates', 0, 8, '4pm Friday', 'speak loud and clearly', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (8, 'SD Final Projects', 'Remote', '2021-08-23', '2021-08-25', 0, 'Give final presentations on final projects', 1, 299, 'all day long', 'speak clearly', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (9, 'SD: Make Change', 'Remote', '2021-05-25', '2021-05-27', 0, 'Make change from a cash register', 0, 65, 'weekend', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (10, 'SD: FilmQuery', 'Remote', '2021-07-01', '2021-07-03', 0, 'Full CRUD operations for our Film DB', 0, 64, 'weekend', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (11, 'SD: PresidentsDAO', 'Remote', '2021-06-24', '2021-06-25', 0, 'Learning about DAO methods', 0, 8, 'in class lab', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (12, 'SD: CesarCipher', 'Remote', '2021-05-24', '2021-05-26', 0, 'Weekend project', 0, 34, 'weekend ', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (13, 'SD: FizzBuzz', 'Remote', '2021-05-15', '2021-05-17', 0, 'weekend project', 0, 32, 'weekend homework', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (14, 'SD CRUD Solo Project', 'Remote', '2021-07-01', '2021-07-03', 0, 'weekend project', 0, 54, 'weekend homework', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (15, 'SD: PreWork', 'Remote', '2021-04-21', '2021-05-10', 0, 'prework before cohort begins', 0, 124, 'before 1st day of class', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (16, 'SD: Jets Project', 'Remote', '2021-06-01', '2021-06-04', 0, 'Jets project with Scanner CRUD', 0, 46, 'weekend project', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (17, 'SD: Blackjack Project', 'Remote', '2021-06-07', '2021-06-09', 0, 'Working Blackjack application', 0, 48, 'weekend homework', 'none', 28);
 
 COMMIT;
 
@@ -257,8 +318,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `contractingdb`;
-INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (1, 0, 'Midterm Project', 'Create midterm project VIP', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (1, 0, 'Trello board', 'create a checklist on Trello', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
 INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (2, 0, 'Hard Work Task', 'Do hard work', 2, 1, 2, '2021-07-16 09:00:00', '2021-07-22 15:00:00', 20);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (3, 0, 'Midterm front-end', 'Create JSP and web pages. Use CSS', 1, 5, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (4, 0, 'Midterm back-end', 'All the logic through Java programming', 1, 2, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (5, 0, 'Controllers', 'Correct mapping to DAOs and web views', 1, 3, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (6, 0, 'DAO methods', 'Correct logic and syntax with all working DAO methods', 1, 3, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (7, 0, 'JSP views', 'All views are functional & eye-catching', 1, 5, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (8, 0, 'Bootstrap', 'Link bootstrap and utilize modals, cards, etc', 1, 2, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (9, 0, 'Entities', 'Create entities reflecting DB tables', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (10, 0, 'Database created', 'DBA do his job right?', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (11, 0, 'Repository', 'Repo owner shared with team?', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
 
 COMMIT;
 

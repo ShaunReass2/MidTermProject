@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,7 @@
 				</div>		
 			</c:if>
 			<div class="container-fluid p-0">
-			    <div class="row">
+			    <div class="row mt-3">
 			    	<div class="singleViewJobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
 			    	</div>
@@ -48,6 +49,9 @@
 			    		<p>${job.endDate}</p>
 			    	</div>
 			    </div>
+			    
+			    <!-- START OF MESSAGES TABLE -->
+			    
 			    <div class="row">
 			    	<div class="col-5">
 			    		<div class="container-fluid scroll-message p-0">
@@ -106,6 +110,9 @@
 			    		</form>
 
 			    	</div>
+			    	
+			    	<!-- START OF TASK TABLE -->
+			    	
 			    	<div class="col-7 scroll-task">
 			    		<c:choose>
 					      		<c:when test="${not empty tasks}">
@@ -145,8 +152,16 @@
 										      </td>
 										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
-										      <td class="col-2 text-center p-0 align-middle">${task.beginTime}</td>
-										      <td class="col-2 text-center p-0 align-middle">${task.endTime}</td>
+										      <td class="col-2 text-center p-0 align-middle">
+										      	<c:set var = "string1" value = "${task.beginTime}"/>
+      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '&emsp;')}" />
+										      	${stringStartDateTime}
+										      </td>
+										      <td class="col-2 text-center p-0 align-middle">
+										      	<c:set var = "string2" value = "${task.endTime}"/>
+      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', '&emsp;')}" />
+										      	${stringEndDateTime}
+										      </td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">
 										      		<button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#updateTask${task.id}">Update</button>
@@ -172,14 +187,48 @@
 					      		</c:choose>
 			    	</div>
 			    </div>
-			    <div class="row">
-			    	<div class="col">
-			    		${job.jobDescription}
-			    	</div>
-			    </div>
+			    
+		 <!-- START OF JOB DETAILS TABLE  -->
+			    
+		<div class="container-fluid m-3 p-4">
+
+			<div class="row jobDetailsTableHeader mx-auto border-bottom border-white">
+				<div class="col-3 text-center">
+					<h5>Job Description</h5>
+				</div>
+				<div class="col-3 text-center">
+					<h5>Total Man Hours</h5>
+				</div>
+				<div class="col-3 text-center">
+					<h5>Authorized Overtime</h5>
+				</div>
+				<div class="col-3 text-center">
+					<h5>Miscellaneous</h5>
+				</div>
+			</div>
+			<div class="row jobDetailsTableData mx-auto">
+				<div class="col-3 text-center">
+			    	${job.jobDescription}
+				</div>
+				<div class="col-3 text-center">
+					${job.totalManHours}
+				</div>
+				<div class="col-3 text-center">
+				 	${job.authorizedOvertime}
+				</div>
+				<div class="col-3 text-center">
+					${job.miscellaneous}
+				</div>
 			</div>
 		</div>
+	</div>
+</div>
 	
+
+
+
+
+
 
 
 	<%@ include file="CreateTaskModal.jsp" %>

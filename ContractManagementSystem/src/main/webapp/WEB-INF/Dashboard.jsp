@@ -7,8 +7,8 @@
 <html>
 <head>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link href="css/main.css" rel="stylesheet" />
-
 
 </head>
 <body>
@@ -22,7 +22,7 @@
 				<div class="row align-items-center jobHeader mx-auto">
 					<div class="col-4"></div>
 					<div class="col-4">
-						<button type="button" class="mx-auto btn btn-primary mt-3" data-bs-toggle="modal"
+						<button type="button" class="mx-auto btn btn-dark mt-3" data-bs-toggle="modal"
 							data-bs-target="#CreateJob">Create Job</button>						
 						<%@ include file="AdminCreateAJobModal.jsp"%>
 					</div>
@@ -36,37 +36,45 @@
 		<div class="container-fluid p-5">
 
 			<div class="row jobHeader mx-auto">
-				<div class="col-4">
-					<h3>Job Name</h3>
+				<div class="col-3">
+					<h2>Job Name</h2>
 				</div>
-				<div class="col-4">
-					<h3>Start Date</h3>
+				<div class="col-3">
+					<h2>Start Date</h2>
 				</div>
-				<div class="col-4">
-					<h3>View Job</h3>
+				<div class="col-3">
+					<h2>End Date</h2>
+				</div>
+				<div class="col-3">
+					<h2>View Job</h2>
 				</div>
 			</div>
 			<c:choose>
 				<c:when test="${not empty jobs }">
+						<div class="card jobsContainerCard">
+							<div class="card-body">				
 					<c:forEach var="job" items="${jobs}">
-				
-						<div class="card dashboardJobCard mx-auto mt-3">
-  							<div class="card-body">  							
-								<div class="row align-items-center">
-									<div class="col-4">
-										<h6>${job.jobName}</h6>
-									</div>
-									<div class="col-4">
-										<h6>${job.startDate}</h6>
-									</div>
-									<div class="col-4">
-										<a class="btn btn-primary" href="singleJobView.do?id=${job.id}" role="button">${job.jobName}</a>
-									</div>
+								<div class="card dashboardJobCard mx-auto mt-3">
+		  							<div class="card-body">  							
+										<div class="row align-items-center">
+											<div class="col-3">
+												<h6>${job.jobName} <c:if test="${job.isComplete}">  <i class="bi bi-check2-circle"></i></c:if></h6>
+											</div>
+											<div class="col-3">
+												<h6>${job.startDate}</h6>
+											</div>
+											<div class="col-3">
+												<h6>${job.endDate}</h6>												
+											</div>
+											<div class="col-3">
+												<a class="btn btn-outline-light" href="singleJobView.do?id=${job.id}" role="button">View Job</a>
+											</div>
+										</div>
+		  							</div>
 								</div>
-  							</div>
-						</div>
-					
 					</c:forEach>
+							</div>
+						</div>
 				</c:when>
 				<c:otherwise>
 					<h5>No jobs found.</h5>
