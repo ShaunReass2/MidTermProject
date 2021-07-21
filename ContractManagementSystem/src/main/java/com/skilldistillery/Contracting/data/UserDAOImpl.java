@@ -77,10 +77,11 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			if(isAdmin) {
 				jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList();
-				Set<Job> unique = new HashSet<>(jobs);
-				jobs = new ArrayList<>(unique);
+
 			}else {
 				jobs = em.createQuery(contractorjpql, Job.class).setParameter("id", id).getResultList();
+				Set<Job> temp = new HashSet<>(jobs);
+				jobs = new ArrayList<>(temp);
 			}
 			
 		} catch (Exception e) {
