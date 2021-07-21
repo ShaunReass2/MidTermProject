@@ -1,6 +1,9 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -74,6 +77,8 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			if(isAdmin) {
 				jobs = em.createQuery(jpql, Job.class).setParameter("id", id).getResultList();
+				Set<Job> unique = new HashSet<>(jobs);
+				jobs = new ArrayList<>(unique);
 			}else {
 				jobs = em.createQuery(contractorjpql, Job.class).setParameter("id", id).getResultList();
 			}
