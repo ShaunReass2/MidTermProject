@@ -37,3 +37,7 @@ table.table {
     background: rgba(39,54,70,.8);
 }
 
+.companyName {
+	color: limegreen;
+}
+

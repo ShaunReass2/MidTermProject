@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.do">CMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,11 +23,9 @@
           <a class="nav-link active" aria-current="page" href="home.do">Home</a>
         </li>
           <c:if test="${not empty sessionScope.user}">
-          	<c:if test="${sessionScope.user.role}">
-            	<li class="nav-item">
+            <li class="nav-item">
             	<a class="nav-link" href="showCompletedJobs.do">View Completed Jobs</a>
-          		</li>
-          	</c:if>
+          	</li>
     	</c:if>
       </ul>
     </div>
@@ -40,10 +38,10 @@
     	</c:if>
     	<c:choose>
 	      	<c:when test="${empty sessionScope.user}">
-	      		<a href="" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
+	      		<a href="" class="btn btn-outline-light mx-2" data-bs-toggle="modal" data-bs-target="#loginForm">Login</a>
 	      	</c:when>
 	      	<c:when test="${not empty sessionScope.user}">
-	      		<a href="logout.do" class="btn btn-outline-dark mx-2">Logout</a>
+	      		<a href="logout.do" class="btn btn-outline-light mx-2">Logout</a>
 	      	</c:when>
       </c:choose>
 
