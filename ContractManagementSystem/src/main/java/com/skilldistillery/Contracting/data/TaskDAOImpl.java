@@ -1,5 +1,7 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -67,6 +69,22 @@ public class TaskDAOImpl implements TaskDAO {
 		managedTask.setIsComplete(task.getIsComplete());		
 		
 		return managedTask;	
+	}
+
+	@Override
+	public List<Task> findAllTasks(){
+		
+		List<Task> tasks = null; 
+		
+		String jpql = "SELECT t FROM Task t";
+		
+				try {
+					tasks = em.createQuery(jpql, Task.class).getResultList();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+		return tasks;
 	}
 
 }
