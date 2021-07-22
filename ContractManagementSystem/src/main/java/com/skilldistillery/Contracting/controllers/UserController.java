@@ -123,24 +123,8 @@ public class UserController {
 		model.addAttribute("adminRole", sessionUser.getRole());
 		model.addAttribute("job", job);
 		
-		List<Task> tasks = job.getTasks();
-		if(taskPriorityIsAscending) {
-			tasks.sort(Comparator.comparing(Task::getPriorityNumber));
-		}else if(taskPriorityIsDescending) {
-			tasks.sort(Comparator.comparing(Task::getPriorityNumber).reversed());
-		}else if(taskBeginDateIsAscending) {
-			tasks.sort(Comparator.comparing(Task::getBeginTime));
-		}else if(taskBeginDateIsDescending) {
-			tasks.sort(Comparator.comparing(Task::getBeginTime).reversed());
-		}else if(taskEndDateIsAscending) {
-			tasks.sort(Comparator.comparing(Task::getEndTime));
-		}else if(taskEndDateIsDescending) {
-			tasks.sort(Comparator.comparing(Task::getEndTime).reversed());
-		}else if(taskIsCompleteIsAscending) {
-			tasks.sort(Comparator.comparing(Task::getIsComplete));
-		}else if(taskIsCompleteIsDescending) {
-			tasks.sort(Comparator.comparing(Task::getIsComplete).reversed());
-		}
+		List<Task> tasks = job.getTasks(); 
+		tasksToBeSorted(tasks, taskPriorityIsAscending, taskPriorityIsDescending, taskBeginDateIsAscending, taskBeginDateIsDescending, taskEndDateIsAscending, taskEndDateIsDescending, taskIsCompleteIsAscending, taskIsCompleteIsDescending);;
 		
 		model.addAttribute("tasks", tasks);
 		model.addAttribute("messages", job.getMessages());
@@ -154,7 +138,7 @@ public class UserController {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
-		User sessionUser = (User) session.getAttribute("user");
+	
 		model.addAttribute("jobs", jobs);
 
 		return "Dashboard";
@@ -173,6 +157,29 @@ public class UserController {
 			jobs.sort(Comparator.comparing(Job::getEndDate));
 		}else if(endIsDescending) {
 			jobs.sort(Comparator.comparing(Job::getEndDate).reversed());
+		}
+	}
+	
+	public void tasksToBeSorted(List<Task> tasks, boolean taskPriorityIsAscending, boolean taskPriorityIsDescending,
+            boolean taskBeginDateIsAscending, boolean taskBeginDateIsDescending, boolean taskEndDateIsAscending, 
+            boolean taskEndDateIsDescending, boolean taskIsCompleteIsAscending, boolean taskIsCompleteIsDescending) {
+		
+		if(taskPriorityIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getPriorityNumber));
+		}else if(taskPriorityIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getPriorityNumber).reversed());
+		}else if(taskBeginDateIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getBeginTime));
+		}else if(taskBeginDateIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getBeginTime).reversed());
+		}else if(taskEndDateIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getEndTime));
+		}else if(taskEndDateIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getEndTime).reversed());
+		}else if(taskIsCompleteIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getIsComplete));
+		}else if(taskIsCompleteIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getIsComplete).reversed());
 		}
 	}
 
