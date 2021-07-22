@@ -181,7 +181,7 @@ START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'puppets', 'a', 1, 0, 'Skill', 'Distillery');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'carpenter1', 'b', 1, 0, 'John', 'Doe');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'pikachu_rulez', 'electric1', 1, 0, 'Ed', 'Electric');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'zaptos_rulez', 'electric1', 1, 0, 'Ed', 'Electric');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'Dane_drywalls', 'drywaller1', 1, 0, 'Dan', 'Dane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'hardcore_1986', 'framer1', 1, 0, 'Fred', 'Fane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (6, 'mason1', 'mason1', 1, 0, 'Mo', 'Mane');
@@ -315,12 +315,12 @@ INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (4, 'Yes, I will be providing security clearance numbers for all contractors and they will be required to show face and get pictures taken before we break ground', '2021-07-22 5:05:00', 18, 28);
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (5, 'This site is awesome! Where was this 10 years ago.', '2021-07-21 9:08:00', 18, 15);
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (6, 'Thanks for introducing us to this Boss Man', '2021-07-21 9:07:45', 18, 12);
-INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (7, 'Sweet, now I don\'t have to worry about anyone trying to cut my wires and get away with it', '2021-07-21 3:45:04', 18, 3);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (7, 'Sweet, now I don\'t have to worry about anyone trying to cut my wires and get away with it', '2021-07-21 15:45:04', 18, 3);
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (8, 'Hey Boss Man, how do we get past security? The White House is a fortress', '2021-07-21 23:04:32', 18, 6);
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (9, 'Yeah, what he said. Do we need to get security clearance badges or something?', '2021-07-22 4:44:34', 18, 8);
-INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (10, 'Hey Boss Man, this is cool as heck. Should help us stay on track 4 sure', '2021-07-21 12:13:56', 18, 18);
-INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (11, 'I never cut anyone\'s damn wires!', '2021-07-21 3:56:01', 18, 4);
-INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (12, 'That\'s not what I heard Dane, some jobs in North Carolina say otherwise', '2021-07-21 4:42:08', 18, 7);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (10, 'Hey Boss Man, this is cool as heck. Should help us stay on track 4 sure', '2021-07-21 11:13:56', 18, 18);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (11, 'I never cut anyone\'s damn wires!', '2021-07-21 15:56:01', 18, 4);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (12, 'That\'s not what I heard Dane, some jobs in North Carolina say otherwise', '2021-07-21 20:42:08', 18, 7);
 
 COMMIT;
 

@@ -48,7 +48,7 @@
 			    	</div>
 			    	<div class="jobEndDateHeader col-3 text-center">
 			    		<h4>Completion Date</h4>
-			    		<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobEndDate" type="date"/>
+			    		<fmt:parseDate value="${job.endDate}" pattern="yyyy-MM-dd" var="jobEndDate" type="date"/>
     					<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${jobEndDate}"/> </p>
 			    	</div>
 			    </div>
@@ -180,7 +180,7 @@
 										      </td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">
-      											<fmt:parseDate value="${task.endTime}" pattern="yyyy-MM-dd'T'HH:mm" var="startDateTime" type="both" />
+      											<fmt:parseDate value="${task.beginTime}" pattern="yyyy-MM-dd'T'HH:mm" var="startDateTime" type="both" />
 												<fmt:formatDate pattern="MM-dd-yyyy HH:mm" value="${ startDateTime }" />
 										      </td>
 										      <td class="col-2 text-center p-0 align-middle">
