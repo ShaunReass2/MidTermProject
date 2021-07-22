@@ -90,7 +90,8 @@ public class UserController {
 		}
 		User sessionUser = (User) session.getAttribute("user");
 
-		List<Job> jobs = jobDAO.showCompletedJobs();
+		List<Job> jobs = jobDAO.showCompletedJobs(sessionUser);
+		
 		jobsToBeSorted(jobs, nameIsAscending, nameIsDescending, startIsAscending, startIsDescending, endIsAscending, endIsDescending);
 		model.addAttribute("jobs", jobs);
 		model.addAttribute("adminRole", sessionUser.getRole());
