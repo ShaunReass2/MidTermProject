@@ -1,4 +1,4 @@
-##    Contract Management System (CMS)
+##    Contractor Management System (CMS)
 ###   --------------------------------
 ###   Skill Distillery Midterm Project
 
@@ -29,7 +29,7 @@ This application provides a platform on which General Contractors (GCs) and vari
 
 ### How to Run
 
-Upon landing on the splash page, a user is greeted with the Contract Management System (CMS) banner and moto at the top center, a top navbar allowing login (for established account holders only), two links for Administrator and Contractor sign up to the platform, and a bottom footer with developer names and information.  
+Upon landing on the splash page, a user is greeted with the Contractor Management System (CMS) banner and moto at the top center, a top navbar allowing login (for established account holders only), two links for Administrator and Contractor sign up to the platform, and a bottom footer with developer names and information.  
 
 For a person to use the platform, they must either sign up using one of the two links under the CMS banner: 1) Administrator Sign Up or 2) Contractor Sign Up.
 

@@ -12,7 +12,7 @@
 
 <body>
 	<div class="homebackground">
-		<h1><strong style="color: #292826">C</strong>ontract <strong style="color: #292826">M</strong>anagement <strong style="color: #292826">S</strong>ystem</h1>
+		<h1><strong style="color: #292826">C</strong>ontractor <strong style="color: #292826">M</strong>anagement <strong style="color: #292826">S</strong>ystem</h1>
 		<p>
 		<h3>
 			<em>Paving the future of communications in the workplace</em>
