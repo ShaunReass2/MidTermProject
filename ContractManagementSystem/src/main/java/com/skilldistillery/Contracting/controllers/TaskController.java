@@ -90,7 +90,11 @@ public class TaskController {
 	}
 	
 	@RequestMapping(path = "chooseTrade.do", method = RequestMethod.POST)
-	public String chooseTradeForCreateTask(Model model, int id, int jobId) {
+	public String chooseTradeForCreateTask(Model model, int id, int jobId, HttpSession session) {
+		User sessionUser = (User)session.getAttribute("user");
+		if(sessionUser == null) {
+			return "redirect:Error.do";
+		}
 		List<Contractor> contractors = contractorDAO.findAllContractors(id);
 		model.addAttribute("contractors", contractors);
 		model.addAttribute("jobId", jobId);
