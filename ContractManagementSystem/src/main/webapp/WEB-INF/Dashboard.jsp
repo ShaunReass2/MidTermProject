@@ -95,7 +95,10 @@
 		  							<div class="card-body">  							
 										<div class="row align-items-center">
 											<div class="col-3">
-												<h6>${job.jobName} <c:if test="${job.isComplete}">  <i class="bi bi-check2-circle"></i></c:if></h6>
+												<h6 class="d-flex justify-content-center align-items-center">
+													<span>${job.jobName}</span>
+													<c:if test="${job.isComplete}">
+													<i class="bi bi-check2-circle"></i></c:if></h6>
 											</div>
 											<div class="col-3">
 												<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobStart" type="date"/>

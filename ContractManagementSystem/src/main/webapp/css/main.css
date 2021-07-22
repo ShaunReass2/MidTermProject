@@ -4,6 +4,10 @@ body {
 	
 }
 
+h6 {
+	margin: 0;
+}
+
 
 .homebackground {
 	color: white;
@@ -75,4 +79,9 @@ body {
 
 *::-webkit-scrollbar-thumb {
   background-color: rbga(0,0,0,.1);
+}
+
+i.bi.bi-check2-circle {
+	font-size:22px;
+	color: limegreen;
 }
