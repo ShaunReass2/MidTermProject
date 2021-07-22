@@ -3,6 +3,8 @@ package com.skilldistillery.Contracting.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import com.skilldistillery.Contracting.data.TaskDAO;
 import com.skilldistillery.Contracting.data.TradeDAO;
 import com.skilldistillery.Contracting.entities.Contractor;
 import com.skilldistillery.Contracting.entities.Task;
+import com.skilldistillery.Contracting.entities.User;
 
 @Controller
 public class TaskController {
@@ -52,16 +55,25 @@ public class TaskController {
 		return "redirect:singleJobView.do?id=" + task.getJob().getId();
 	}
 
-	@RequestMapping(path = "deleteTask.do", method = RequestMethod.POST)
-	public String deleteTask(RedirectAttributes redir, Task task) {
+	@RequestMapping(path = "deleteTask.do", method = RequestMethod.GET)
+	public String deleteTask(HttpSession session, RedirectAttributes redir, Task task) {
+		Task managedTask = taskDAO.findSingleTask(task);
+		int jobId = managedTask.getJob().getId();
+		User sessionUser = (User) session.getAttribute("user");
 		
-		boolean wasDeleted = taskDAO.deleteTask(task);
 		
-		if(!wasDeleted) {
-			redir.addFlashAttribute("taskDeletionFlag", true);
-			return "redirect:Error.do";
+		if(sessionUser.getId() == managedTask.getJob().getUser().getId()) {
+			boolean wasDeleted = taskDAO.deleteTask(task);
+			
+			if(!wasDeleted) {
+				redir.addFlashAttribute("taskDeletionFlag", true);
+				return "redirect:Error.do";
+			}
+			return "redirect:singleJobView.do?id=" + jobId;			
 		}
-		return "redirect:singleJobView.do?id=" + task.getJob().getId();
+		
+		redir.addFlashAttribute("taskDeletionFlag", true);
+		return "redirect:Error.do";		
 	}
 
 	@RequestMapping(path = "editTask.do", method = RequestMethod.POST)
