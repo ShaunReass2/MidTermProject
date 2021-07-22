@@ -30,7 +30,7 @@ This application provides a platform on which General Contractors (GCs) and vari
 
 ### Graphic Examples
 
-<img src="ContractManagementSystem/src/main/webapp/Pictures/ER_MidTerm_Project_CMS.png" alt ="git" width="100px" height="100px" align="center"/>
+<img src="ContractManagementSystem/src/main/webapp/Pictures/ER_MidTerm_Project_CMS.png" alt ="git" width="100" height="100" align="center"/>
 
 ### How to Run
 
