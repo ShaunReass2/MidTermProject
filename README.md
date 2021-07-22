@@ -28,6 +28,10 @@ This application provides a platform on which General Contractors (GCs) and vari
   * MySQL Workbench
   * Agile, Interactive, and Pair Programming Design
 
+### Graphic Examples
+
+<img src="src/main/webapp/Pictures/ER_MidTerm_Project_CMS" alt ="git" width="100" height="100" align="center"/>
+
 ### How to Run
 
 Upon landing on the splash page, a user is greeted with the Contractor Management System (CMS) banner and moto at the top center, a top navbar allowing login (for established account holders only), two links for Administrator and Contractor sign up to the platform, and a bottom footer with developer names and information.  
