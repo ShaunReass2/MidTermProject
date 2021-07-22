@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -61,10 +61,12 @@
 												<h6>${job.jobName} <c:if test="${job.isComplete}">  <i class="bi bi-check2-circle"></i></c:if></h6>
 											</div>
 											<div class="col-3">
-												<h6>${job.startDate}</h6>
+												<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobStart" type="date"/>
+												<h6><fmt:formatDate pattern="MM-dd-yyyy" value="${jobStart}"/> </h6>
 											</div>
 											<div class="col-3">
-												<h6>${job.endDate}</h6>												
+												<fmt:parseDate value="${job.endDate}" pattern="yyyy-MM-dd" var="jobEnd" type="date"/>
+												<h6><fmt:formatDate pattern="MM-dd-yyyy" value="${jobEnd}"/> </h6>											
 											</div>
 											<div class="col-3">
 												<a class="btn btn-outline-light" href="singleJobView.do?id=${job.id}" role="button">View Job</a>
@@ -82,29 +84,6 @@
 			</c:choose>
 		</div>
 	</div>
-
-
-
-
-
-	<%-- 		<div class = dashboardJobList>
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th scope="col">Job Name</th>
-		      <th scope="col">Start Date</th>
-		  </thead>
-			<tbody>
-			<c:forEach var="job" items="${jobs}">
-			  <tr>
-				${job.jobName} -> Start Date: ${job.startDate}
-				<a class="btn btn-primary" href="singleJobView.do?id=${job.id}" role="button">Open Job</a>
-			  </tr>
-			</c:forEach>
-			</tbody>
-		</table>
-	    </div> --%>
-
 
 	<%@ include file="Footer.jsp"%>
 </body>

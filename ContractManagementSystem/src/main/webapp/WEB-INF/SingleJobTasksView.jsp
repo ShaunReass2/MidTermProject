@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
    
 <!DOCTYPE html>
 <html>
@@ -42,11 +43,13 @@
 			    	</div>
 			    	<div class="jobStartDateHeader col-3 text-center">
 			    		<h4>Start Date</h4>
-			    		<p>${job.startDate}</p>
+			    		<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobStartDate" type="date"/>
+    					<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${jobStartDate}"/> </p>
 			    	</div>
 			    	<div class="jobEndDateHeader col-3 text-center">
 			    		<h4>Completion Date</h4>
-			    		<p>${job.endDate}</p>
+			    		<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobEndDate" type="date"/>
+    					<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${jobEndDate}"/> </p>
 			    	</div>
 			    </div>
 			    
@@ -68,7 +71,8 @@
     												   	<c:set var = "string1" value = "${message.creationTime}"/>
       													<c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
       													<c:set var = "string3" value = "${fn:substring(string1, 11, 16)}" />
-    													<p class="m-0">${string2}</p>
+    													<fmt:parseDate value="${string2}" pattern="yyyy-MM-dd" var="messageDate" type="date"/>
+    													<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${messageDate}"/> </p>
     													<p class="m-0">${string3}</p>
     												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
@@ -157,14 +161,12 @@
 										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">
-										      	<c:set var = "string1" value = "${task.beginTime}"/>
-      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '&emsp;')}" />
-										      	${stringStartDateTime}
+      											<fmt:parseDate value="${task.endTime}" pattern="yyyy-MM-dd'T'HH:mm" var="startDateTime" type="both" />
+												<fmt:formatDate pattern="MM-dd-yyyy HH:mm" value="${ startDateTime }" />
 										      </td>
 										      <td class="col-2 text-center p-0 align-middle">
-										      	<c:set var = "string2" value = "${task.endTime}"/>
-      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', '&emsp;')}" />
-										      	${stringEndDateTime}
+      											<fmt:parseDate value="${task.endTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+												<fmt:formatDate pattern="MM-dd-yyyy HH:mm" value="${ parsedDateTime }" />
 										      </td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">

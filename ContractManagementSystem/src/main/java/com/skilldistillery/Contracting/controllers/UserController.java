@@ -1,6 +1,8 @@
 package com.skilldistillery.Contracting.controllers;
 
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -74,8 +76,17 @@ public class UserController {
 		}
 		User sessionUser = (User)session.getAttribute("user");
 		
-		
-		model.addAttribute("jobs", userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole()));
+		List<Job> jobs = userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole());
+//		
+//		String europeanDatePattern = "MM.dd.yyyy";
+//		DateTimeFormatter americanDateFormatter = DateTimeFormatter.ofPattern(europeanDatePattern);
+//		
+//		
+//		for (Job job : jobs) {
+//			americanDateFormatter.format(job.getStartDate());
+//		}
+//		
+		model.addAttribute("jobs", jobs);
 		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
 	}
