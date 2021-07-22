@@ -16,7 +16,4 @@ public interface JobDAO {
 	
 	List<Job> showCompletedJobs();
 	// update (mark complete) methods
-	List<Job> sortJobName(boolean isAscending);
-	List<Job> sortJobStartDate(boolean isAscending);
-	List<Job> sortJobEndDate(boolean isAscending);
 }
