@@ -48,14 +48,14 @@ class UserTest {
 	@DisplayName("testing User entity username mapping")
 	void test1() {
 		assertNotNull(user);
-		assertEquals("non-admin", user.getUsername());
+		assertEquals("carpenter1", user.getUsername());
 	}
 	
 	@Test
 	@DisplayName("testing User entity password mapping")
 	void test2() {
 		assertNotNull(user);
-		assertEquals("laborer1", user.getPassword());
+		assertEquals("b", user.getPassword());
 	}
 	
 	@Test
@@ -92,7 +92,7 @@ class UserTest {
 	void test7() {
 		User user1 = em.find(User.class, 1);
 		assertNotNull(user1);
-		assertTrue(!user1.getJobs().isEmpty());
+		assertTrue(user1.getJobs().isEmpty());
 		user1 = null;
 	}
 	

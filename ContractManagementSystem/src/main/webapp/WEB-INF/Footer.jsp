@@ -12,7 +12,7 @@
 
   <div class="d-flex justify-content-around fixed-bottom footer">
   	  	<div class="row align-content-center">
-  			 <div class="col-9">
+  			 <div class="col-7">
   				<p class="footerName m-0 mt-1">Shaun Reass:</p>
 	 		</div>
 			<div class="col-1">
@@ -23,7 +23,7 @@
 			</div>
   		</div>
   	  	<div class="row align-content-center">
-  			 <div class="col-9">
+  			 <div class="col-7">
   				<p class="footerName m-0 mt-1">Brandon Stine:</p>
 	 		</div>
 			<div class="col-1">
@@ -34,7 +34,7 @@
 			</div>
   		</div>
   	  	<div class="row align-content-center">
-  			 <div class="col-9">
+  			 <div class="col-8">
   				<p class="footerName m-0 mt-1">Timothy Shumway:</p>
 	 		</div>
 			<div class="col-1">
@@ -46,7 +46,7 @@
   		</div>
   		
   		<div class="row align-content-center">
-  			 <div class="col-9">
+  			 <div class="col-7">
   				<p class="footerName m-0 mt-1">David Estrada:</p>
 	 		</div>
 			<div class="col-1">

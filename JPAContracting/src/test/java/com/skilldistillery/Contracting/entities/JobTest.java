@@ -69,7 +69,7 @@ class JobTest {
 	void test4() {
 		assertNotNull(job);
 		assertTrue(!job.getTasks().isEmpty());
-		assertEquals("Midterm Project", job.getTasks().get(0).getTaskName());
+		assertEquals("Trello board", job.getTasks().get(0).getTaskName());
 	}
 
 }

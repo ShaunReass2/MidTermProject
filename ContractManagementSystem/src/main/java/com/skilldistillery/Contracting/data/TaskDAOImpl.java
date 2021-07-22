@@ -1,5 +1,7 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.Contracting.entities.Contractor;
 import com.skilldistillery.Contracting.entities.Job;
+import com.skilldistillery.Contracting.entities.Message;
 import com.skilldistillery.Contracting.entities.Task;
 
 @Service
@@ -44,16 +47,19 @@ public class TaskDAOImpl implements TaskDAO {
 
 	@Override
 	public boolean deleteTask(Task task) {
-		if (task != null) {
-			if(em.contains(task)) {
-				em.remove(task);				
-			}
+		Task managedTask = em.find(Task.class, task.getId());
+		
+		if (managedTask != null) {			
+			managedTask.setJob(null);
+			managedTask.setContractor(null);
+			managedTask.setTrade(null);
+			em.remove(managedTask);
 		}
 		
 		boolean wasDeleted = !em.contains(task) ? true: false;
 		return wasDeleted;
 	}
-
+	
 	@Override
 	public Task updateTask(Task task) {
 		Task managedTask = null;
@@ -67,6 +73,38 @@ public class TaskDAOImpl implements TaskDAO {
 		managedTask.setIsComplete(task.getIsComplete());		
 		
 		return managedTask;	
+	}
+
+	@Override
+	public List<Task> findAllTasks(){
+		
+		List<Task> tasks = null; 
+		
+		String jpql = "SELECT t FROM Task t";
+		
+				try {
+					tasks = em.createQuery(jpql, Task.class).getResultList();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+		return tasks;
+	}
+
+	@Override
+	public Task findSingleTask(Task task){
+		
+		Task managedTask = null; 
+		
+		String jpql = "SELECT t FROM Task t WHERE t.id = :tid";
+		
+		try {
+			managedTask = em.createQuery(jpql, Task.class).setParameter("tid", task.getId()).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return managedTask;
 	}
 
 }

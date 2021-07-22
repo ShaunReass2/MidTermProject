@@ -61,7 +61,7 @@ class TaskTest {
 	void test3() {
 		assertNotNull(task);
 		assertNotNull(task.getContractor());
-		assertEquals("Sadistic Puppets' Consulting Co.", task.getContractor().getCompanyName());
+		assertEquals("Sadistic Puppets' Developers", task.getContractor().getCompanyName());
 	}
 
 }

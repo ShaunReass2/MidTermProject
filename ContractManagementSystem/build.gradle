@@ -4,6 +4,16 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'war'
+war {
+  enabled = true
+  // Gradle will replace the variable baseName
+  // with our app name, as defined in settings.gradle
+  archiveFileName = "${archivesBaseName}.war"
+  destinationDirectory = file("../")     // Project workspace directory
+}
+
+
 group = 'com.skilldistillery'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -22,6 +32,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
+	
 }
 
 test {

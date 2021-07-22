@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
    
 <!DOCTYPE html>
 <html>
@@ -42,11 +43,13 @@
 			    	</div>
 			    	<div class="jobStartDateHeader col-3 text-center">
 			    		<h4>Start Date</h4>
-			    		<p>${job.startDate}</p>
+			    		<fmt:parseDate value="${job.startDate}" pattern="yyyy-MM-dd" var="jobStartDate" type="date"/>
+    					<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${jobStartDate}"/> </p>
 			    	</div>
 			    	<div class="jobEndDateHeader col-3 text-center">
 			    		<h4>Completion Date</h4>
-			    		<p>${job.endDate}</p>
+			    		<fmt:parseDate value="${job.endDate}" pattern="yyyy-MM-dd" var="jobEndDate" type="date"/>
+    					<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${jobEndDate}"/> </p>
 			    	</div>
 			    </div>
 			    
@@ -68,12 +71,13 @@
     												   	<c:set var = "string1" value = "${message.creationTime}"/>
       													<c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
       													<c:set var = "string3" value = "${fn:substring(string1, 11, 16)}" />
-    													<p class="m-0">${string2}</p>
+    													<fmt:parseDate value="${string2}" pattern="yyyy-MM-dd" var="messageDate" type="date"/>
+    													<p class="m-0"><fmt:formatDate pattern="MM-dd-yyyy" value="${messageDate}"/> </p>
     													<p class="m-0">${string3}</p>
     												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
     													 <div>
-    														<button class="btn btn-sm btn-light data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
+    														<button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
     													</div>	
     												</c:if>
     											</div>
@@ -124,14 +128,34 @@
 					      		 	<thead>
 										    <tr>
 										      <th scope="col" class="col-2 text-center">Individual Tasks<br><div class="contractorHeader"><em>Contractor</em></div></th>
-										      <th scope="col" class="col-1 text-center">Task Details</th>
-										      <th scope="col" class="col-1 text-center">Priority Number</th>
-										      <th scope="col" class="col-1 text-center">Begin Date</th>
-										      <th scope="col" class="col-1 text-center">End Date</th>
+										      <th scope="col" class="col-1 text-center">Priority Number
+										      	<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskPriorityIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskPriorityIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">Begin Date
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskBeginDateIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskBeginDateIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">End Date
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskEndDateIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskEndDateIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
 										      <c:if test="${sessionScope.user.role }">
 										      	<th scope="col" class="col-1 text-center">Edit Task</th>
 										      </c:if>
-										      <th scope="col" class="col-1 text-center">Completion Status</th>
+										      <th scope="col" class="col-1 text-center">Status
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskIsCompleteIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskIsCompleteIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">Task Details</th>
 										    </tr>
 									</thead>
 
@@ -154,17 +178,14 @@
 										      		</em>
 										      	</div>
 										      </td>
-										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">
-										      	<c:set var = "string1" value = "${task.beginTime}"/>
-      											<c:set var = "stringStartDateTime" value = "${fn:replace(string1, 'T', '&emsp;')}" />
-										      	${stringStartDateTime}
+      											<fmt:parseDate value="${task.beginTime}" pattern="yyyy-MM-dd'T'HH:mm" var="startDateTime" type="both" />
+												<fmt:formatDate pattern="MM-dd-yyyy HH:mm" value="${ startDateTime }" />
 										      </td>
 										      <td class="col-2 text-center p-0 align-middle">
-										      	<c:set var = "string2" value = "${task.endTime}"/>
-      											<c:set var = "stringEndDateTime" value = "${fn:replace(string2, 'T', '&emsp;')}" />
-										      	${stringEndDateTime}
+      											<fmt:parseDate value="${task.endTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+												<fmt:formatDate pattern="MM-dd-yyyy HH:mm" value="${ parsedDateTime }" />
 										      </td>
 										      <c:if test="${sessionScope.user.role }">
 										      	<td class="align-middle text-center">
@@ -177,6 +198,7 @@
 										      		<a class="btn btn-outline-success btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
 										      </td>
+										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										    </tr>
 										  
 										

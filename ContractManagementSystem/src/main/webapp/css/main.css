@@ -4,10 +4,14 @@ body {
 	
 }
 
+
 .homePageSignUp {
 	background: rgba(0,0,0,.7);
 	width: 90vw;
 	border: none;
+}
+h6 {
+	margin: 0;
 }
 
 
@@ -81,4 +85,9 @@ body {
 
 *::-webkit-scrollbar-thumb {
   background-color: rbga(0,0,0,.1);
+}
+
+i.bi.bi-check2-circle {
+	font-size:22px;
+	color: limegreen;
 }

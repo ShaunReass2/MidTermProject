@@ -13,7 +13,8 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <h5 class="modal-title" id="exampleModalLabel">Update Task</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+		      	<a class="btn btn-danger" href="deleteTask.do?id=${task.id}" role="button" method="POST">Delete Task</a>
 		      </div>
 		      <div class="modal-body">
 		      
