@@ -36,14 +36,27 @@
 		<div class="container-fluid p-5">
 
 			<div class="row jobHeader mx-auto">
-				<div class="col-3">
+				<div class="col-3 d-flex flex-column">
 					<h2>Job Name</h2>
+					<div class ="d-flex justify-content-between w-25 mx-auto">
+						<div><a href="dashboard.do?nameIsDescending=true"><i class="bi bi-arrow-down"></i></a></div>
+						<div><a href="dashboard.do?nameIsAscending=true"><i class="bi bi-arrow-up"></i></a></div>		
+					</div>
+
 				</div>
 				<div class="col-3">
 					<h2>Start Date</h2>
+					<div class ="d-flex justify-content-between w-25 mx-auto">
+						<div><a href="dashboard.do?startIsAscending=true"><i class="bi bi-arrow-down"></i></a></div>
+						<div><a href="dashboard.do?startIsDescending=true"><i class="bi bi-arrow-up"></i></a></div>		
+					</div>
 				</div>
 				<div class="col-3">
 					<h2>End Date</h2>
+					<div class ="d-flex justify-content-between w-25 mx-auto">
+						<div><a href="dashboard.do?endIsAscending=true"><i class="bi bi-arrow-down"></i></a></div>
+						<div><a href="dashboard.do?endIsDescending=true"><i class="bi bi-arrow-up"></i></a></div>		
+					</div>
 				</div>
 				<div class="col-3">
 					<h2>View Job</h2>
