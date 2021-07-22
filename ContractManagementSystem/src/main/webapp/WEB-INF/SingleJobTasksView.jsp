@@ -219,30 +219,36 @@
 		<div class="container-fluid m-3 p-4">
 
 			<div class="row jobDetailsTableHeader mx-auto border-bottom border-white">
-				<div class="col-3 text-center">
+				<div class="col text-center">
 					<h5>Job Description</h5>
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
+					<h5>Job Location</h5>
+				</div>
+				<div class="col text-center">
 					<h5>Total Man Hours</h5>
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
 					<h5>Authorized Overtime</h5>
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
 					<h5>Miscellaneous</h5>
 				</div>
 			</div>
 			<div class="row jobDetailsTableData mx-auto">
-				<div class="col-3 text-center">
+				<div class="col text-center">
 			    	${job.jobDescription}
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
+			    	${job.location}
+				</div>
+				<div class="col text-center">
 					${job.totalManHours}
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
 				 	${job.authorizedOvertime}
 				</div>
-				<div class="col-3 text-center">
+				<div class="col text-center">
 					${job.miscellaneous}
 				</div>
 			</div>
