@@ -15,27 +15,29 @@
 <c:choose>
 	<c:when test="${loginFailFlag}">
 		<div class="card mx-auto w-50 justify-content-center no-background">
-  			<div class="card-body errorPageCardIncorrectUnPw">  
-				<h4>Incorrect user name or password. Please return to the home page and try again.</h4>
+  			<div class="card-body errorPageCard">  
+				<h4>Incorrect user name or password. </h4>
+				<h4>Please return to the home page and try again.</h4>
+				<a class="btn btn-primary w-40 mx-auto" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>	
 			</div>
 		</div>
-		 <a class="btn btn-primary" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>
 	</c:when>
 	<c:when test="${accountCreationFlag}">
 		<div class="card mx-auto w-50 justify-content-center no-background">
-  			<div class="card-body errorPageCardUnAlreadyExists">  
-				<h4>This user name already exists. Please return to the home page and login.</h4>
+  			<div class="card-body errorPageCard">  
+				<h4>This user name already exists.</h4>
+				<h4>Please return to the home page and login.</h4>
+				<a class="btn btn-primary w-40 mx-auto " style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a> 
 			</div>
 		</div>
-	 <a class="btn btn-primary" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>
 	</c:when>
 	<c:otherwise>
 	<div>
 		<h2>Please login or create an account.</h2>
 		<div class="text-center">
 			<p>To create an account please go to the home page</p>
+			<a class="btn btn-primary w-40 mx-auto" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>		
 		</div>
-		 <a class="btn btn-primary" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>
 	</div>
 	</c:otherwise>
 </c:choose>
