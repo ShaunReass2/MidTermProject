@@ -40,11 +40,11 @@
 			    	<div class="singleViewJobHeader col-6 pe-5 ps-0">
 			    		<h2>${job.jobName}</h2>
 			    	</div>
-			    	<div class="jobStartDateHeader col-3">
+			    	<div class="jobStartDateHeader col-3 text-center">
 			    		<h4>Start Date</h4>
 			    		<p>${job.startDate}</p>
 			    	</div>
-			    	<div class="jobEndDateHeader col-3">
+			    	<div class="jobEndDateHeader col-3 text-center">
 			    		<h4>Completion Date</h4>
 			    		<p>${job.endDate}</p>
 			    	</div>
