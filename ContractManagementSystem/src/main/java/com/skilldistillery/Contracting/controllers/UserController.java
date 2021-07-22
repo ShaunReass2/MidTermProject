@@ -76,19 +76,7 @@ public class UserController {
 		User sessionUser = (User) session.getAttribute("user");
 
 		List<Job> jobs = userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole());
-		if(nameIsAscending) {
-			jobs.sort(Comparator.comparing(Job::getJobName));
-		}else if(nameIsDescending) {
-			jobs.sort(Comparator.comparing(Job::getJobName).reversed());
-		}else if(startIsAscending) {
-			jobs.sort(Comparator.comparing(Job::getStartDate));
-		}else if(startIsDescending) {
-			jobs.sort(Comparator.comparing(Job::getStartDate).reversed());
-		}else if(endIsAscending) {
-			jobs.sort(Comparator.comparing(Job::getEndDate));
-		}else if(endIsDescending) {
-			jobs.sort(Comparator.comparing(Job::getEndDate).reversed());
-		}
+		jobsToBeSorted(jobs, nameIsAscending, nameIsDescending, startIsAscending, startIsDescending, endIsAscending, endIsDescending);
 
 		model.addAttribute("jobs", jobs);
 		model.addAttribute("adminRole", sessionUser.getRole());
@@ -96,14 +84,17 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "showCompletedJobs.do", method = RequestMethod.GET)
-	public String showCompletedJobs(Model model, HttpSession session) {
+	public String showCompletedJobs(Model model, HttpSession session, boolean nameIsAscending, boolean nameIsDescending, boolean startIsAscending, boolean startIsDescending, boolean endIsAscending, boolean endIsDescending) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
 		User sessionUser = (User) session.getAttribute("user");
 
-		model.addAttribute("jobs", jobDAO.showCompletedJobs());
+		List<Job> jobs = jobDAO.showCompletedJobs();
+		jobsToBeSorted(jobs, nameIsAscending, nameIsDescending, startIsAscending, startIsDescending, endIsAscending, endIsDescending);
+		model.addAttribute("jobs", jobs);
 		model.addAttribute("adminRole", sessionUser.getRole());
+		model.addAttribute("completedPage", true);
 		return "Dashboard";
 	}
 
@@ -166,6 +157,22 @@ public class UserController {
 		model.addAttribute("jobs", jobs);
 
 		return "Dashboard";
+	}
+	
+	public void jobsToBeSorted(List<Job> jobs, boolean nameIsAscending, boolean nameIsDescending, boolean startIsAscending, boolean startIsDescending, boolean endIsAscending, boolean endIsDescending  ){
+		if(nameIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getJobName));
+		}else if(nameIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getJobName).reversed());
+		}else if(startIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getStartDate));
+		}else if(startIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getStartDate).reversed());
+		}else if(endIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getEndDate));
+		}else if(endIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getEndDate).reversed());
+		}
 	}
 
 }
