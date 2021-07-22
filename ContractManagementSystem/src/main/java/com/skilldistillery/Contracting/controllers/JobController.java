@@ -49,6 +49,5 @@ public class JobController {
 		Job managedJob = jobDAO.markJobComplete(id);
 		return "redirect:singleJobView.do?id=" + managedJob.getId();
 	}
-	
 
 }

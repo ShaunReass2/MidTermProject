@@ -1,8 +1,7 @@
 package com.skilldistillery.Contracting.controllers;
 
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -26,13 +25,13 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	@Autowired
 	private TradeDAO tradeDAO;
 
 	@Autowired
 	private JobDAO jobDAO;
-	
+
 	@RequestMapping(path = "adminAccountCreation.do", method = RequestMethod.POST)
 	public String adminAccountCreation(User user, Model model, RedirectAttributes redir) {
 
@@ -42,14 +41,14 @@ public class UserController {
 		}
 		user.setRole(true);
 		user.setEnabled(true);
-		User managedUser = userDAO.createUser(user); 
+		User managedUser = userDAO.createUser(user);
 		redir.addAttribute("accountName", managedUser.getUsername());
 		return "redirect:adminAccountCreated.do";
 	}
 
-	@RequestMapping(path = "adminAccountCreated.do", params="accountName")    //method = RequestMethod.GET,
+	@RequestMapping(path = "adminAccountCreated.do", params = "accountName") // method = RequestMethod.GET,
 	public String adminAccountCreated(String accountName, Model model) {
-		model.addAttribute("accountName", accountName); 
+		model.addAttribute("accountName", accountName);
 		return "Success";
 	}
 
@@ -70,22 +69,27 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "dashboard.do", method = RequestMethod.GET)
-	public String dashboardLogin(Model model, HttpSession session) {
+	public String dashboardLogin(Model model, HttpSession session, boolean nameIsAscending, boolean nameIsDescending, boolean startIsAscending, boolean startIsDescending, boolean endIsAscending, boolean endIsDescending) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
-		User sessionUser = (User)session.getAttribute("user");
-		
+		User sessionUser = (User) session.getAttribute("user");
+
 		List<Job> jobs = userDAO.displayAllJobs(sessionUser.getId(), sessionUser.getRole());
-//		
-//		String europeanDatePattern = "MM.dd.yyyy";
-//		DateTimeFormatter americanDateFormatter = DateTimeFormatter.ofPattern(europeanDatePattern);
-//		
-//		
-//		for (Job job : jobs) {
-//			americanDateFormatter.format(job.getStartDate());
-//		}
-//		
+		if(nameIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getJobName));
+		}else if(nameIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getJobName).reversed());
+		}else if(startIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getStartDate));
+		}else if(startIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getStartDate).reversed());
+		}else if(endIsAscending) {
+			jobs.sort(Comparator.comparing(Job::getEndDate));
+		}else if(endIsDescending) {
+			jobs.sort(Comparator.comparing(Job::getEndDate).reversed());
+		}
+
 		model.addAttribute("jobs", jobs);
 		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
@@ -96,9 +100,8 @@ public class UserController {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
-		User sessionUser = (User)session.getAttribute("user");
-		
-		
+		User sessionUser = (User) session.getAttribute("user");
+
 		model.addAttribute("jobs", jobDAO.showCompletedJobs());
 		model.addAttribute("adminRole", sessionUser.getRole());
 		return "Dashboard";
@@ -109,19 +112,19 @@ public class UserController {
 		session.removeAttribute("user");
 		return "redirect:home.do";
 	}
-	
+
 	@RequestMapping(path = "Error.do", method = RequestMethod.GET)
 	public String ErrorPage() {
 		return "Error";
 	}
-	
+
 	@RequestMapping(path = "singleJobView.do", method = RequestMethod.GET)
 	public String findSingleJob(HttpSession session, Model model, int id) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
 		Job job = userDAO.findJobByJobId(id);
-		User sessionUser = (User)session.getAttribute("user");
+		User sessionUser = (User) session.getAttribute("user");
 		job.getMessages().sort((Message one, Message two) -> {
 			return two.getId() - one.getId();
 		});
@@ -132,7 +135,7 @@ public class UserController {
 		model.addAttribute("trades", tradeDAO.findAllTrades());
 		return "SingleJobTasksView";
 	}
-	
+
 	@RequestMapping(path = "findJobByKeyword.do", method = RequestMethod.GET)
 	public String findJobByKeywordSearch(HttpSession session, Model model, String keyword) {
 		List<Job> jobs = userDAO.findJobByKeyword(keyword);
@@ -141,10 +144,8 @@ public class UserController {
 		}
 		User sessionUser = (User) session.getAttribute("user");
 		model.addAttribute("jobs", jobs);
-		
+
 		return "Dashboard";
 	}
-	
-
 
 }
