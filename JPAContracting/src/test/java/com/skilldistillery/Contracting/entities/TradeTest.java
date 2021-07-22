@@ -47,7 +47,7 @@ class TradeTest {
 	@DisplayName("testing trade entity name mapping")
 	void test1() {
 		assertNotNull(trade);
-		assertEquals("Full-stack consultant", trade.getName());
+		assertEquals("Full-Stack Developer", trade.getName());
 	}
 	
 	@Test

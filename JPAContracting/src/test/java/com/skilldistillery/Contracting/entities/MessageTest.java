@@ -53,7 +53,7 @@ class MessageTest {
 	@DisplayName("test Message to User ManyToOne mapping")
 	void test1() {
 		assertNotNull(message);
-		assertEquals("admin", message.getUser().getUsername());
+		assertEquals("puppets", message.getUser().getUsername());
 	}
 	
 	@Test
