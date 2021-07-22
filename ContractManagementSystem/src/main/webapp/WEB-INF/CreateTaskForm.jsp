@@ -14,7 +14,7 @@
 <div class="col d-flex justify-content-center vh-100 align-items-center">
 <div class="card createFormCard p-4 bg-dark text-white" style="width: 42rem;">
 
-<jsp:include page=""></jsp:include>
+
 <form action="createTask.do" method="POST">
     <input type="hidden" name="jobId" value="${jobId}">
   <div class="mb-3">
