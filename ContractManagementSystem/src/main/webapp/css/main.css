@@ -4,6 +4,12 @@ body {
 	
 }
 
+.homePageSignUp {
+	background: rgba(0,0,0,.7);
+	width: 90vw;
+	border: none;
+}
+
 
 .homebackground {
 	color: white;
