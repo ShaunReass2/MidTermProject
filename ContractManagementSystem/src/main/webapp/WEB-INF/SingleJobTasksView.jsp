@@ -128,14 +128,34 @@
 					      		 	<thead>
 										    <tr>
 										      <th scope="col" class="col-2 text-center">Individual Tasks<br><div class="contractorHeader"><em>Contractor</em></div></th>
-										      <th scope="col" class="col-1 text-center">Task Details</th>
-										      <th scope="col" class="col-1 text-center">Priority Number</th>
-										      <th scope="col" class="col-1 text-center">Begin Date</th>
-										      <th scope="col" class="col-1 text-center">End Date</th>
+										      <th scope="col" class="col-1 text-center">Priority Number
+										      	<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskPriorityIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskPriorityIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">Begin Date
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskBeginDateIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskBeginDateIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">End Date
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskEndDateIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskEndDateIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
 										      <c:if test="${sessionScope.user.role }">
 										      	<th scope="col" class="col-1 text-center">Edit Task</th>
 										      </c:if>
-										      <th scope="col" class="col-1 text-center">Completion Status</th>
+										      <th scope="col" class="col-1 text-center">Status
+										      		<div class ="d-flex justify-content-between w-25 mx-auto">
+													<div><a href="singleJobView.do?taskIsCompleteIsDescending=true&id=${job.id}"><i class="bi bi-arrow-down"></i></a></div>
+													<div><a href="singleJobView.do?taskIsCompleteIsAscending=true&id=${job.id}"><i class="bi bi-arrow-up"></i></a></div>		
+												</div>
+										      </th>
+										      <th scope="col" class="col-1 text-center">Task Details</th>
 										    </tr>
 									</thead>
 
@@ -158,7 +178,6 @@
 										      		</em>
 										      	</div>
 										      </td>
-										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										      <td class="col-1 text-center align-middle">${task.priorityNumber}</td>
 										      <td class="col-2 text-center p-0 align-middle">
       											<fmt:parseDate value="${task.endTime}" pattern="yyyy-MM-dd'T'HH:mm" var="startDateTime" type="both" />
@@ -179,6 +198,7 @@
 										      		<a class="btn btn-outline-success btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
 										      	</c:if>
 										      </td>
+										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
 										    </tr>
 										  
 										
