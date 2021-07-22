@@ -7,7 +7,10 @@ body {
 .error {
 	/* color: white; */
 	text-align: center;
-	background: url("https://images.unsplash.com/photo-1436812911242-3d475df4bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3900&q=80"); 
+/* ( hanging house)    background: url("https://images.unsplash.com/photo-1436812911242-3d475df4bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3900&q=80"); */
+    background: url("https://images.unsplash.com/photo-1581626157455-c1f7c744afaf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3888&q=80");  
+/* (sidewalk closed)   background: url("https://images.unsplash.com/photo-1502412960062-395a1c0e966e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3902&q=80"); */
+/* (black and yellow caution)	background: url("https://images.unsplash.com/photo-1503980850968-b7c3b4af0e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3264&q=80"); */
 	height: 96%;
 	width: 100vw; 
 	background-size: cover;
