@@ -15,6 +15,8 @@ public interface TaskDAO {
 	Task updateTask(Task task);
 
 	List<Task> findAllTasks();
+
+	Task findSingleTask(Task task);
 	
 	
 

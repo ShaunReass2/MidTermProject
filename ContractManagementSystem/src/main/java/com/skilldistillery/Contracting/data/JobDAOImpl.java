@@ -1,6 +1,9 @@
 package com.skilldistillery.Contracting.data;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.Message;
 import com.skilldistillery.Contracting.entities.Task;
+import com.skilldistillery.Contracting.entities.User;
 
 @Service
 @Transactional
@@ -75,12 +79,26 @@ public class JobDAOImpl implements JobDAO {
 	}
 
 	@Override
-	public List<Job> showCompletedJobs(){
+	public List<Job> showCompletedJobs(User user){
 		List<Job> jobs = null; 
-		String jpql = "SELECT j FROM Job j WHERE j.isComplete = 1";
+		String jpql = "SELECT j FROM Job j WHERE j.isComplete = 1 AND j.user.id = :id";
+		String contractorJpql = "SELECT j FROM Job j JOIN Task t ON t.job.id = j.id JOIN Contractor c ON t.contractor.id = c.id JOIN User u " +
+			       "on c.user.id = u.id WHERE u.id = :id AND j.isComplete = 1";
 		
+				System.out.println("********************");
+				System.out.println("********************");
+				System.out.println(user.getId());
+				System.out.println("********************");
+				System.out.println("********************");
+				
 				try {
-					jobs = em.createQuery(jpql, Job.class).getResultList();
+					if(user.getRole()) {
+						jobs = em.createQuery(jpql, Job.class).setParameter("id", user.getId()).getResultList();
+					}else {
+						jobs = em.createQuery(contractorJpql, Job.class).setParameter("id", user.getId()).getResultList();
+						Set<Job> uniqueJobs = new HashSet<>(jobs);
+						jobs = new ArrayList<>(uniqueJobs);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
