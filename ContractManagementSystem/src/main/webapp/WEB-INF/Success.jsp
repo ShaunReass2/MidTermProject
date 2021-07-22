@@ -17,7 +17,7 @@
 			    	<h4>You have successfully created an account as: </h4>
 			    	<p>${accountName}</p>
 			    </div>
-			   <a class="btn btn-primary" style="vertical-align: middle" href="home.do" role="button"><span>Return to Home Page</span></a>
+			   <a class="btn btn-primary" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>
 		 	</div>
 		</div>
 	</div>
