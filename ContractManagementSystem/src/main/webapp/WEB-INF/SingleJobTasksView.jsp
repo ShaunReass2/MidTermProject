@@ -77,7 +77,7 @@
     												</div>
     												 <c:if test="${sessionScope.user.id == message.user.id }">
     													 <div>
-    														<button class="btn btn-sm btn-light data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
+    														<button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#edit${message.id}">Edit</button>
     													</div>	
     												</c:if>
     											</div>
