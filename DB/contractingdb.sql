@@ -181,22 +181,22 @@ START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (1, 'puppets', 'a', 1, 0, 'Skill', 'Distillery');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (2, 'carpenter1', 'b', 1, 0, 'John', 'Doe');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'electric1', 'electric1', 1, 0, 'Ed', 'Electric');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'drywaller1', 'drywaller1', 1, 0, 'Dan', 'Dane');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'framer1', 'framer1', 1, 0, 'Fred', 'Fane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (3, 'pikachu_rulez', 'electric1', 1, 0, 'Ed', 'Electric');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (4, 'Dane_drywalls', 'drywaller1', 1, 0, 'Dan', 'Dane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (5, 'hardcore_1986', 'framer1', 1, 0, 'Fred', 'Fane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (6, 'mason1', 'mason1', 1, 0, 'Mo', 'Mane');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (7, 'painter1', 'painter1', 1, 0, 'Peter', 'Poe');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (8, 'wallpaperhanger1', 'wallpaperhanger1', 1, 0, 'Willy', 'Wane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (7, 'paintbrush45cal', 'painter1', 1, 0, 'Peter', 'Poe');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (8, 'wallz_up_dude', 'wallpaperhanger1', 1, 0, 'Willy', 'Wane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (9, 'plumber1', 'plumber1', 1, 0, 'Plumb', 'Pane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (10, 'roofer1', 'roofer1', 1, 0, 'Roger', 'Rabbit');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (11, 'hvac1', 'hvac1', 1, 0, 'Henry', 'Habbit');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (12, 'cabinet1', 'cabinet1', 1, 0, 'Carl', 'Carlton');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (12, 'carlitos94', 'cabinet1', 1, 0, 'Carl', 'Carlton');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (13, 'cementer1', 'cementer1', 1, 0, 'Chris', 'Christensan');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (14, 'welder1', 'welder1', 1, 0, 'Oscar', 'Estrada');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (15, 'laborer1', 'laborer1', 1, 0, 'Larry', 'Lane');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (15, 'LarryLane24', 'laborer1', 1, 0, 'Larry', 'Lane');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (16, 'window1', 'window1', 1, 0, 'Warg', 'Wargenson');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (17, 'siding1', 'siding1', 1, 0, 'Sally', 'Sosa');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (18, 'flooring1', 'flooring1', 1, 0, 'Fargo', 'Farrel');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (18, 'Farrel_23', 'flooring1', 1, 0, 'Fargo', 'Farrel');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (19, 'landscaping1', 'landscaping1', 1, 0, 'Luke', 'Skywalker');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (20, 'pooler1', 'pooler1', 1, 0, 'Paul', 'Poole');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`) VALUES (21, 'java1', 'java1', 1, 0, 'Jake', 'Johnson');
@@ -299,6 +299,7 @@ INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_c
 INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (15, 'SD: PreWork', 'Remote', '2021-04-21', '2021-05-10', 0, 'prework before cohort begins', 0, 124, 'before 1st day of class', 'none', 28);
 INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (16, 'SD: Jets Project', 'Remote', '2021-06-01', '2021-06-04', 0, 'Jets project with Scanner CRUD', 0, 46, 'weekend project', 'none', 28);
 INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (17, 'SD: Blackjack Project', 'Remote', '2021-06-07', '2021-06-09', 0, 'Working Blackjack application', 0, 48, 'weekend homework', 'none', 28);
+INSERT INTO `job` (`id`, `job_name`, `location`, `start_date`, `end_date`, `is_complete`, `job_description`, `authorized_overtime`, `total_man_hours`, `hours_of_operation`, `miscellaneous`, `user_id`) VALUES (18, 'Casablanca - East Wing', '1600 Pennsylvania Ave', '2021-12-01', '2021-12-25', 0, 'Extension of the East Wing of the White House', 1, 10000, 'Normal business hours', 'Use Eastern Gate, don\'t forget your clearance code.', 28);
 
 COMMIT;
 
@@ -309,6 +310,17 @@ COMMIT;
 START TRANSACTION;
 USE `contractingdb`;
 INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (1, 'Always be coding!', '2021-07-16 12:00:00', 1, 1);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (2, 'Hello everyone, I know we\'re still 5 months out from breaking ground, but just wanted to get you all on board with this new application, CMS. It\'s awesome!', '2021-07-21 8:45:00', 18, 28);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (3, 'Welcome to Contract Management System everyone!', '2021-07-21 8:00:00', 18, 28);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (4, 'Yes, I will be providing security clearance numbers for all contractors and they will be required to show face and get pictures taken before we break ground', '2021-07-22 5:05:00', 18, 28);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (5, 'This site is awesome! Where was this 10 years ago.', '2021-07-21 9:08:00', 18, 15);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (6, 'Thanks for introducing us to this Boss Man', '2021-07-21 9:07:45', 18, 12);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (7, 'Sweet, now I don\'t have to worry about anyone trying to cut my wires and get away with it', '2021-07-21 3:45:04', 18, 3);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (8, 'Hey Boss Man, how do we get past security? The White House is a fortress', '2021-07-21 23:04:32', 18, 6);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (9, 'Yeah, what he said. Do we need to get security clearance badges or something?', '2021-07-22 4:44:34', 18, 8);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (10, 'Hey Boss Man, this is cool as heck. Should help us stay on track 4 sure', '2021-07-21 12:13:56', 18, 18);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (11, 'I never cut anyone\'s damn wires!', '2021-07-21 3:56:01', 18, 4);
+INSERT INTO `message` (`id`, `message_body`, `creation_time`, `job_id`, `user_id`) VALUES (12, 'That\'s not what I heard Dane, some jobs in North Carolina say otherwise', '2021-07-21 4:42:08', 18, 7);
 
 COMMIT;
 
@@ -329,6 +341,25 @@ INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, 
 INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (9, 0, 'Entities', 'Create entities reflecting DB tables', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
 INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (10, 0, 'Database created', 'DBA do his job right?', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
 INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (11, 0, 'Repository', 'Repo owner shared with team?', 1, 1, 1, '2021-07-15 08:00:00', '2021-07-23 17:00:00', 1);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (12, 0, 'Connect power', 'Wire up underground cables get connected to the grid', 18, 1, 6, '2021-12-01 08:30:00', '2021-12-05 08:30:00', 2);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (13, 0, 'Indoor shelving ', 'Build shelves ', 18, 3, 2, '2021-12-09 08:30:00', '2021-12-15 08:30:00', 3);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (14, 0, 'Dry-walling', 'Put up the dry-wall ', 18, 3, 7, '2021-12-09 08:30:00', '2021-12-15 08:30:00', 4);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (15, 0, 'Main building Framing', 'Frame the main structure', 18, 2, 8, '2021-12-05 08:30:00', '2021-12-09 08:30:00', 5);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (16, 0, 'Courtyard bricking', 'Set up the foundation of the courtyard with bricks', 18, 5, 9, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 6);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (17, 0, 'Paint entire Extension', 'Paint the entire outside infrastructure & indoor walls eggshel white', 18, 5, 10, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 7);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (18, 0, 'Bathroom wallpaper', 'Wallpaper the bathrooms ', 18, 5, 11, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 8);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (19, 0, 'Plumbing & Piping', 'Setup all the underground pipes and plumbing ', 18, 1, 12, '2021-12-01 08:30:00', '2021-12-05 08:30:00', 9);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (20, 0, 'Roofing', 'Establish a wide security roof -- see GC for Secret Service instructions', 18, 4, 13, '2021-12-15 08:30:00', '2021-12-20 08:30:00', 10);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (21, 0, 'HVAC Setup', 'Get Air conditioning and heating working', 18, 5, 14, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 11);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (22, 0, 'Cabinets', 'Set up cabinets in the locker rooms, kitchen and break areas', 18, 5, 15, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 12);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (23, 0, 'Cement foundation', 'Lay the foundation once wiring and plumbing has been setup', 18, 2, 16, '2021-12-05 08:30:00', '2021-12-09 08:30:00', 13);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (24, 0, 'Metal handrails', 'Weld the courtyard handrails and get those in place ', 18, 5, 17, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 14);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (25, 0, 'General Labor', 'See GC for specific daily tasks', 18, 2, 18, '2021-12-05 08:30:00', '2021-12-09 08:30:00', 15);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (26, 0, 'Windows / Doors', 'Place the doors and windows in all their frames', 18, 4, 19, '2021-12-15 08:30:00', '2021-12-20 08:30:00', 16);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (27, 0, 'Siding', 'Do the siding of the main structure', 18, 3, 20, '2021-12-09 08:30:00', '2021-12-15 08:30:00', 17);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (28, 0, 'Flooring / Tile', 'Marble in the main lobby, tile in the main hallways, carpet in the offices and wood elsewhere', 18, 2, 21, '2021-12-05 08:30:00', '2021-12-09 08:30:00', 18);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (29, 0, 'Landscaping', 'See GC for desired landscaping design ', 18, 5, 22, '2021-12-20 08:30:00', '2021-12-25 08:30:00', 19);
+INSERT INTO `task` (`id`, `is_complete`, `task_name`, `task_details`, `job_id`, `priority_number`, `contractor_id`, `begin_time`, `end_time`, `trade_id`) VALUES (30, 0, 'Courtyard fountain', 'Set up the flowing water in the courtyard fountain', 18, 4, 23, '2021-12-15 08:30:00', '2021-12-20 08:30:00', 20);
 
 COMMIT;
 

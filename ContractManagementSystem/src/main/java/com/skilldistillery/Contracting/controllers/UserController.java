@@ -1,6 +1,5 @@
 package com.skilldistillery.Contracting.controllers;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,6 +17,7 @@ import com.skilldistillery.Contracting.data.TradeDAO;
 import com.skilldistillery.Contracting.data.UserDAO;
 import com.skilldistillery.Contracting.entities.Job;
 import com.skilldistillery.Contracting.entities.Message;
+import com.skilldistillery.Contracting.entities.Task;
 import com.skilldistillery.Contracting.entities.User;
 
 @Controller
@@ -110,18 +110,38 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "singleJobView.do", method = RequestMethod.GET)
-	public String findSingleJob(HttpSession session, Model model, int id) {
+	public String findSingleJob(HttpSession session, Model model, int id, boolean taskPriorityIsAscending, boolean taskPriorityIsDescending,
+			                    boolean taskBeginDateIsAscending, boolean taskBeginDateIsDescending, boolean taskEndDateIsAscending, 
+			                    boolean taskEndDateIsDescending, boolean taskIsCompleteIsAscending, boolean taskIsCompleteIsDescending) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:Error.do";
 		}
 		Job job = userDAO.findJobByJobId(id);
 		User sessionUser = (User) session.getAttribute("user");
-		job.getMessages().sort((Message one, Message two) -> {
-			return two.getId() - one.getId();
-		});
+		job.getMessages().sort(Comparator.comparing(Message::getCreationTime).reversed());
 		model.addAttribute("adminRole", sessionUser.getRole());
 		model.addAttribute("job", job);
-		model.addAttribute("tasks", job.getTasks());
+		
+		List<Task> tasks = job.getTasks();
+		if(taskPriorityIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getPriorityNumber));
+		}else if(taskPriorityIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getPriorityNumber).reversed());
+		}else if(taskBeginDateIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getBeginTime));
+		}else if(taskBeginDateIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getBeginTime).reversed());
+		}else if(taskEndDateIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getEndTime));
+		}else if(taskEndDateIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getEndTime).reversed());
+		}else if(taskIsCompleteIsAscending) {
+			tasks.sort(Comparator.comparing(Task::getIsComplete));
+		}else if(taskIsCompleteIsDescending) {
+			tasks.sort(Comparator.comparing(Task::getIsComplete).reversed());
+		}
+		
+		model.addAttribute("tasks", tasks);
 		model.addAttribute("messages", job.getMessages());
 		model.addAttribute("trades", tradeDAO.findAllTrades());
 		return "SingleJobTasksView";
