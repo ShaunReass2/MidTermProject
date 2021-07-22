@@ -32,9 +32,9 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-	<div>
-		<h2>Please login or create an account.</h2>
-		<div class="text-center">
+		<div class="card mx-auto w-50 justify-content-center no-background">
+  			<div class="card-body errorPageCard">  
+			<h2>Please login or create an account.</h2>		
 			<p>To create an account please go to the home page</p>
 			<a class="btn btn-primary w-40 mx-auto" style="vertical-align: middle" href="home.do" role="button">Return to Home Page</a>		
 		</div>
