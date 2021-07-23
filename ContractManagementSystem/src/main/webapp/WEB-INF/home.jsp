@@ -43,12 +43,12 @@
 							<h4>Need to manage work?</h4>
 							<p>As an administrator you can:</p>
 							<ul class="text-start">
-								<li>Create A Job</li>
-								<li>Organize Jobs</li>
+								<li>Create a job</li>
+								<li>Organize jobs</li>
 								<li>Assign tasks to specific contractor</li>
 								<li>Communicate using message board</li>
 								<li>Update jobs on the fly</li>
-								<li>Mark Complete and view later</li>
+								<li>Mark complete and view later</li>
 							</ul>
 							<h5>Full control of the job life-cycle</h5>
 						</div>
@@ -60,7 +60,7 @@
 							<p>As a contractor you can:</p>
 							<ul class="text-start">
 								<li>View assigned Jobs</li>
-								<li>View Job Task</li>
+								<li>View job ask</li>
 								<li>Mark task as complete</li>
 								<li>Communicate using message board</li>
 								<li>View previously completed jobs</li>
