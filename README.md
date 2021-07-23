@@ -30,8 +30,8 @@ This application provides a platform on which General Contractors (GCs) and vari
 
 ### Graphic Examples
 
-<img src="https://i.ibb.co/hcWFV0t/contractingdb.png" alt ="git" width="600" height="600" align="center"/>
-<img src="https://i.ibb.co/FB3gLQJ/Screen-Shot-2021-07-22-at-6-53-11-PM.png" alt ="git" width="600" height="600" align="center"/>
+<img src="https://i.ibb.co/hcWFV0t/contractingdb.png" alt ="git" width="600" height="400" align="center"/>
+<img src="https://i.ibb.co/FB3gLQJ/Screen-Shot-2021-07-22-at-6-53-11-PM.png" alt ="git" width="600" height="400" align="center"/>
 
 ### How to Run
 
