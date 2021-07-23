@@ -39,7 +39,7 @@
 				</div>
 				<div class="container infoContainer p-0">
 					<div class="row informationHome m-0 mt-1">
-						<div class="col p-0">
+						<div class="col p-0 d-flex flex-column justify-content-between">
 							<h4>Need to manage work?</h4>
 							<p>As an administrator you can:</p>
 							<ul class="text-start">
