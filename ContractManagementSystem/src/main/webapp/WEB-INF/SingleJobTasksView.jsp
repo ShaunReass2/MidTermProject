@@ -195,7 +195,13 @@
 										      <td class="col-1 text-center align-middle">
 										      	<c:if test="${task.isComplete}">Completed</c:if>
 										      	<c:if test="${!task.isComplete}">
-										      		<a class="btn btn-outline-success btn-sm" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
+										      		<c:if test="${sessionScope.user.id == task.contractor.user.id}">
+										      			<a class="btn btn-outline-success btn-sm isDisabled" href="setTaskComplete.do?id=${task.id}" role="button">Mark Complete</a>
+										      		</c:if>
+										      		<c:if test="${sessionScope.user.id != task.contractor.user.id}">
+										      			Incomplete
+										      		</c:if>
+										      		
 										      	</c:if>
 										      </td>
 										      <td class="align-middle text-center"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskDetails${task.id}">View</button></td>
