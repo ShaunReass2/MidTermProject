@@ -109,12 +109,21 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<Job> findJobByKeyword(String keyword) {
+	public List<Job> findJobByKeyword(String keyword, User user) {
 		List<Job> jobs = null;
 //		select * from job where job_name like '%ard%';
-		String jpql = "SELECT j FROM Job j WHERE j.jobName LIKE :keyword";
+		String jpql = "SELECT j FROM Job j WHERE j.jobName LIKE :keyword AND j.user.id = :id";
+		String contractorjpql = "SELECT j FROM Job j JOIN Task t ON t.job.id = j.id JOIN Contractor c ON t.contractor.id = c.id JOIN User u " +
+			       "on c.user.id = u.id WHERE u.id = :id AND j.jobName LIKE :keyword";
 		try {
-			jobs = em.createQuery(jpql, Job.class).setParameter("keyword", "%" + keyword + "%").getResultList();
+			if(user.getRole()) {
+				jobs = em.createQuery(jpql, Job.class).setParameter("keyword", "%" + keyword + "%").setParameter("id", user.getId()).getResultList();
+			}else {
+				jobs = em.createQuery(contractorjpql, Job.class).setParameter("keyword", "%" + keyword + "%").setParameter("id", user.getId()).getResultList();
+				Set<Job> temp = new HashSet<>(jobs);
+				jobs = new ArrayList<>(temp);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
