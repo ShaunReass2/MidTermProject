@@ -19,5 +19,5 @@ public interface UserDAO {
 	
 	public Job findJobByJobId(int id);
 	
-	public List<Job> findJobByKeyword(String keyword);
+	public List<Job> findJobByKeyword(String keyword, User user);
 }

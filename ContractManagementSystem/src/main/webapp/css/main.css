@@ -91,3 +91,35 @@ i.bi.bi-check2-circle {
 	font-size:22px;
 	color: limegreen;
 }
+
+.homeInfoBlock {
+	height: 50vh;
+	padding: 1rem;
+}
+
+.innerHomeInfoBlock {
+	height: 75%;
+}
+
+
+.bgInnerHome {
+	background: rgba(0,0,0,.6);
+	height: 100%;
+}
+
+.informationHome {
+	margin: 1rem;
+	height: 90%;
+}
+
+.infoContainer {
+	height: 90%;
+}
+
+.cliente {
+	margin-top:10px;
+	border-right: white thin solid;
+	width: 1px;
+	padding: 0;
+
+};
